@@ -7,8 +7,8 @@ import Twitter from "../../SVG/Twitter";
 
 function Footer() {
   return (
-    <div className="bg-gray-900 items-center h-full w-full bg-footerbgcolor md:flex-row md:flex   justify-evenly sm:flex-col">
-      <FooterSection extraClass="mt-12 ">
+    <div className="bg-gray-900 items-center h-full w-full bg-footerbgcolor md:flex-row flex   justify-evenly flex-col-reverse">
+      <FooterSection extraClass="mt-12 hidden md:block">
         <FooterItem name="Privacy Policy" />
         <FooterItem name="Terms & Conditions" />
         <FooterItem name="About" link="/About" />
@@ -45,7 +45,7 @@ function Footer() {
         </p>
       </FooterSection>
 
-      <FooterSection extraClass="mt-12 ">
+      <FooterSection extraClass="mt-12 hidden md:block">
         <FooterItem name="Become Partner" />
         <FooterItem name="Refund Policy" />
         <FooterItem name="Contact" link="/Contact" />
