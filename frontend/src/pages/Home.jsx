@@ -1,11 +1,11 @@
 import React from 'react'
-
+import HeaderSearch from './HeaderSearch'
+import Listing from './Listing'
 const Home = () => {
   return (
     <div>
-        <h1>
-            Search Bar
-        </h1>
+        <HeaderSearch/>
+        <Listing/>
     </div>
   )
 }
