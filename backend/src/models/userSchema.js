@@ -27,6 +27,18 @@ const userSchema =new mongoose.Schema({
         type:String,
         required:true
     },
+    blacklisted:{
+        type:Boolean,
+        default:false
+    },
+    admin:{
+        type:Boolean,
+        default:false
+    },
+    wishlist:{
+        type:String,
+
+    },
     tokens:[
         {
             token:{
@@ -39,19 +51,37 @@ const userSchema =new mongoose.Schema({
         {
             item_name:{
                 type:String,
-                required:false
             },
             item_price:{
                 type:Number,
-                required:false
             },
-            item_name:{
+            item_age:{
+                type:Number,
+            },
+            item_condition:{
+                type:Number,
+            },
+            item_immage:
+            {
                 type:String,
-                required:false
             },
-            
+            item_tag:
+            {
+                type:String,
+                enum: ['other-stationary', 'clothing_essentials','books','daily-use'],
+            },
+           item_description:
+            {
+                type:String,
+            },
+            item_status:
+            {
+                type:String,
+                enum: ['under_approval', 'approved','deleted','blacklisted'],
+            },
         }
     ]
+
 })
 
 //Hashing the password (middle ware function {pre : ensures that the function is called before save on auth.js file})
