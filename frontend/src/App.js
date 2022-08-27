@@ -3,6 +3,7 @@ import {Route, Routes} from "react-router-dom";
 
 //Importing all items 
 import Navbar from './components/navbar/Navabr'
+import Footer from './components/footer/Footer'
 import LandingPage from "./pages/LandingPage";
 import Admin from "./pages/Admin";
 import Contact from "./pages/ContactUs"
@@ -18,6 +19,7 @@ const App = () => {
         <Route path="/admin" element={<Admin />} />
         <Route path="/contact" element={<Contact />} />
         </Routes>
+        <Footer/>
 
     </>
   )
