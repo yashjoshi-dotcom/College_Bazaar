@@ -34,6 +34,23 @@ const userSchema =new mongoose.Schema({
                 required:true
             }
         }
+    ],
+    list:[
+        {
+            item_name:{
+                type:String,
+                required:false
+            },
+            item_price:{
+                type:Number,
+                required:false
+            },
+            item_name:{
+                type:String,
+                required:false
+            },
+            
+        }
     ]
 })
 
