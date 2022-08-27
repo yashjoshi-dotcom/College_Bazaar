@@ -87,6 +87,7 @@ const Listing = () => {
                         <a href="https://www.sanfransentinel.com/renstly-1.html">
                             <img className=' rounded-tl-3xl rounded-br-3xl' src="https://source.unsplash.com/250x300/?home" alt="" />
                             <div className="my-[2%]">
+                            <div className="rounded-full bg-blue-500 text-white  inline px-2">sports</div>
                                 <div className="font-bold text-[140%] ">Tennis Racket</div>
                             </div>
                             <div className="font-bold text-[140%] mb-[1%] ml-[5%]">₹6,000</div>
@@ -101,6 +102,7 @@ const Listing = () => {
                         <a href="https://www.sanfransentinel.com/renstly-1.html">
                             <img className=' rounded-tl-3xl rounded-br-3xl' src="https://source.unsplash.com/250x300/?home" alt="" />
                             <div className="my-[2%]">
+                            <div className="rounded-full bg-blue-500 text-white  inline px-2">sports</div>
                                 <div className="font-bold text-[140%]">Tennis Racket</div>
                             </div>
                             <div className="font-bold text-[140%] mb-[1%] ml-[5%]">₹6,000</div>
@@ -115,6 +117,7 @@ const Listing = () => {
                         <a href="https://www.sanfransentinel.com/renstly-1.html">
                             <img className=' rounded-tl-3xl rounded-br-3xl' src="https://source.unsplash.com/250x300/?home" alt="" />
                             <div className="my-[2%]">
+                            <div className="rounded-full bg-blue-500 text-white  inline px-2">sports</div>
                                 <div className="font-bold text-[140%] ">Tennis Racket</div>
                             </div>
                             <div className="font-bold text-[140%] mb-[1%] ml-[5%]">₹6,000</div>
@@ -129,6 +132,7 @@ const Listing = () => {
                         <a href="https://www.sanfransentinel.com/renstly-1.html">
                             <img className=' rounded-tl-3xl rounded-br-3xl' src="https://source.unsplash.com/250x300/?home" alt="" />
                             <div className="my-[2%]">
+                            <div className="rounded-full bg-blue-500 text-white  inline px-2">sports</div>
                                 <div className="font-bold text-[140%] ">Tennis Racket</div>
                             </div>
                             <div className="font-bold text-[140%] mb-[1%] ml-[5%]">₹6,000</div>
@@ -143,6 +147,7 @@ const Listing = () => {
                         <a href="https://www.sanfransentinel.com/renstly-1.html">
                             <img className=' rounded-tl-3xl rounded-br-3xl' src="https://source.unsplash.com/250x300/?home" alt="" />
                             <div className="my-[2%]">
+                            <div className="rounded-full bg-blue-500 text-white  inline px-2">sports</div>
                                 <div className="font-bold text-[140%] ml-[5%]">Tennis Racket</div>
                             </div>
                             <div className="font-bold text-[140%] mb-[1%] ml-[5%]">₹6,000</div>
