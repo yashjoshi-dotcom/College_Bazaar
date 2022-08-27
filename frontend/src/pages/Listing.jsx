@@ -3,7 +3,7 @@ import React from 'react'
 import ReactSlider from "react-slider";
 
 import { useState } from "react";
-
+const image1 = require("../assets/img/icons8-age-100.png");
 
 
 const Listing = () => {
@@ -12,7 +12,7 @@ const Listing = () => {
     return (
         <>
             <div className="flex bg-gradient-to-r from-sky-500 to-indigo-500">
-                <div className="w-[340px] bg-white mb-3 mt-3 ml-3 rounded-sm sticky top-3 shadow-md shadow-gray-600 ">
+                <div className="w-[340px] bg-white mb-3 mt-3 ml-3 rounded-sm sticky top-3 shadow-md shadow-gray-600 h-fit">
 
 
                     <div className="xyz mt-3">
@@ -79,7 +79,102 @@ const Listing = () => {
                     </div>
 
                 </div>
-                {/* <div className=" pt-3  stock-container grid grid-cols-3 gap-3 w-4/5 object-center pl-10 pb-3">
+
+
+                <div className=" flex justify-center flex-wrap p-[1%] w-[75%]">
+
+                    <div className=" bg-white shadow-grey-500 bg-opacity-40 rounded-md p-[1%] transition-ease-in-out duration-500 border border-slate-200 hover:shadow-2xl hover:shadow-gray-300 m-auto mb-[1%]">
+                        <a href="https://www.sanfransentinel.com/renstly-1.html">
+                            <img className=' rounded-tl-3xl rounded-br-3xl' src="https://source.unsplash.com/250x300/?home" alt="" />
+                            <div className="my-[2%]">
+                            <div className="rounded-full bg-blue-500 text-white  inline px-2">sports</div>
+                                <div className="font-bold text-[140%] ">Tennis Racket</div>
+                            </div>
+                            <div className="font-bold text-[140%] mb-[1%] ml-[5%]">₹6,000</div>
+                            <div className=" flex gap-[1%] text-gray-600 ">
+                                <div className="flex"> <img className="object-contain w-8 m-1" src={image1} alt="" /> <div className="self-center">2 Years old</div></div>
+                                <div className="flex"> <img className="object-contain w-8 m-1" src=" " alt="" /> <div className="self-center">Approved</div></div>
+                            </div>
+                        </a>
+                    </div>
+
+                    <div className=" bg-white shadow-grey-500 bg-opacity-40 rounded-md p-[1%] transition-ease-in-out duration-500 border border-slate-200 hover:shadow-2xl hover:shadow-gray-300 m-auto mb-[1%]">
+                        <a href="https://www.sanfransentinel.com/renstly-1.html">
+                            <img className=' rounded-tl-3xl rounded-br-3xl' src="https://source.unsplash.com/250x300/?home" alt="" />
+                            <div className="my-[2%]">
+                            <div className="rounded-full bg-blue-500 text-white  inline px-2">sports</div>
+                                <div className="font-bold text-[140%]">Tennis Racket</div>
+                            </div>
+                            <div className="font-bold text-[140%] mb-[1%] ml-[5%]">₹6,000</div>
+                            <div className=" flex gap-[1%] text-gray-600 ">
+                                <div className="flex"> <img className="object-contain w-8 m-1" src={image1} alt="" /> <div className="self-center">2 Years</div></div>
+                                <div className="flex"> <img className="object-contain w-8 m-1" src=" " alt="" /> <div className="self-center">Approved</div></div>
+                            </div>
+                        </a>
+                    </div>
+
+                    <div className=" bg-white shadow-grey-500 bg-opacity-40 rounded-md p-[1%] transition-ease-in-out duration-500 border border-slate-200 hover:shadow-2xl hover:shadow-gray-300 m-auto mb-[1%]">
+                        <a href="https://www.sanfransentinel.com/renstly-1.html">
+                            <img className=' rounded-tl-3xl rounded-br-3xl' src="https://source.unsplash.com/250x300/?home" alt="" />
+                            <div className="my-[2%]">
+                            <div className="rounded-full bg-blue-500 text-white  inline px-2">sports</div>
+                                <div className="font-bold text-[140%] ">Tennis Racket</div>
+                            </div>
+                            <div className="font-bold text-[140%] mb-[1%] ml-[5%]">₹6,000</div>
+                            <div className=" flex gap-[1%] text-gray-600 ">
+                                <div className="flex"> <img className="object-contain w-8 m-1" src={image1} alt="" /> <div className="self-center">2 Years</div></div>
+                                <div className="flex"> <img className="object-contain w-8 m-1" src=" " alt="" /> <div className="self-center">Approved</div></div>
+                            </div>
+                        </a>
+                    </div>
+
+                    <div className=" bg-white shadow-grey-500 bg-opacity-40 rounded-md p-[1%] transition-ease-in-out duration-500 border border-slate-200 hover:shadow-2xl hover:shadow-gray-300 m-auto mb-[1%]">
+                        <a href="https://www.sanfransentinel.com/renstly-1.html">
+                            <img className=' rounded-tl-3xl rounded-br-3xl' src="https://source.unsplash.com/250x300/?home" alt="" />
+                            <div className="my-[2%]">
+                            <div className="rounded-full bg-blue-500 text-white  inline px-2">sports</div>
+                                <div className="font-bold text-[140%] ">Tennis Racket</div>
+                            </div>
+                            <div className="font-bold text-[140%] mb-[1%] ml-[5%]">₹6,000</div>
+                            <div className=" flex gap-[1%] text-gray-600 ">
+                                <div className="flex"> <img className="object-contain w-8 m-1" src={image1} alt="" /> <div className="self-center">2 Years</div></div>
+                                <div className="flex"> <img className="object-contain w-8 m-1" src=" " alt="" /> <div className="self-center">Approved</div></div>
+                            </div>
+                        </a>
+                    </div>
+
+                    <div className=" bg-white shadow-grey-500 bg-opacity-40 rounded-md p-[1%] transition-ease-in-out duration-500 border border-slate-200 hover:shadow-2xl hover:shadow-gray-300 m-auto mb-[1%]">
+                        <a href="https://www.sanfransentinel.com/renstly-1.html">
+                            <img className=' rounded-tl-3xl rounded-br-3xl' src="https://source.unsplash.com/250x300/?home" alt="" />
+                            <div className="my-[2%]">
+                            <div className="rounded-full bg-blue-500 text-white  inline px-2">sports</div>
+                                <div className="font-bold text-[140%] ml-[5%]">Tennis Racket</div>
+                            </div>
+                            <div className="font-bold text-[140%] mb-[1%] ml-[5%]">₹6,000</div>
+                            <div className=" flex gap-[1%] text-gray-600 ">
+                                <div className="flex"> <img className="object-contain w-8 m-1" src={image1} alt="" /> <div className="self-center">2 Years</div></div>
+                                <div className="flex"> <img className="object-contain w-8 m-1" src=" " alt="" /> <div className="self-center">Approved</div></div>
+                            </div>
+                        </a>
+                    </div>
+
+                    <div className=" bg-white shadow-grey-500 bg-opacity-40 rounded-md p-[1%] transition-ease-in-out duration-500 border border-slate-200 hover:shadow-2xl hover:shadow-gray-300 m-auto mb-[1%]">
+                        <a href="https://www.sanfransentinel.com/renstly-1.html">
+                            <img className=' rounded-tl-3xl rounded-br-3xl' src="https://source.unsplash.com/250x300/?home" alt="" />
+                            <div className="my-[2%]">
+                            <div className="rounded-full bg-blue-500 text-white  inline px-2">sports</div>
+                                <div className="font-bold text-[140%] ">Tennis Racket</div>
+                            </div>
+                            <div className="font-bold text-[140%] mb-[1%] ml-[5%]">₹6,000</div>
+                            <div className=" flex gap-[1%] text-gray-600 ">
+                                <div className="flex"> <img className="object-contain w-8 m-1" src={image1} alt="" /> <div className="self-center">2 Years</div></div>
+                                <div className="flex"> <img className="object-contain w-8 m-1" src=" " alt="" /> <div className="self-center">Approved</div></div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+
+                {/* <div className=" pt-3  stock-container grid grid-cols-3 gap-3 w-4/5 object-center pl-10 pb-3 ">
       {
        
           
@@ -97,9 +192,7 @@ const Listing = () => {
             <ListGroup.Item className="flex"> <img className="object-contain w-8 m-1" src={image2} alt="" /> <div className="self-center">{data.surface}</div></ListGroup.Item>
           </ListGroup>
           <ListGroup.Item className="font-bold text-xl ml-2">₹{data.price}</ListGroup.Item>
-          <Card.Body>
-            
-          </Card.Body>
+          
         </Card.Link>
         </Card>
     
