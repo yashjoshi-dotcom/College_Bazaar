@@ -1,0 +1,15 @@
+import type { ComponentProps, ElementType, FC, PropsWithChildren } from 'react';
+import type { FlowbiteColors } from '../Flowbite/FlowbiteTheme';
+export interface SidebarItemProps extends PropsWithChildren<Omit<ComponentProps<'div'>, 'className'> & Record<string, unknown>> {
+    active?: boolean;
+    as?: ElementType;
+    href?: string;
+    icon?: FC<ComponentProps<'svg'>>;
+    label?: string;
+    labelColor?: keyof SidebarItemLabelColors;
+}
+export interface SidebarItemLabelColors extends Pick<FlowbiteColors, 'gray'> {
+    [key: string]: string;
+}
+declare const SidebarItem: FC<SidebarItemProps>;
+export default SidebarItem;

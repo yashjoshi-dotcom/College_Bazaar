@@ -1,0 +1,20 @@
+import { jsx as _jsx, Fragment as _Fragment, jsxs as _jsxs } from "react/jsx-runtime";
+import classNames from 'classnames';
+import { useId, useState } from 'react';
+import { HiChevronDown } from 'react-icons/hi';
+import { excludeClassName } from '../../helpers/exclude';
+import { useTheme } from '../Flowbite/ThemeContext';
+import { Tooltip } from '../Tooltip';
+import { useSidebarContext } from './SidebarContext';
+import { SidebarItemContext } from './SidebarItemContext';
+const SidebarCollapse = ({ children, icon: Icon, label, ...props }) => {
+    const theirProps = excludeClassName(props);
+    const id = useId();
+    const { isCollapsed } = useSidebarContext();
+    const [isOpen, setOpen] = useState(false);
+    const theme = useTheme().theme.sidebar.collapse;
+    const Wrapper = ({ children }) => (_jsx("li", { children: isCollapsed ? (_jsx(Tooltip, { content: label, placement: "right", children: children })) : (children) }));
+    return (_jsxs(Wrapper, { children: [_jsxs("button", { className: theme.button, id: `flowbite-sidebar-collapse-${id}`, onClick: () => setOpen(!isOpen), type: "button", ...theirProps, children: [Icon && (_jsx(Icon, { "aria-hidden": true, className: classNames(theme.icon.base, theme.icon.open[isOpen ? 'on' : 'off']), "data-testid": "flowbite-sidebar-collapse-icon" })), isCollapsed ? (_jsx("span", { className: "sr-only", children: label })) : (_jsxs(_Fragment, { children: [_jsx("span", { className: theme.label.base, "data-testid": "flowbite-sidebar-collapse-label", children: label }), _jsx(HiChevronDown, { "aria-hidden": true, className: theme.label.icon })] }))] }), _jsx("ul", { "aria-labelledby": `flowbite-sidebar-collapse-${id}`, className: theme.list, hidden: !isOpen, children: _jsx(SidebarItemContext.Provider, { value: { isInsideCollapse: true }, children: children }) })] }));
+};
+SidebarCollapse.displayName = 'Sidebar.Collapse';
+export default SidebarCollapse;
