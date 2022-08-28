@@ -4,7 +4,6 @@ import Menu from "./Menu";
 
 const Navabr = () => {
   const [isMenuOpen, SetMenu] = useState(false);
-  console.log(isMenuOpen);
   return (
     <div className="dark">
       <nav className="bg-white border-gray-200 px-2 pt-0 pb-0 sm:px-4 py-2.5 sm:pt-2 sm:pb-2  dark:bg-gray-900">
