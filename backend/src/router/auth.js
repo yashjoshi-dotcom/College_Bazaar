@@ -33,7 +33,12 @@ res.send(e);
     {
         return res.status(409).json({error :"Plz enter all data.."});
     }
-    
+    var domain = email_id.substring(email_id.lastIndexOf("@") +1);
+    if(domain!='dtu.ac.in')
+    {
+        return res.status(400).json({error :"Only DTU institutional email ID's allowed."});
+    }
+
     try
     {
         //Checking if Email Id already exists in the dB and if it exists returning message back 
@@ -68,12 +73,29 @@ res.send(e);
     }
  });
 
+
+ 
 //Get the data of an indiviual
 router.get('/register/:id',async (req,res)=>{
 
     try
     {
         const _id= req.params.id;
+        const single_user =await User.findById(_id);
+        console.log(single_user);
+        res.status(201).send(single_user);
+    }
+    catch(err){
+        console.log(err);
+    }
+ });
+
+ //Get the data of an indiviual search object
+router.get('/search/:key',async (req,res)=>{
+
+    try
+    {
+        const _id= req.params.key;
         const single_user =await User.findById(_id);
         console.log(single_user);
         res.status(201).send(single_user);
