@@ -1,4 +1,8 @@
 import React from "react";
+import Section1_Img from "../assets/SVG/coffee.svg";
+import Section2_Img from "../assets/SVG/order_done.svg";
+import Section3_Img from "../assets/SVG/wishlist.svg";
+// import Road from "../assets/SVG/Paths.svg";
 
 const LandingPage = () => {
   return (
@@ -13,20 +17,30 @@ const LandingPage = () => {
             Lets Get Started
           </button>
         </div>
-        <div className="w-[100%] sm:w-[50%] object-cover">
-          <img
-            className=""
-            src="https://source.unsplash.com/1000x600/?sale"
-            alt=""
-          />
+        <div className="flex flex-row w-[100%] sm:w-[50%] object-cover ">
+          <div className="flex flex-col">
+            <img
+              className="text-green md:w-7/12 mb-10 mt-5 sm:w-10/12"
+              src={Section1_Img}
+              alt=""
+            />
+            <img className="text-green w-10/12" src={Section2_Img} alt="" />
+          </div>
+          <div>
+            <img
+              className="text-green w-10/12 mt-32"
+              src={Section3_Img}
+              alt=""
+            />
+          </div>
         </div>
       </div>
 
       <div className="flex">
         {/* <div className="w-[50%] bg-slate-200"></div> */}
-        <div className="w-[100%] p-[2%] bg-slate-100">
+        <div className="w-[100%] p-[2%] bg-slate-100 bg-road bg-no-repeat bg-center bg-auto">
           <div className=" text-center font-bold text-[150%]">Roadmap</div>
-          <div className="mt-[5%]">
+          <div className="mt-[5%] ">
             <div className="flex mb-[4%] sm:mr-[44%]">
               <div className="m-auto mr-[5%] text-right sm:ml-[18%]">
                 <div className="text-green-400 font-bold text-[120%]">
