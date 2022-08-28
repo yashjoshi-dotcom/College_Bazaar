@@ -3,7 +3,14 @@ const router=express.Router();
 const User= require('../models/userSchema');
 const bcrypt =require('bcryptjs');
 const jwt =require('jsonwebtoken');
+const cloudinary=require('cloudinary');
+const Jwt_authenticate=require('../middlewares/Jwt_authenticate');
 
+cloudinary.config({ 
+    cloud_name: 'dpwgsbwoi', 
+    api_key: '556892419945354', 
+    api_secret: 'g1sVJeIyxdZhys1eOA0F7znDMgg' 
+  });
 router.get('/',(req,res)=>{
     res.send('Hello from auth. Just for testing purposes');
 });
@@ -58,7 +65,7 @@ res.send(e);
     }
  });
 
- //Get the whole data from the database 
+/* //Get the whole data from the database 
  router.get('/register',async (req,res)=>{
 
     const{name,email_id,college_name,password,c_password}=req.body;
@@ -89,15 +96,19 @@ router.get('/register/:id',async (req,res)=>{
         console.log(err);
     }
  });
-
+ */
+//---->>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
  //Get the data of an indiviual search object
-router.get('/search/:key',async (req,res)=>{
+router.get('/search/:id',async (req,res)=>{
 
     try
     {
-        const _id= req.params.key;
-        const single_user =await User.findById(_id);
+        //await MyModel.find({ name: 'john', age: { $gte: 18 } }).exec();
+        //const key= req.params.key;
+
+        const single_user =await User.find({item_name:"PC"});
         console.log(single_user);
+        console.log("hello");
         res.status(201).send(single_user);
     }
     catch(err){
@@ -123,21 +134,27 @@ router.get('/search/:key',async (req,res)=>{
     }
  });
 
+ ///_>>>>>>>>>>>>>>>>>>>>>>>>>>>>.
  //will patch listed data for an indiviual->>>
  router.patch('/add_data/:id',async (req,res)=>{
-
     try
     {
+        const file =req.files.item_image;
+        const image_data= await cloudinary.uploader.upload(file.tempFilePath,(err,result)=>{
+        })
+        console.log(image_data); 
+
+
         const newItem = 
         {
-            "item_name":"Laptop",
-            "item_price": 5000,
-            "item_age":3,
-            "item_condition":2,
-            "item_immage":"www.google.com",
-            "item_tag":"other-stationary",
-            "item_description":"This is a good laptop",
-            "item_status":"under_approval"
+            item_name:req.body.item_name,
+            item_price: req.body.item_price,
+            item_age:req.body.item_age,
+            item_condition:req.body.item_condition,
+            item_immage:image_data.url,
+            item_tag:req.body.item_tag,
+            item_description:req.body.item_description,
+            
         };
         
         await User.findOneAndUpdate(
@@ -150,8 +167,9 @@ router.get('/search/:key',async (req,res)=>{
             },
           }
         )
-        console.log("success");
-        res.status(201).json({message:"good work"});
+        console.log("final work complete");
+        res.status(201).json({message:"good work ultimate"});
+        
     }
     catch(err){
         res.status(500).send(err);
@@ -211,7 +229,11 @@ router.post('/signin',async (req,res)=>{
         console.log(err);
     }
 })
-
+//form page 
+router.get('/form',Jwt_authenticate,(req,res)=>{
+    console.log("hello world");
+    res.send(req.rootUser);
+})
 /* 
 Format of data Stored just for referece (not to be uploaded into repository)
 _id: 62cd73ae68f0a559ec0c6025

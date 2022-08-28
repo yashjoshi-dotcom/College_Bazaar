@@ -2,6 +2,10 @@ const express= require('express');
 require('dotenv').config({ path: 'config.env' });
 const app=express();
 const port=process.env.PORT || 5000;
+const fileUpload=require('express-fileupload');
+app.use(fileUpload({
+    useTempFiles:true
+}));
 require('./src/db/conn');
 
 const ranks=require('./src/models/userSchema');

@@ -1,4 +1,6 @@
 import React from "react";
+import { NavLink } from "react-router-dom";
+
 import { useState } from "react";
 // import Menu from "./Menu";
 import 'flowbite';
@@ -56,24 +58,24 @@ const Navabr = () => {
       <Navbar.Toggle />
     </div>
     <Navbar.Collapse>
-      <Navbar.Link
-        href="/navbars"
+      <NavLink
+        to="/Home"
         active={true}
       >
         Home
-      </Navbar.Link>
-      <Navbar.Link href="/navbars">
-        About
-      </Navbar.Link>
-      <Navbar.Link href="/navbars">
-        Services
-      </Navbar.Link>
-      <Navbar.Link href="/navbars">
-        Pricing
-      </Navbar.Link>
-      <Navbar.Link href="/navbars">
+      </NavLink>
+      <NavLink to="/aboutus">
+        About Us
+      </NavLink>
+      <NavLink to="/testimonials" className="text-slate-100">
+        Testimonials
+      </NavLink>
+      <NavLink to="/form">
+        List Your Items
+      </NavLink>
+      <NavLink to="/contact">
         Contact
-      </Navbar.Link>
+      </NavLink>
     </Navbar.Collapse>
   </Navbar>
   </div>
