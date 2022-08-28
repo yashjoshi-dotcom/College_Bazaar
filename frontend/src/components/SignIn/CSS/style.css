@@ -41,7 +41,7 @@
   margin: 15px 0;
 }
 
-.container {
+#container {
   background: #fff;
   border-radius: 10px;
   box-shadow: 0 14px 28px rgba(0, 0, 0, 0.2), 0 10px 10px rgba(0, 0, 0, 0.2);
@@ -89,7 +89,7 @@
 button {
   border-radius: 20px;
   border: 1px solid #008ecf;
-  background: #008ecf;
+  background: #0e0446;
   color: #fff;
   font-size: 12px;
   font-weight: bold;
@@ -142,10 +142,14 @@ button.ghost {
   transition: transform 0.6s ease-in-out;
   z-index: 100;
 }
+.signinbutton {
+  background-color: #0a618a;
+}
 
 .overlay {
   background: #ff416c;
-  background: linear-gradient(to right, #008ecf, #008ecf) no-repeat 0 0 / cover;
+  background: linear-gradient(to right, rgb(2, 2, 36), #008ecf) no-repeat 0 0 /
+    cover;
   color: #fff;
   position: relative;
   left: -100%;
