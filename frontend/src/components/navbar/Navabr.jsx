@@ -60,20 +60,20 @@ const Navabr = () => {
     <Navbar.Collapse>
       <NavLink
         to="/Home"
-        active={true}
+        active={true} className="text-neutral-400 hover:text-neutral-200" 
       >
         Home
       </NavLink>
-      <NavLink to="/aboutus">
+      <NavLink to="/aboutus" className="text-neutral-400 hover:text-neutral-200">
         About Us
       </NavLink>
-      <NavLink to="/testimonials" className="text-slate-100">
+      <NavLink to="/testimonials" className="text-neutral-400 hover:text-neutral-200">
         Testimonials
       </NavLink>
-      <NavLink to="/form">
+      <NavLink to="/form" className="text-neutral-400 hover:text-neutral-200">
         List Your Items
       </NavLink>
-      <NavLink to="/contact">
+      <NavLink to="/contact" className="text-neutral-400 hover:text-neutral-200">
         Contact
       </NavLink>
     </Navbar.Collapse>
