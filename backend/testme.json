@@ -1,4 +1,10 @@
-{"list": [
+{
+        "name":"yash",
+        "email_id":"yash@dtu.ac.in",
+        "password":"yash@dtu.ac.in",
+        "c_password":"yash@dtu.ac.in",
+    
+    "list": [
     {
         "item_name":"Laptop",
         "item_price": 5000,

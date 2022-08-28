@@ -8,7 +8,7 @@ import LandingPage from "./pages/LandingPage";
 import Contact from "./pages/ContactUs";
 import Admin from "./components/Admin/Admin";
 import Home from "./pages/Home";
-import Form from "./components/form";
+import Form from "./pages/upload_form";
 
 const App = () => {
   return (
