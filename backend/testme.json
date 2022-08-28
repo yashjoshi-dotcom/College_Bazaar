@@ -1,0 +1,13 @@
+{"list": [
+    {
+        "item_name":"Laptop",
+        "item_price": 5000,
+        "item_age":3,
+        "item_condition":2,
+        "item_immage":"www.google.com",
+        "item_tag":"other-stationary",
+        "item_description":"This is a good laptop",
+        "item_status":"under_approval"
+    }
+]
+}
