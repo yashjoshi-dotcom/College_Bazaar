@@ -123,6 +123,45 @@ router.get('/search/:key',async (req,res)=>{
     }
  });
 
+ //will patch listed data for an indiviual->>>
+ router.patch('/add_data/:id',async (req,res)=>{
+
+    try
+    {
+        const newItem = 
+        {
+            "item_name":"Laptop",
+            "item_price": 5000,
+            "item_age":3,
+            "item_condition":2,
+            "item_immage":"www.google.com",
+            "item_tag":"other-stationary",
+            "item_description":"This is a good laptop",
+            "item_status":"under_approval"
+        };
+        
+        await User.findOneAndUpdate(
+          {
+            email_id: req.params.id,
+          },
+          {
+            $addToSet: {
+              list: newItem,
+            },
+          }
+        )
+        console.log("success");
+        res.status(201).json({message:"good work"});
+    }
+    catch(err){
+        res.status(500).send(err);
+        console.log(err);
+    }
+ });
+
+
+
+
   //Will delete data of  an indiviual
   router.delete('/register/:id',async (req,res)=>{
 
