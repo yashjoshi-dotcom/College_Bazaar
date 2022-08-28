@@ -12,6 +12,7 @@ import Form from "./pages/upload_form";
 import Testimonials from "./pages/testimonials";
 import Aboutus from "./pages/aboutus";
 import KnowMore from "./pages/knowMore"
+import Signin from "./components/SignIn/Signin";
 
 const App = () => {
   return (
@@ -26,6 +27,7 @@ const App = () => {
         <Route path="/contact" element={<Contact />} />
         <Route path="/knowmore" element={<KnowMore />} />
         <Route path="/form" element={<Form />} />
+        <Route path="/Signin" element={<Signin />} />
       </Routes>
       <Footer />
     </>
