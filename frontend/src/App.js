@@ -11,6 +11,7 @@ import Home from "./pages/Home";
 import Form from "./pages/upload_form";
 import Testimonials from "./pages/testimonials";
 import Aboutus from "./pages/aboutus";
+import KnowMore from "./pages/knowMore"
 
 const App = () => {
   return (
@@ -23,6 +24,7 @@ const App = () => {
         <Route path="/aboutus" element={<Aboutus />} />
         <Route path="/testimonials" element={<Testimonials />} />
         <Route path="/contact" element={<Contact />} />
+        <Route path="/knowmore" element={<KnowMore />} />
         <Route path="/form" element={<Form />} />
       </Routes>
       <Footer />
