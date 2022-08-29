@@ -46,7 +46,7 @@ const Navabr = () => {
           </Dropdown>
           <Navbar.Toggle />
         </div>
-        <div className="md:m-auto">
+        {/* <div className="lg:m-auto"> */}
           <Navbar.Collapse>
             <NavLink
               to="/Home"
@@ -80,7 +80,7 @@ const Navabr = () => {
               Contact
             </NavLink>
           </Navbar.Collapse>
-        </div>
+        {/* </div> */}
       </Navbar>
     </div>
   );
