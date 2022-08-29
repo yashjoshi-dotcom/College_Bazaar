@@ -1,7 +1,7 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
 
-import { useState } from "react";
+import { useState,useEffect } from "react";
 // import Menu from "./Menu";
 import "flowbite";
 import { Navbar } from "flowbite-react/lib/esm/components/Navbar";
@@ -10,6 +10,41 @@ import { Avatar } from "flowbite-react/lib/esm/components/Avatar";
 
 const Navabr = () => {
   // const [isMenuOpen, SetMenu] = useState(false);
+  const [userdata,setUserData] =useState();
+const CallAboutPage= async()=>
+{
+  console.log("Call about")
+      try{
+      console.log("tried");
+      const res=await fetch('/profilec',{
+          method:"GET",
+          headers:{
+              Accept:"application/json",
+              "Content-Type":"application/json"
+          },
+          credentials:"include"
+      });
+      const object= await res.json();
+  //    setUserData(object);
+      console.log(object);
+      setUserData(object);
+      console.log(userdata);
+      if(!res.status===200)
+      {
+          const error= new Error (res.error);
+          alert('There seems to be some issue with your credentials. We are working on it.');
+          throw error;
+      }
+  }
+  catch(err){
+      console.log(err);
+      console.log("caught error");
+     }
+};
+  useEffect(()=>{
+      CallAboutPage();
+  },[])
+
   return (
     <div className="dark ">
       <Navbar fluid={true} rounded={false}>
@@ -33,16 +68,14 @@ const Navabr = () => {
             }
           >
             <Dropdown.Header>
-              <span className="block text-sm">Bonnie Green</span>
+              <span className="block text-sm"> {userdata.name} </span>
               <span className="block truncate text-sm font-medium">
-                name@flowbite.com
+              {userdata.email_id}
               </span>
             </Dropdown.Header>
             <Dropdown.Item>Dashboard</Dropdown.Item>
-            <Dropdown.Item>Settings</Dropdown.Item>
-            <Dropdown.Item>Earnings</Dropdown.Item>
             <Dropdown.Divider />
-            <Dropdown.Item>Sign out</Dropdown.Item>
+            <Dropdown.Item onClick={ ()=> {alert("Thanks for visiting us. Hope to See you soon")}}>Sign out</Dropdown.Item>
           </Dropdown>
           <Navbar.Toggle />
         </div>
@@ -62,22 +95,16 @@ const Navabr = () => {
               About Us
             </NavLink>
             <NavLink
-              to="/testimonials"
-              className="text-lg text-neutral-400 hover:text-neutral-200"
-            >
-              Testimonials
-            </NavLink>
-            <NavLink
-              to="/form"
-              className="text-lg text-neutral-400 hover:text-neutral-200"
-            >
-              List Your Items
-            </NavLink>
-            <NavLink
               to="/contact"
               className="text-lg text-neutral-400 hover:text-neutral-200"
             >
               Contact
+            </NavLink>
+            <NavLink
+              to="/testimonials"
+              className="text-lg text-neutral-400 hover:text-neutral-200"
+            >
+              Testimonials
             </NavLink>
           </Navbar.Collapse>
         {/* </div> */}
