@@ -8,8 +8,8 @@ const LandingPage = () => {
   return (
     <div>
       <div className=" flex flex-col-reverse bg-backSm_2 lg:h-[20rem] xl:h-[27rem] md:bg_backSm_1 lg:bg-backLg bg-no-repeat bg-slate-300  sm:flex-row  pb-[5%] sm:pb-0">
-        <div className="px-[5%]  sm:mb-0 sm:p-[2%] sm:pl-[5%] sm:pr-[2%] w-[100vw]  sm:h-[20vh] mt-3 sm:mt-0 text-center ">
-          <div className=" text-[150%] sm:text-[300%] font-bold mb-[2px] text-green-600 h-[2rem] sm:h-[5rem]">
+        <div className="px-[5%] md:h-[70vh] sm:mb-0 sm:p-[2%] sm:pl-[5%] sm:pr-[2%] w-[100vw]  sm:h-[20vh] mt-3 sm:mt-0 text-center ">
+          <div className=" text-[150%] sm:text-[300%] font-bold mb-[2px] text-green-600 md:mt-32 h-[2rem] sm:h-[5rem]">
             Lorem ipsum dolor sit amet
           </div>
           <div className="text-blue-900 mb-[2rem]">Lorem ipsum dolor sit.</div>
