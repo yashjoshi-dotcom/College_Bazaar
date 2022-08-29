@@ -12,7 +12,8 @@ const Listing = () => {
     return (
         <>
             <div className="flex flex-col lg:flex-row bg-gradient-to-r from-sky-500 to-indigo-500">
-                <div className="w-[] lg:w-[340px] justify-end bg-white mb-3 mt-3 ml-3 rounded-sm  flex lg:block lg:sticky top-3 shadow-md shadow-gray-600 h-fit m-auto">
+                {/* <div className=" bg-transparent lg:w-[95%]"> */}
+                <div className="w-[] lg:w-[340px] bg-white mb-3 mt-3 mr-10 lg:mr-0 lg:ml-3 rounded-sm  block lg:sticky top-3 shadow-md shadow-gray-600 h-fit m-auto">
                     <Accordion alwaysOpen={true}>
 
                         <Accordion.Panel >
@@ -87,7 +88,7 @@ const Listing = () => {
                         </Accordion.Panel>
                     </Accordion>
                 </div>
-
+                {/* </div> */}
 
                 {/* <div className="w-[340px] bg-white mb-3 mt-3 ml-3 rounded-sm hidden lg:block lg:sticky top-3 shadow-md shadow-gray-600 h-fit m-auto">
 
@@ -158,9 +159,9 @@ const Listing = () => {
                 </div> */}
 
 
-                <div className=" before:hidden items-center justify-items-center grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 md:gap-3 lg:gap-3 p-[1%] w-[100%] md:w-[90%] lg:w-[75%] md:mx-auto lg:mx-auto">
+                <div className=" before:hidden items-center justify-items-center grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 gap-2 md:gap-3 lg:gap-3 p-[1%] w-[100%] md:w-[90%] lg:w-[75%] sm:mx-0 md:mx-auto lg:mx-auto">
 
-                    <div className=" bg-white shadow-grey-500 bg-opacity-40 rounded-md p-[1%] transition-ease-in-out duration-500 border border-slate-200 hover:shadow-2xl hover:shadow-gray-300 m-auto mb-3">
+                    {/* <div className=" bg-white shadow-grey-500 bg-opacity-40 rounded-md p-[1%] transition-ease-in-out duration-500 border border-slate-200 hover:shadow-2xl hover:shadow-gray-300 m-auto mb-3">
                         <a href="https://www.sanfransentinel.com/renstly-1.html">
                             <img className=' rounded-tl-3xl rounded-br-3xl' src="https://source.unsplash.com/280x300/?sports" alt="" />
                             <div className="my-[2%]">
@@ -170,6 +171,21 @@ const Listing = () => {
                             <div className="font-bold text-[140%] mb-[1%] ml-[5%]">₹6,000</div>
                             <div className=" flex gap-[1%] text-gray-600 ">
                                 <div className="flex"> <img className="object-contain w-8 m-1" src={image1} alt="" /> <div className="self-center">2 Years old</div></div>
+                                <div className="flex"> <img className="object-contain w-8 m-1" src=" " alt="" /> <div className="self-center">Approved</div></div>
+                            </div>
+                        </a>
+                    </div> */}
+                    
+                    <div className=" bg-white shadow-grey-500 bg-opacity-40 rounded-md p-[1%] transition-ease-in-out duration-500 border border-slate-200 hover:shadow-2xl hover:shadow-gray-300 m-auto mb-3">
+                        <a href="https://www.sanfransentinel.com/renstly-1.html">
+                            <img className=' rounded-tl-3xl rounded-br-3xl' src="https://source.unsplash.com/280x300/?Sports" alt="" />
+                            <div className="my-[2%]">
+                            <div className="rounded-md bg-purple-500 text-white  inline py-[1px] px-2">Sports</div>
+                                <div className="font-bold text-[140%]">Tennis Racket</div>
+                            </div>
+                            <div className="font-bold text-[140%] mb-[1%] ml-[5%]">₹6,000</div>
+                            <div className=" flex gap-[1%] text-gray-600 ">
+                                <div className="flex"> <img className="object-contain w-8 m-1" src={image1} alt="" /> <div className="self-center">2 Years</div></div>
                                 <div className="flex"> <img className="object-contain w-8 m-1" src=" " alt="" /> <div className="self-center">Approved</div></div>
                             </div>
                         </a>
