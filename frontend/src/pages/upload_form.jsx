@@ -6,10 +6,9 @@ import FormControl from "@mui/material/FormControl";
 import Select from "@mui/material/Select";
 import Rating from "@mui/material/Rating";
 import Typography from "@mui/material/Typography";
-import { useNavigate } from "react-router-dom";
 
-function Form() {
-  const navigate = useNavigate();
+ const Form=()=>
+{
 
   const [cat, setCat] = useState("");
   const handleChange = (event) => {
@@ -17,36 +16,53 @@ function Form() {
   };
 
   const [rat, setRat] = React.useState(1);
-
-  const [item_description, setDecr] = React.useState("");
-
-  const [item_condition, setCdn] = React.useState("");
-  const [item_tag, setTag] = React.useState("");
-
-  const [item_name, setName] = React.useState("");
-  const [item_age, setAge] = React.useState("");
-  const [item_price, setPrice] = React.useState("");
-
   //---------------------------
+  const [image, setImage ] = useState("");
+  const [ url, setUrl ] = useState("");
+
+  const uploadImage = async () => {
+  const datat = new FormData()
+  datat.append("file", image)
+  datat.append("upload_preset", "kllpiwre")
+  datat.append("cloud_name","dpwgsbwoi")
+  await fetch(" https://api.cloudinary.com/v1_1/dpwgsbwoi/image/upload",{
+  method:"post",
+  body: datat
+  })
+  .then(resp => resp.json())
+  .then(datat => {
+  setUrl(datat.url)
+  }).catch(err => console.log(err))
+}
+
+  //===========================
 
   const [data, setData] = useState({
-    item_condition: "",
-    item_tag: "",
     item_description: "",
     item_name: "",
     item_age: "",
     item_price: "",
-  });
+    item_image:"",
+    item_condition:"",
+    item_tag:"",
+    });
 
   let name, value;
   const handleInputs = (e) => {
+
     console.log(e);
     name = e.target.name;
     value = e.target.value;
     setData({ ...data, [name]: value });
   };
+
+  const final =  () => 
+  {
+    uploadImage();
+    postData();
+
+  };
   const postData = async (e) => {
-    e.preventDefault();
 
     const {
       item_condition,
@@ -55,10 +71,12 @@ function Form() {
       item_name,
       item_age,
       item_price,
+      item_image
     } = data;
     data.item_tag = cat;
     data.item_condition = rat;
-    const res = await fetch("/", {
+    data.item_image=url;
+    const res = await fetch("/add_data/tanush@dtu.ac.in", {
       method: "PATCH",
       headers: {
         "Content-Type": "application/json",
@@ -70,12 +88,14 @@ function Form() {
         item_name,
         item_age,
         item_price,
+        item_image
       }),
     });
 
-    const data = await res.json();
+    const result = await res.json();
+    console.log(result);
 
-    if (data.status == 201) {
+    if (result.status === 201) {
       window.alert("Details added successfully");
       console.log("Details added successfully");
     } else {
@@ -83,11 +103,12 @@ function Form() {
       console.log("Could not post your Data");
     }
   };
+
   //-------------------------
 
   return (
     <div>
-      <form enctype="multipart/form-data" method="patch">
+      <form>
         <div className="container p-10 m-auto ">
           <div className="mb-6">
             <label
@@ -103,7 +124,7 @@ function Form() {
               id="text"
               className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
               placeholder="Hello"
-              onChange={handleInputs}
+               onChange={handleInputs}
               required
             />
           </div>
@@ -217,13 +238,13 @@ function Form() {
               aria-describedby="user_avatar_help"
               id="user_avatar"
               type="file"
-              onChange={handleInputs}
+              onChange={(e)=> setImage(e.target.files[0])}
             />
           </div>
           <div className="my-5 text-center">
             <button
               type="submit"
-              onClick={postData}
+              onClick={final}
               className="focus:outline-none mx-auto  text-white bg-green-700 hover:bg-green-800 focus:ring-4 focus:ring-green-300 font-medium rounded-lg text-sm px-10 py-2.5  dark:bg-green-600 dark:hover:bg-green-700 dark:focus:ring-green-800 "
             >
               Submit
@@ -234,5 +255,6 @@ function Form() {
     </div>
   );
 }
+export default Form
 
-export default Form;
+ 
