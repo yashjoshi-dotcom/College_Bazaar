@@ -1,7 +1,49 @@
 import React from 'react'
+import { useEffect,useState } from 'react';
 import Cards from "../components/Admin/profCard";
+import {useNavigate } from "react-router-dom";
 
-const profile = () => {
+const Profile = () => {
+
+    const [userdata,setUserData] =useState();
+    const navigate = useNavigate();
+
+
+const CallAboutPage= async()=>
+{
+    console.log("Call about")
+        try{
+        console.log("tried");
+        const res=await fetch('/profilec',{
+            method:"GET",
+            headers:{
+                Accept:"application/json",
+                "Content-Type":"application/json"
+            },
+            credentials:"include"
+        });
+        const object= await res.json();
+    //    setUserData(object);
+        console.log(object);
+        setUserData(object);
+        console.log(userdata);
+        if(!res.status===200)
+        {
+            const error= new Error (res.error);
+            alert('There seems to be some issue with your credentials. We are working on it.');
+            throw error;
+        }
+    }
+    catch(err){
+        console.log(err);
+        console.log("caught error");
+       // navigate("/signin"); 
+       }
+};
+    useEffect(()=>{
+        CallAboutPage();
+    },[])
+    
     return (
         <div>
             <div class="bg-gray-700">
@@ -18,7 +60,7 @@ const profile = () => {
                                         src="https://lavinephotography.com.au/wp-content/uploads/2017/01/PROFILE-Photography-112.jpg"
                                         alt="" />
                                 </div>
-                                <h1 class="text-gray-100 font-bold text-xl leading-8 my-1">Jane Doe</h1>
+                                <h1 class="text-gray-100 font-bold text-xl leading-8 my-1">{userdata.name}</h1>
 
 
                                 <ul
@@ -29,8 +71,8 @@ const profile = () => {
                                             class="bg-green-500 py-1 px-2 rounded text-white text-sm">Student</span></span>
                                     </li>
                                     <li class="flex items-center py-3">
-                                        <span>Member since</span>
-                                        <span class="ml-auto">Nov 07, 2016</span>
+                                        <span>Number of Items Listed</span>
+                                        <span class="ml-auto">{userdata.list.length}</span>
                                     </li>
                                 </ul>
                             </div>
@@ -95,38 +137,30 @@ const profile = () => {
                                 <div class="text-white">
                                     <div class="grid md:grid-cols-2 text-sm before:hidden after:hidden">
                                         <div class="flex">
-                                            <div class="px-4 py-2 font-semibold w-[50%]">First Name</div>
-                                            <div class="px-4 py-2 w-[50%]">Jane</div>
+                                            <div class="px-4 py-2 font-semibold w-[50%]">Name</div>
+                                            <div class="px-4 py-2 w-[50%]">{userdata.name}</div>
                                         </div>
                                         <div class="flex">
-                                            <div class="px-4 py-2 font-semibold w-[50%]">Last Name</div>
-                                            <div class="px-4 py-2 w-[50%]">Doe</div>
+                                            <div class="px-4 py-2 font-semibold w-[50%]">Nationality</div>
+                                            <div class="px-4 py-2 w-[50%]">Indian</div>
                                         </div>
                                         <div class="flex">
                                             <div class="px-4 py-2 font-semibold w-[50%]">Gender</div>
-                                            <div class="px-4 py-2 w-[50%]">Female</div>
+                                            <div class="px-4 py-2 w-[50%]">Prefer Not to Say</div>
                                         </div>
                                         <div class="flex">
-                                            <div class="px-4 py-2 font-semibold w-[50%]">Contact No.</div>
-                                            <div class="px-4 py-2 w-[50%]">+11 998001001</div>
+                                            <div class="px-4 py-2 font-semibold w-[50%]">College.</div>
+                                            <div class="px-4 py-2 w-[50%]">Delhi Technological University</div>
                                         </div>
                                         <div class="flex">
-                                            <div class="px-4 py-2 font-semibold w-[50%]">Current Address</div>
-                                            <div class="px-4 py-2 w-[50%]">Beech Creek, PA, Pennsylvania</div>
-                                        </div>
-                                        <div class="flex">
-                                            <div class="px-4 py-2 font-semibold w-[50%]">Permanant Address</div>
-                                            <div class="px-4 py-2 w-[50%]">Arlington Heights, IL, Illinois</div>
+                                            <div class="px-4 py-2 font-semibold w-[50%]">State</div>
+                                            <div class="px-4 py-2 w-[50%]">New Delhi</div>
                                         </div>
                                         <div class="flex">
                                             <div class="px-4 py-2 font-semibold w-[50%]">Email.</div>
                                             <div class="px-4 py-2 w-[50%]">
-                                                <a class="text-blue-800" href="mailto:jane@example.com">jane@example.com</a>
+                                                <a class="text-blue-800" href="mailto:jane@example.com">{userdata.email_id}</a>
                                             </div>
-                                        </div>
-                                        <div class="flex">
-                                            <div class="px-4 py-2 font-semibold w-[50%]">Birthday</div>
-                                            <div class="px-4 py-2 w-[50%]">Feb 06, 1998</div>
                                         </div>
                                     </div>
                                 </div>
@@ -150,10 +184,10 @@ const profile = () => {
                                     </div>
                                 <div class=" before:hidden after:hidden">
                                     
-                                <Cards productName="ABC"  />
-                                <Cards productName="ABC" productInfo="hoidajdpk[adkpad,;akfp" />
-                                <Cards productName="ABC" productInfo="hoidajdpk[adkpad,;akfp" />
-                                <Cards productName="ABC"  />
+                                {userdata.list.map((dataa, key) => {
+                            return (<Cards productName={dataa.item_name} productInfo={dataa.item_description} />
+                                );
+                                })}
                                 </div>
                                 {/* <!-- End of Experience and education grid --> */}
                             </div>
@@ -166,4 +200,4 @@ const profile = () => {
     )
 }
 
-export default profile
+export default Profile

@@ -7,6 +7,8 @@ const cors = require("cors");
 const { Server } = require("socket.io");
 
 app.use(cors());
+const cookieParser = require('cookie-parser')
+app.use(cookieParser());
 const server = http.createServer(app);
 
 const io = new Server(server, {
