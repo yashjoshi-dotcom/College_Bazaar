@@ -126,7 +126,9 @@ const Signin = () => {
               placeholder=" Confirm Password"
             />
 
-            <button onClick={postData}>Sign Up</button>
+            <button className="butt" onClick={postData}>
+              Sign Up
+            </button>
           </form>
         </div>
         <div class="form-container sign-in-container">
@@ -153,7 +155,7 @@ const Signin = () => {
             <a id="A" href="#">
               Forgot your password?
             </a>
-            <button onClick={loginUser} className="signinbutton">
+            <button onClick={loginUser} className="butt signinbutton">
               Sign In
             </button>
           </form>
@@ -169,7 +171,7 @@ const Signin = () => {
                 type="button"
                 onClick={signInButton}
                 id="signIn"
-                className="ghost  focus:outline-none mx-auto  text-white bg-blue-700 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-10 py-2.5  dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 "
+                className="ghost butt focus:outline-none mx-auto  text-white bg-blue-700 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-10 py-2.5  dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 "
               >
                 Sign In
               </button>
@@ -180,7 +182,7 @@ const Signin = () => {
                 Enter your personal details and start journey with us
               </p>
               <button
-                className="ghost focus:outline-none mx-auto  text-white bg-blue-700 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-10 py-2.5  dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 "
+                className="ghost butt focus:outline-none mx-auto  text-white bg-blue-700 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-10 py-2.5  dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 "
                 id="signUp"
                 onClick={signUpButton}
               >

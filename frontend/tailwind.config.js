@@ -11,6 +11,10 @@ module.exports = {
     extend: {
       backgroundImage: {
         road: "url('./assets/SVG/Paths.svg')",
+        backLg: "url('./assets/SVG/Backgr.svg')",
+        // backMd: "url('./assets/SVG/Backgr.svg')",
+        backSm_1: "url('./assets/SVG/Backgr-1.svg')",
+        backSm_2: "url('./assets/SVG/Backgr-2.svg')",
       },
     },
   },
