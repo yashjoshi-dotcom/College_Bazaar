@@ -3,17 +3,7 @@ const router=express.Router();
 const User= require('../models/userSchema');
 const bcrypt =require('bcryptjs');
 const jwt =require('jsonwebtoken');
-const cloudinary=require('cloudinary');
 const Jwt_authenticate=require('../middlewares/Jwt_authenticate');
-
-cloudinary.config({ 
-    cloud_name: 'dpwgsbwoi', 
-    api_key: '556892419945354', 
-    api_secret: 'g1sVJeIyxdZhys1eOA0F7znDMgg' 
-  });
-router.get('/',(req,res)=>{
-    res.send('Hello from auth. Just for testing purposes');
-});
 
 /* Just some sample test code .
 Not for production
@@ -143,19 +133,13 @@ router.get('/search/:id',async (req,res)=>{
         console.log(req.body);
         console.log("<<<>>>>");
 
-        const file =req.files.item_image;
-        const image_data= await cloudinary.uploader.upload(file.tempFilePath,(err,result)=>{
-        })
-        console.log(image_data); 
-
-
         const newItem = 
         {
             item_name:req.body.item_name,
             item_price: req.body.item_price,
             item_age:req.body.item_age,
             item_condition:req.body.item_condition,
-            item_immage:image_data.url,
+            item_immage:req.body.item_image,
             item_tag:req.body.item_tag,
             item_description:req.body.item_description,
             
