@@ -11,9 +11,9 @@ import circle_4 from "../assets/img/Circle_Img_4.png";
 const LandingPage = () => {
   return (
     <div>
-      <div className=" flex flex-col-reverse bg-backSm_2 lg:h-[20rem] xl:h-[27rem] md:bg_backSm_1 lg:bg-backLg bg-no-repeat bg-slate-300  sm:flex-row  pb-[5%] sm:pb-0">
-        <div className="px-[5%] md:h-[70vh] sm:mb-0 sm:p-[2%] sm:pl-[5%] sm:pr-[2%] w-[100vw]  sm:h-[20vh] mt-3 sm:mt-0 text-center ">
-          <div className=" text-[150%] sm:text-[300%] font-bold mb-[2px] text-green-600 md:mt-[1rem] h-[2rem] sm:h-[5rem]">
+      <div className=" flex flex-col-reverse bg-backSm_2 h-fit lg:h-[20rem] xl:h-[27rem] md:bg-backSm_1 lg:bg-backLg bg-no-repeat bg-slate-300  sm:flex-row  pb-[5%] sm:pb-0">
+        <div className="px-[5%] md:h-[70vh] sm:mb-0 sm:p-[2%] sm:pl-[5%] sm:pr-[2%] w-[100vw]  sm:h-[50vh] mt-3 sm:mt-0 text-center ">
+          <div className=" text-[170%] sm:text-[250%] md:text-[300%] font-bold mb-[2px] text-green-600 md:mt-[1rem] h-[2rem] sm:h-[5rem]">
             Lorem ipsum dolor sit amet
           </div>
           <div className="text-blue-900 mb-[2rem]">Lorem ipsum dolor sit.</div>
@@ -46,11 +46,12 @@ const LandingPage = () => {
 
       <div className="flex">
         {/* <div className="w-[50%] bg-slate-200"></div> */}
-        <div className="w-[100%] p-[2%] bg-slate-100 sm:bg-road bg-no-repeat bg-center bg-auto">
+        <div className=" bg-blue-800 w-[100vw]">
+        <div className="w-[100vw] p-[2%] bg-transparent sm:bg-road bg-no-repeat bg-center bg-auto">
           <div className=" text-center font-bold text-[150%]">Roadmap</div>
-          <div className="mt-[5%] ">
-            <div className="flex my-3 sm:mr-[44%] mt-[5rem]">
-              <div className="m-auto mr-[5%] text-right sm:ml-[18%]">
+          <div className="mt-[6rem] ">
+            <div className="flex my-3 sm:mr-[55%] md:mr-[50%] lg:mr-[44%] mt-[5rem]">
+              <div className=" self-center mr-[5%] text-right sm:ml-[18%]">
                 <div className="text-green-400 font-bold text-[120%]">
                   STEP 01
                 </div>
@@ -72,7 +73,7 @@ const LandingPage = () => {
               </div>
             </div>
 
-            <div className="flex flex-row-reverse mb-2 sm:ml-[44%] ">
+            <div className="flex flex-row-reverse mb-2 sm:pt-16 lg:pt-0 sm:ml-[55%] md:ml-[50%] lg:ml-[44%] ">
               <div className="sm:pb-0 my-3 ml-[5%] sm:mr-[18%] self-center">
                 <div className="text-blue-400 font-bold text-[120%]">
                   STEP 02
@@ -95,7 +96,7 @@ const LandingPage = () => {
               </div>
             </div>
 
-            <div className="flex mb-2 sm:mr-[44%]">
+            <div className="flex mb-2 sm:mr-[55%] md:mr-[50%] lg:mr-[44%]">
               <div className="sm:pb-0 my-3 mr-[5%] text-right sm:ml-[18%] self-center">
                 <div className="text-purple-400 font-bold text-[120%]">
                   STEP 03
@@ -118,7 +119,7 @@ const LandingPage = () => {
               </div>
             </div>
 
-            <div className="flex flex-row-reverse mb-2 sm:ml-[44%]">
+            <div className="flex flex-row-reverse mb-2 sm:ml-[55%] md:ml-[50%] lg:ml-[44%]">
               <div className=" sm:pt-[2rem]  sm:pb-[9rem] my-3 ml-[5%] sm:mr-[18%]">
                 <div className="text-fuchsia-400 font-bold text-[120%]">
                   STEP 04
@@ -143,6 +144,7 @@ const LandingPage = () => {
           </div>
         </div>
       </div>
+    </div>
     </div>
   );
 };
