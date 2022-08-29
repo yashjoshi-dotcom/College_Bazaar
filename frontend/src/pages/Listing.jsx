@@ -3,12 +3,30 @@ import ReactSlider from "react-slider";
 import 'flowbite';
 import { Accordion } from 'flowbite-react';
 import { useState } from "react";
+import data from "../components/message.json"
 const image1 = require("../assets/img/icons8-age-100.png");
 
 
 const Listing = () => {
 
+let x1=0,x2=0,x3=0,x4=0,x=0;
+
     const [currentValue, setCurrentValue] = useState(0);
+    
+    
+        const [Data, setData] = useState(data);
+        const filtertags=(val,b)=>{
+            const res=data.filter((currentValue)=>{
+                if(val!='all')
+                return currentValue.list[0].item_tag===val;
+                else
+                return currentValue;
+            });
+            setData(res);
+        }
+    
+
+
     return (
         <>
             <div className="flex flex-col lg:flex-row bg-gradient-to-r from-sky-500 to-indigo-500 px-3">
@@ -24,15 +42,16 @@ const Listing = () => {
                             <Accordion.Content >
                                 <div className="xyz ">
                                     <div className="ml-3">
-                                        <div className=" text-slate-600 text-[105%]"> Choose as per your accomodation needs</div>
-                                        <div className=" flex gap-6 lg:block" >
-                                            <div className="block my-1 "><input type="checkbox" id="Rent" className="mr-2" Rent />Rent</div>
-                                            <div className="block my-1"> <input type="checkbox" id="PG" className="mr-2" />PG</div>
-                                            <div className="block my-1"> <input type="checkbox" id="Hostel" className="mr-2" />Hostel</div>
-                                            <div className="block my-1"> <input type="checkbox" id="Buy" className="mr-2" />Buy</div>
+                                        <div className=" text-slate-600 text-[105%]"> Choose tag as per your buying needs</div>
+                                        <div className="  gap-6 lg:block" >
+                                            <div className="block my-1 "><input type="radio" id="Rent" name='tag' className="mr-2" onChange={()=>filtertags('all',!x1)} />all</div>
+                                            <div className="block my-1"> <input type="radio" id="PG" name='tag' className="mr-2" onChange={()=>filtertags('other-stationary',!x)}/>other-stationary</div>
+                                            <div className="block my-1"> <input type="radio" id="PG" name='tag' className="mr-2" onChange={()=>filtertags('sports',!x2)}/>sports</div>
+                                            <div className="block my-1"> <input type="radio" id="Hostel" name='tag' className="mr-2" onChange={()=>filtertags('stationary',!x3)}/>stationary</div>
+                                            <div className="block my-1"> <input type="radio" id="Buy" name='tag' className="mr-2" onChange={()=>filtertags('electronics',!x4)}/>electronics</div>
                                         </div>
                                     </div>
-                                    <div className="x mx-3 mt-3 text-slate-600 text-[105%]">Max Price: ₹30,000</div>
+                                    {/* <div className="x mx-3 mt-3 text-slate-600 text-[105%]">Max Price: ₹30,000</div>
                                     <ReactSlider
                                         className="customSlider relative max-w-xs mx-3 |   "
                                         thumbClassName=" customSlider-thumb cursor-pointer w-5 h-5 bg-white border-yellow-400 border-2 rounded-full outline-none  hover: shadow-sm"
@@ -82,7 +101,7 @@ const Listing = () => {
                                             <button className="p-2 rounded-sm bg-slate-100 border-0 text-slate-600 mr-2 mb-2 hover:bg-slate-200 text-sm">5th & above</button>
                                             <button className="p-2 rounded-sm bg-slate-100 border-0 text-slate-600 mr-2 mb-2 hover:bg-slate-200 text-sm">Custom</button>
                                         </div>
-                                    </div>
+                                    </div> */}
                                 </div>
                             </Accordion.Content>
                         </Accordion.Panel>
@@ -161,37 +180,25 @@ const Listing = () => {
 
                 <div className=" before:hidden items-center justify-items-center grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 gap-2 md:gap-3 lg:gap-3 p-[1%] w-[100%] md:w-[90%] lg:w-[75%] sm:mx-0 md:mx-auto lg:mx-auto">
 
-                    {/* <div className=" bg-white shadow-grey-500 bg-opacity-40 rounded-md p-[1%] transition-ease-in-out duration-500 border border-slate-200 hover:shadow-2xl hover:shadow-gray-300 m-auto mb-3">
-                        <a href="https://www.sanfransentinel.com/renstly-1.html">
-                            <img className=' rounded-tl-3xl rounded-br-3xl' src="https://source.unsplash.com/280x300/?sports" alt="" />
-                            <div className="my-[2%]">
-                                <div className="rounded-md bg-purple-500 text-white  inline py-[1px] px-2">Sports</div>
-                                <div className="font-bold text-[140%] ">Tennis Racket</div>
-                            </div>
-                            <div className="font-bold text-[140%] mb-[1%] ml-[5%]">₹6,000</div>
-                            <div className=" flex gap-[1%] text-gray-600 ">
-                                <div className="flex"> <img className="object-contain w-8 m-1" src={image1} alt="" /> <div className="self-center">2 Years old</div></div>
-                                <div className="flex"> <img className="object-contain w-8 m-1" src=" " alt="" /> <div className="self-center">Approved</div></div>
-                            </div>
-                        </a>
-                    </div> */}
+                {Data.map((dataa, key) => {
+        return (
                     
                     <div className=" bg-white shadow-grey-500 bg-opacity-40 rounded-md p-[1%] transition-ease-in-out duration-500 border border-slate-200 hover:shadow-2xl hover:shadow-gray-300 m-auto mb-3">
                         <a href="https://www.sanfransentinel.com/renstly-1.html">
-                            <img className=' rounded-tl-3xl rounded-br-3xl' src="https://source.unsplash.com/280x300/?Sports" alt="" />
+                            <img className=' rounded-tl-3xl rounded-br-3xl object-cover w-[280px] h-[300px]' src={dataa.list[0].item_immage} alt="" />
                             <div className="my-[2%]">
-                            <div className="rounded-md bg-purple-500 text-white  inline py-[1px] px-2">Sports</div>
-                                <div className="font-bold text-[140%]">Tennis Racket</div>
+                            <div className="rounded-md bg-purple-500 text-white  inline py-[1px] px-2">{dataa.list[0].item_tag}</div>
+                                <div className="font-bold text-[140%]">{dataa.list[0].item_name}</div>
                             </div>
-                            <div className="font-bold text-[140%] mb-[1%] ml-[5%]">₹6,000</div>
+                            <div className="font-bold text-[140%] mb-[1%] ml-[5%]">₹{dataa.list[0].item_price}</div>
                             <div className=" flex gap-[1%] text-gray-600 ">
-                                <div className="flex"> <img className="object-contain w-8 m-1" src={image1} alt="" /> <div className="self-center">2 Years</div></div>
+                                <div className="flex"> <img className="object-contain w-8 m-1" src={image1} alt="" /> <div className="self-center">{dataa.list[0].item_age} Years</div></div>
                                 <div className="flex"> <img className="object-contain w-8 m-1" src=" " alt="" /> <div className="self-center">Approved</div></div>
                             </div>
                         </a>
                     </div>
-
-                    <div className=" bg-white shadow-grey-500 bg-opacity-40 rounded-md p-[1%] transition-ease-in-out duration-500 border border-slate-200 hover:shadow-2xl hover:shadow-gray-300 m-auto mb-3">
+        );})}
+                    {/* <div className=" bg-white shadow-grey-500 bg-opacity-40 rounded-md p-[1%] transition-ease-in-out duration-500 border border-slate-200 hover:shadow-2xl hover:shadow-gray-300 m-auto mb-3">
                         <a href="https://www.sanfransentinel.com/renstly-1.html">
                             <img className=' rounded-tl-3xl rounded-br-3xl' src="https://source.unsplash.com/280x300/?television" alt="" />
                             <div className="my-[2%]">
@@ -264,7 +271,7 @@ const Listing = () => {
                                 <div className="flex"> <img className="object-contain w-8 m-1" src=" " alt="" /> <div className="self-center">Approved</div></div>
                             </div>
                         </a>
-                    </div>
+                    </div> */}
                 </div>
 
                 {/* <div className=" pt-3  stock-container grid grid-cols-3 gap-3 w-4/5 object-center pl-10 pb-3 ">
