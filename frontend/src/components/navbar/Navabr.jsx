@@ -15,13 +15,8 @@ const Navabr = () => {
       <Navbar fluid={true} rounded={false}>
         <div className=" sm:absolute">
           <Navbar.Brand href="https://flowbite.com/">
-            <img
-              src="https://flowbite.com/docs/images/logo.svg"
-              className="mr-0 h-6 sm:h-9"
-              alt="Flowbite Logo"
-            />
             <span className="self-center whitespace-nowrap text-xl font-semibold dark:text-white">
-              Flowbite
+              College Bazzar
             </span>
           </Navbar.Brand>
         </div>
