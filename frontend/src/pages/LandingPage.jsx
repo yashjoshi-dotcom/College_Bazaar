@@ -3,6 +3,10 @@ import Section1_Img from "../assets/SVG/coffee.svg";
 import Section2_Img from "../assets/SVG/order_done.svg";
 import Section3_Img from "../assets/SVG/wishlist.svg";
 // import Road from "../assets/SVG/Paths.svg";
+import circle_1 from "../assets/img/Circle_Img_1.png";
+import circle_2 from "../assets/img/Circle_Img_2.png";
+import circle_3 from "../assets/img/Circle_Img_3.png";
+import circle_4 from "../assets/img/Circle_Img_4.png";
 
 const LandingPage = () => {
   return (
@@ -62,7 +66,7 @@ const LandingPage = () => {
               <div className="">
                 <img
                   className=" rounded-full sm:invisible"
-                  src="https://source.unsplash.com/300x300/?logo"
+                  src={circle_1}
                   alt=""
                 />
               </div>
@@ -85,7 +89,7 @@ const LandingPage = () => {
               <div className="">
                 <img
                   className=" rounded-full sm:invisible"
-                  src="https://source.unsplash.com/300x300/?logo"
+                  src={circle_2}
                   alt=""
                 />
               </div>
@@ -108,7 +112,7 @@ const LandingPage = () => {
               <div className="">
                 <img
                   className=" rounded-full sm:invisible"
-                  src="https://source.unsplash.com/300x300/?logo"
+                  src={circle_3}
                   alt=""
                 />
               </div>
@@ -131,7 +135,7 @@ const LandingPage = () => {
               <div className="">
                 <img
                   className=" rounded-full sm:invisible"
-                  src="https://source.unsplash.com/300x300/?logo"
+                  src={circle_4}
                   alt=""
                 />
               </div>
