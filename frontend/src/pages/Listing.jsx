@@ -1,11 +1,14 @@
 import React from 'react'
 import ReactSlider from "react-slider";
 import 'flowbite';
+import TextField from "@mui/material/TextField";
 import { Accordion } from 'flowbite-react';
 import { useState } from "react";
+import { useEffect } from 'react';
 import data from "../components/message.json"
 const image1 = require("../assets/img/icons8-age-100.png");
 const image2 = require("../assets/img/icons8-rating-100.png");
+const image5 = require("../assets/img/search.ico");
 
 const Listing = () => {
 
@@ -14,7 +17,7 @@ let x1=0,x2=0,x3=0,x4=0,x=0;
     const [currentValue, setCurrentValue] = useState(0);
     
     
-        const [Data, setData] = useState(data);
+        var [Data, setData] = useState(data);
         const filtertags=(val,b)=>{
             const res=data.filter((currentValue)=>{
                 if(val!='all')
@@ -25,10 +28,60 @@ let x1=0,x2=0,x3=0,x4=0,x=0;
             setData(res);
         }
     
+        // const [error, setError] = useState(null);
+        // const [isLoaded, setIsLoaded] = useState(false);
+        // const [items, setItems] = useState([]);
 
+        //     set search query to empty string
+        const [q, setQ] = useState("");
+        //     set search parameters
+        //     we only what to search countries by capital and name
+        //     this list can be longer if you want
+        //     you can search countries even by their population
+        // just add it to this array
+        // const [searchParam] = useState(["capital", "name"]);
+
+        // useEffect(() => {
+        //     // our fetch codes
+        // }, []);
+
+        // return Data.filter((item) => {
+        //     return searchParam.some((newItem) => {
+        //         return (
+        //             item[newItem]
+        //                 .toString()
+        //                 .toLowerCase()
+        //                 .indexOf(q.toLowerCase()) > -1
+        //         );
+        //     });
+        // });
+
+        
+
+         Data=data.filter((el)=>{
+            if (q === "") {
+                return el;
+            }
+            //return the item which contains the user input
+            else {
+                return el.list[0].item_name.toLowerCase().includes(q)
+            }
+        });
+        // setData(res);
 
     return (
         <>
+        <div class="">
+      <div className="  flex justify-center  bg-[url('https://source.unsplash.com/1600x400/?home')] bg-cover  ">
+        <div className="flex justify-center w-4/5">
+          <input type="text" className="my-36 w-9/12  sm:h-20 rounded-l-xl px-4 outline-none " placeholder='Search flats here...'  value={q}
+                                
+                                onChange={(e)  => setQ(e.target.value)} />
+          <button className=' my-36 sm:h-20 w-20 rounded-l-none rounded-r-xl  px-4 bg-sky-600  border-0 hover:bg-sky-700'><img className=' object-contain py-2 w-10' src={image5} alt="" /></button>
+        </div>
+      </div>
+    </div>
+
             <div className="flex flex-col lg:flex-row bg-bg">
                 {/* <div className=" bg-transparent lg:w-[95%]"> */}
                 <div className="w-[] lg:w-[340px] bg-white mb-3 mt-3  mr-10 lg:mr-0 lg:ml-3 rounded-sm  block lg:sticky top-3 shadow-md shadow-gray-600 h-fit m-auto">
