@@ -9,41 +9,41 @@ import { Dropdown } from "flowbite-react/lib/esm/components/Dropdown";
 import { Avatar } from "flowbite-react/lib/esm/components/Avatar";
 
 const Navabr = () => {
-  // const [isMenuOpen, SetMenu] = useState(false);
-  const [userdata,setUserData] =useState();
-const CallAboutPage= async()=>
-{
-  console.log("Call about")
-      try{
-      console.log("tried");
-      const res=await fetch('/profilec',{
-          method:"GET",
-          headers:{
-              Accept:"application/json",
-              "Content-Type":"application/json"
-          },
-          credentials:"include"
-      });
-      const object= await res.json();
-  //    setUserData(object);
-      console.log(object);
-      setUserData(object);
-      console.log(userdata);
-      if(!res.status===200)
-      {
-          const error= new Error (res.error);
-          alert('There seems to be some issue with your credentials. We are working on it.');
-          throw error;
-      }
-  }
-  catch(err){
-      console.log(err);
-      console.log("caught error");
-     }
-};
-  useEffect(()=>{
-      CallAboutPage();
-  },[])
+//   // const [isMenuOpen, SetMenu] = useState(false);
+//   const [userdata,setUserData] =useState();
+// const CallAboutPage= async()=>
+// {
+//   console.log("Call about")
+//       try{
+//       console.log("tried");
+//       const res=await fetch('/profilec',{
+//           method:"GET",
+//           headers:{
+//               Accept:"application/json",
+//               "Content-Type":"application/json"
+//           },
+//           credentials:"include"
+//       });
+//       const object= await res.json();
+//   //    setUserData(object);
+//       console.log(object);
+//       setUserData(object);
+//       console.log(userdata);
+//       if(!res.status===200)
+//       {
+//           const error= new Error (res.error);
+//           alert('There seems to be some issue with your credentials. We are working on it.');
+//           throw error;
+//       }
+//   }
+//   catch(err){
+//       console.log(err);
+//       console.log("caught error");
+//      }
+// };
+//   useEffect(()=>{
+//       CallAboutPage();
+//   },[])
 
   return (
     <div className="dark ">
@@ -68,14 +68,14 @@ const CallAboutPage= async()=>
             }
           >
             <Dropdown.Header>
-              <span className="block text-sm"> {userdata.name} </span>
+              <span className="block text-sm"> name </span>
               <span className="block truncate text-sm font-medium">
-              {userdata.email_id}
+              hello@dtu.ac.in
               </span>
             </Dropdown.Header>
             <Dropdown.Item>Dashboard</Dropdown.Item>
             <Dropdown.Divider />
-            <Dropdown.Item onClick={ ()=> {alert("Thanks for visiting us. Hope to See you soon")}}>Sign out</Dropdown.Item>
+            <Dropdown.Item>Sign out</Dropdown.Item>
           </Dropdown>
           <Navbar.Toggle />
         </div>
