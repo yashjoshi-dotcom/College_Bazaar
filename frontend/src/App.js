@@ -13,6 +13,7 @@ import Testimonials from "./pages/testimonials";
 import Aboutus from "./pages/aboutus";
 import KnowMore from "./pages/knowMore";
 import Signin from "./components/SignIn/Signin";
+import Chat from "./components/Chat/ChatApp";
 
 const App = () => {
   return (
@@ -28,6 +29,7 @@ const App = () => {
         <Route path="/knowmore" element={<KnowMore />} />
         <Route path="/form" element={<Form />} />
         <Route path="/Signin" element={<Signin />} />
+        <Route path="/Chat" element={<Chat />} />
       </Routes>
       <Footer />
     </>
