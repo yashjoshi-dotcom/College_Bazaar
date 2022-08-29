@@ -184,7 +184,7 @@ let x1=0,x2=0,x3=0,x4=0,x=0;
         return (
                     
                     <div className=" bg-white shadow-grey-500 bg-opacity-40 rounded-md p-[1%] transition-ease-in-out duration-500 border border-slate-200 hover:shadow-2xl hover:shadow-gray-300 m-auto mb-3">
-                        <a href="https://www.sanfransentinel.com/renstly-1.html">
+                        <a href="/knowmore" a="data">
                             <img className=' rounded-tl-3xl rounded-br-3xl object-cover w-[280px] h-[300px]' src={dataa.list[0].item_immage} alt="" />
                             <div className="my-[2%]">
                             <div className="rounded-md bg-yellow-400 text-white  inline py-[1px] px-2 ml-[1%]">{dataa.list[0].item_tag}</div>

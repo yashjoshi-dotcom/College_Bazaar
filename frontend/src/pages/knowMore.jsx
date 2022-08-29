@@ -3,7 +3,10 @@ import React, { useState } from "react";
 import { red } from "tailwindcss/colors";
 import Chat from "../components/Chat/ChatApp";
 
-const KnowMore = () => {
+function KnowMore  (props)  {
+
+  console.log(props.a);
+
   const [col, setCol] = useState("white");
 
   const updateColor = () => {
