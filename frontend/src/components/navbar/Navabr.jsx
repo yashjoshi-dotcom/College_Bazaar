@@ -14,7 +14,7 @@ const Navabr = () => {
     <div className="dark ">
       <Navbar fluid={true} rounded={false}>
         <div className=" sm:absolute">
-          <Navbar.Brand href="https://flowbite.com/">
+          <Navbar.Brand href="/">
             <span className="self-center whitespace-nowrap text-xl font-semibold dark:text-white">
               College Bazzar
             </span>
