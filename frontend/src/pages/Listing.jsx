@@ -191,7 +191,7 @@ let x1=0,x2=0,x3=0,x4=0,x=0;
                                 <div className="font-bold text-[140%] ml-[5%]">{dataa.list[0].item_name}</div>
                             </div>
                             <div className="font-bold text-[140%] mb-[1%] ml-[5%]">₹{dataa.list[0].item_price}</div>
-                            <div className=" flex justify-between gap-[1%] text-gray-600 ">
+                            <div className=" flex justify-between gap-[1%] text-gray-100 ">
                                 <div className="flex"> <img className="object-contain w-8 m-1" src={image1} alt="" /> <div className="self-center">{dataa.list[0].item_age} Years</div></div>
                                 <div className="flex"> <img className="object-contain w-8 m-1" src=" " alt="" /> <div className="self-center">Approved</div></div>
                             </div>
