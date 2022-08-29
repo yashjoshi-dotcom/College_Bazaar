@@ -5,7 +5,7 @@ import { Accordion } from 'flowbite-react';
 import { useState } from "react";
 import data from "../components/message.json"
 const image1 = require("../assets/img/icons8-age-100.png");
-// const image2 = require("../assets/img/bg.webp");
+const image2 = require("../assets/img/icons8-rating-100.png");
 
 const Listing = () => {
 
@@ -187,13 +187,13 @@ let x1=0,x2=0,x3=0,x4=0,x=0;
                         <a href="https://www.sanfransentinel.com/renstly-1.html">
                             <img className=' rounded-tl-3xl rounded-br-3xl object-cover w-[280px] h-[300px]' src={dataa.list[0].item_immage} alt="" />
                             <div className="my-[2%]">
-                            <div className="rounded-md bg-purple-500 text-white  inline py-[1px] px-2">{dataa.list[0].item_tag}</div>
-                                <div className="font-bold text-[140%] ml-[5%]">{dataa.list[0].item_name}</div>
+                            <div className="rounded-md bg-yellow-400 text-white  inline py-[1px] px-2 ml-[1%]">{dataa.list[0].item_tag}</div>
+                                <div className="font-bold text-[140%] ml-[5%] text-gray-900">{dataa.list[0].item_name}</div>
                             </div>
-                            <div className="font-bold text-[140%] mb-[1%] ml-[5%]">₹{dataa.list[0].item_price}</div>
+                            <div className="font-bold text-[120%] mb-[1%] ml-[5%]">₹{dataa.list[0].item_price}</div>
                             <div className=" flex justify-between gap-[1%] text-gray-100 ">
                                 <div className="flex"> <img className="object-contain w-8 m-1" src={image1} alt="" /> <div className="self-center">{dataa.list[0].item_age} Years</div></div>
-                                <div className="flex"> <img className="object-contain w-8 m-1" src=" " alt="" /> <div className="self-center">Approved</div></div>
+                                <div className="flex"> <img className="object-contain w-8 m-1" src={image2} alt="" /> <div className="self-center">Approved</div></div>
                             </div>
                         </a>
                     </div>
