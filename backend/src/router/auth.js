@@ -139,6 +139,10 @@ router.get('/search/:id',async (req,res)=>{
  router.patch('/add_data/:id',async (req,res)=>{
     try
     {
+        console.log("<<<>>>>");
+        console.log(req.body);
+        console.log("<<<>>>>");
+
         const file =req.files.item_image;
         const image_data= await cloudinary.uploader.upload(file.tempFilePath,(err,result)=>{
         })
@@ -172,7 +176,7 @@ router.get('/search/:id',async (req,res)=>{
         
     }
     catch(err){
-        res.status(500).send(err);
+        res.status(550).send(err);
         console.log(err);
     }
  });
