@@ -15,25 +15,27 @@ const Listing = () => {
 let x1=0,x2=0,x3=0,x4=0,x=0;
 
     const [currentValue, setCurrentValue] = useState(0);
-    
+    // const [q, setQ] = useState("");
     
         var [Data, setData] = useState(data);
-        const filtertags=(val,b)=>{
-            const res=data.filter((currentValue)=>{
-                if(val!='all')
-                return currentValue.list[0].item_tag===val;
-                else
-                return currentValue;
-            });
-            setData(res);
-        }
+        // const filtertags=(val,b)=>{
+        //      const res=data.filter((currentValue)=>{
+                
+        //         if(val==='all')
+        //         return currentValue;
+        //         else
+        //         return currentValue.list[0].item_tag===val;
+                
+        //     });
+        //     setData(res);
+        // }
     
         // const [error, setError] = useState(null);
         // const [isLoaded, setIsLoaded] = useState(false);
         // const [items, setItems] = useState([]);
 
         //     set search query to empty string
-        const [q, setQ] = useState("");
+        
         //     set search parameters
         //     we only what to search countries by capital and name
         //     this list can be longer if you want
@@ -58,25 +60,42 @@ let x1=0,x2=0,x3=0,x4=0,x=0;
 
         
 
-         Data=data.filter((el)=>{
-            if (q === "") {
+        const searchtags=(e)=>{
+            // setQ(e.target.value);
+            console.log(e.target.value)
+        const ress=data.filter((el)=>{
+            
+            if (e.target.value ==='') {
                 return el;
             }
             //return the item which contains the user input
             else {
-                return el.list[0].item_name.toLowerCase().includes(q)
+                return el.list[0].item_name.toLowerCase().includes(e.target.value)
             }
         });
-        // setData(res);
+        setData(ress);}
 
+        const filtertags=(val,b)=>{
+            const res=data.filter((currentValue)=>{
+               
+               if(val==='')
+               return currentValue;
+               else
+               return currentValue.list[0].item_tag===val;
+               
+           });
+           setData(res);
+       }
+
+        // (e)  => setQ(e.target.value)
     return (
         <>
         <div class="">
       <div className="  flex justify-center  bg-[url('https://source.unsplash.com/1600x400/?home')] bg-cover  ">
         <div className="flex justify-center w-4/5">
-          <input type="text" className="my-36 w-9/12  sm:h-20 rounded-l-xl px-4 outline-none " placeholder='Search flats here...'  value={q}
+          <input type="text" className="my-36 w-9/12  sm:h-20 rounded-l-xl px-4 outline-none " placeholder='Search flats here...' 
                                 
-                                onChange={(e)  => setQ(e.target.value)} />
+                                onChange={(e)=>searchtags(e)} />
           <button className=' my-36 sm:h-20 w-20 rounded-l-none rounded-r-xl  px-4 bg-sky-600  border-0 hover:bg-sky-700'><img className=' object-contain py-2 w-10' src={image5} alt="" /></button>
         </div>
       </div>
@@ -97,7 +116,7 @@ let x1=0,x2=0,x3=0,x4=0,x=0;
                                     <div className="ml-3">
                                         <div className=" text-slate-600 text-[105%]"> Choose tag as per your buying needs</div>
                                         <div className="  gap-6 lg:block" >
-                                            <div className="block my-1 "><input type="radio" id="Rent" name='tag' className="mr-2" onChange={()=>filtertags('all',!x1)} />all</div>
+                                            <div className="block my-1 "><input type="radio" id="Rent" name='tag' className="mr-2" onChange={()=>filtertags('',!x1)} />all</div>
                                             <div className="block my-1"> <input type="radio" id="PG" name='tag' className="mr-2" onChange={()=>filtertags('other-stationary',!x)}/>other-stationary</div>
                                             <div className="block my-1"> <input type="radio" id="PG" name='tag' className="mr-2" onChange={()=>filtertags('sports',!x2)}/>sports</div>
                                             <div className="block my-1"> <input type="radio" id="Hostel" name='tag' className="mr-2" onChange={()=>filtertags('stationary',!x3)}/>stationary</div>
