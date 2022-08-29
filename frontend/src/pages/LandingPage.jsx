@@ -46,12 +46,12 @@ const LandingPage = () => {
 
       <div className="flex">
         {/* <div className="w-[50%] bg-slate-200"></div> */}
-        <div className=" bg-circle bg-no-repeat w-[100vw]">
-          <div className="w-[100vw] p-[2%] bg-transparent sm:bg-road bg-no-repeat bg-center bg-auto">
+        <div className=" lg:bg-circle bg-no-repeat w-[100%]">
+          <div className="w-[100%] p-[2rem] bg-transparent md:bg-road bg-no-repeat bg-center bg-auto">
             <div className=" text-center font-bold text-[150%]">Roadmap</div>
-            <div className="mt-[6rem] ">
-              <div className="flex my-3 sm:mr-[55%] md:mr-[50%] lg:mr-[44%] mt-[5rem]">
-                <div className=" self-center mr-[5%] text-right sm:ml-[18%]">
+            <div className=" mt-0 lg:mt-[5rem] ">
+              <div className="flex my-3 md:mr-[58%] lg:mr-[48%] mt-3 md:mt-[5rem]">
+                <div className=" self-center mr-[5%] text-right md:ml-[18%]">
                   <div className="text-green-400 font-bold text-[120%]">
                     STEP 01
                   </div>
@@ -66,15 +66,15 @@ const LandingPage = () => {
                 </div>
                 <div className="">
                   <img
-                    className=" rounded-full sm:invisible"
+                    className=" rounded-full md:invisible"
                     src={circle_1}
                     alt=""
                   />
                 </div>
               </div>
 
-              <div className="flex flex-row-reverse mb-2 sm:pt-16 lg:pt-0 sm:ml-[55%] md:ml-[50%] lg:ml-[44%] ">
-                <div className="sm:pb-0 my-3 ml-[5%] sm:mr-[18%] self-center">
+              <div className="flex flex-row-reverse mb-2 md:pt-16 lg:pt-0   md:ml-[58%] lg:ml-[48%] ">
+                <div className="md:pb-0 my-3 ml-[5%] md:mr-[18%] self-center">
                   <div className="text-blue-400 font-bold text-[120%]">
                     STEP 02
                   </div>
@@ -89,15 +89,15 @@ const LandingPage = () => {
                 </div>
                 <div className="">
                   <img
-                    className=" rounded-full sm:invisible"
+                    className=" rounded-full md:invisible"
                     src={circle_2}
                     alt=""
                   />
                 </div>
               </div>
 
-              <div className="flex mb-2 sm:mr-[55%] md:mr-[50%] lg:mr-[44%]">
-                <div className="sm:pb-0 my-3 mr-[5%] text-right sm:ml-[18%] self-center">
+              <div className="flex mb-2 md:mr-[58%] mt- lg:mr-[48%]">
+                <div className="md:pb-0 my-3 mr-[5%] text-right md:ml-[18%] self-center">
                   <div className="text-purple-400 font-bold text-[120%]">
                     STEP 03
                   </div>
@@ -112,15 +112,15 @@ const LandingPage = () => {
                 </div>
                 <div className="">
                   <img
-                    className=" rounded-full sm:invisible"
+                    className=" rounded-full md:invisible"
                     src={circle_3}
                     alt=""
                   />
                 </div>
               </div>
 
-              <div className="flex flex-row-reverse mb-2 sm:ml-[55%] md:ml-[50%] lg:ml-[44%]">
-                <div className=" sm:pt-[2rem]  sm:pb-[9rem] my-3 ml-[5%] sm:mr-[18%]">
+              <div className="flex flex-row-reverse mb-2  md:ml-[58%] lg:ml-[48%]">
+                <div className=" md:pt-[2rem]  md:pb-[9rem] my-3 ml-[5%] md:mr-[18%]">
                   <div className="text-fuchsia-400 font-bold text-[120%]">
                     STEP 04
                   </div>
@@ -135,7 +135,7 @@ const LandingPage = () => {
                 </div>
                 <div className="">
                   <img
-                    className=" rounded-full sm:invisible"
+                    className=" rounded-full md:invisible"
                     src={circle_4}
                     alt=""
                   />
