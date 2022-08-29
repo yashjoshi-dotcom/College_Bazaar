@@ -32,11 +32,16 @@ function Footer() {
         <p className="text-white text-l mb-0">Weekly Newsletter</p>
         <div className="h-10 flex flex-row md:w-full md:px-0 sm:px-20 items-center ">
           <input
-            className="w-2/3 h-full bg-input_bg p-4 border-2 border-highlight border-r-0 rounded rounded-br-none rounded-tr-none "
+            className="text-black w-2/3 h-full bg-input_bg p-4 border-2 border-highlight border-r-0 rounded rounded-br-none rounded-tr-none "
             type="text"
             placeholder="Name@Email.Com"
           ></input>
-          <button className="flex items-center justify-center w-1/3 h-full bg-highlight border-2 bg-blue-700 border-highlight rounded rounded-bl-none rounded-tl-non text-white hover:bg-blue-800">
+          <button
+            onClick={() => {
+              alert("Subscribed");
+            }}
+            className="flex items-center justify-center w-1/3 h-full bg-highlight border-2 bg-blue-700 border-highlight rounded rounded-bl-none rounded-tl-non text-white hover:bg-blue-800"
+          >
             Subscribe
           </button>
         </div>

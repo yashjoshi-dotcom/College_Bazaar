@@ -1,4 +1,5 @@
 /** @type {import('tailwindcss').Config} */
+
 module.exports = {
   content: [
     "./src/**/*.{js,jsx,ts,tsx}",
@@ -7,7 +8,15 @@ module.exports = {
   ],
   darkMode: "class",
   theme: {
-    extend: {},
+    extend: {
+      backgroundImage: {
+        road: "url('./assets/SVG/Paths.svg')",
+        backLg: "url('./assets/SVG/Backgr.svg')",
+        // backMd: "url('./assets/SVG/Backgr.svg')",
+        backSm_1: "url('./assets/SVG/Backgr-1.svg')",
+        backSm_2: "url('./assets/SVG/Backgr-2.svg')",
+      },
+    },
   },
   plugins: [require("flowbite/plugin")],
 };

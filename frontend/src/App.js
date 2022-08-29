@@ -11,7 +11,8 @@ import Home from "./pages/Home";
 import Form from "./pages/upload_form";
 import Testimonials from "./pages/testimonials";
 import Aboutus from "./pages/aboutus";
-import KnowMore from "./pages/knowMore"
+import KnowMore from "./pages/knowMore";
+import Signin from "./components/SignIn/Signin";
 
 const App = () => {
   return (
@@ -20,12 +21,13 @@ const App = () => {
       <Routes>
         <Route path="/" element={<LandingPage />} />
         <Route path="/Home" element={<Home />} />
-        <Route path="/admin" element={<Admin />} />
+        <Route path="/Admin" element={<Admin />} />
         <Route path="/aboutus" element={<Aboutus />} />
         <Route path="/testimonials" element={<Testimonials />} />
         <Route path="/contact" element={<Contact />} />
         <Route path="/knowmore" element={<KnowMore />} />
         <Route path="/form" element={<Form />} />
+        <Route path="/Signin" element={<Signin />} />
       </Routes>
       <Footer />
     </>

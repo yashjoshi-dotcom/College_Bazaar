@@ -86,7 +86,7 @@
   width: 100%;
 }
 
-button {
+.butt {
   border-radius: 20px;
   border: 1px solid #008ecf;
   background: #0e0446;
@@ -99,15 +99,15 @@ button {
   transition: transform 80ms ease-in;
 }
 
-button:active {
+.butt:active {
   transform: scale(0.95);
 }
 
-button:focus {
+.butt:focus {
   outline: none;
 }
 
-button.ghost {
+.butt.ghost {
   background: transparent;
   border-color: #fff;
 }
