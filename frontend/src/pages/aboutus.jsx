@@ -7,7 +7,7 @@ const Aboutus = () => {
          <div>
       {/* Section - 1 */}
       <div className="w-full h-[40rem] mb-[10rem]">
-        <div className="h-[10rem] pt-16 text-center w-[50rem] mx-auto text-3xl">
+        <div className="h-[10rem] pt-16 text-center  mx-auto text-3xl">
           <h1>We Design Build and ship world class digital products</h1>
         </div>
         <div>
@@ -67,8 +67,8 @@ const Aboutus = () => {
       {/* Section - 2 */}
       <div className="w-full h-full">
         {/* Cards - 1 */}
-        <div className="flex flex-row ">
-          <div className=" w-[25%] h-[30rem] ml-[7%] mr-[5%] m-[auto] k rotate-3">
+        <div className="flex flex-col sm:flex-row ">
+          <div className=" w-[100%] sm:w-[25%] h-[30rem] ml-[7%] mr-[5%] m-[auto] k rotate-3">
             <div class="max-w-sm rounded overflow-hidden shadow-lg">
               <img
                 class="w-full bg-green-200"
@@ -96,7 +96,7 @@ const Aboutus = () => {
               </div>
             </div>
           </div>
-          <div className=" w-[50%] h-[30rem] mr-[7%] m-[auto]">
+          <div className=" w-[100%] sm:w-[50%] h-[30rem] mr-[7%] m-[auto]">
             <h2 className="text-4xl text-center pt-[15%] font-bold">
               Unique Name
             </h2>
@@ -109,8 +109,8 @@ const Aboutus = () => {
           </div>
         </div>
         {/* Cards - 2 */}
-        <div className="flex flex-row ">
-          <div className=" w-[50%] h-[30rem] mr-[7%] m-[auto]">
+        <div className="flex flex-col-reverse sm:flex-row ">
+          <div className=" w-[100%] sm:w-[50%] h-[30rem] mr-[7%] m-[auto]">
             <h2 className="text-4xl text-center pt-[15%] font-bold">
               Unique Name
             </h2>
@@ -121,7 +121,7 @@ const Aboutus = () => {
               assumenda deleniti sunt dolorem?
             </p>
           </div>
-          <div className=" w-[25%] h-[30rem] ml-[7%] mr-[5%] m-[auto] k rotate-[-3deg]">
+          <div className=" w-[100%] sm:w-[25%] h-[30rem] ml-[7%] mr-[5%] m-[auto] k rotate-[-3deg]">
             <div class="max-w-sm rounded overflow-hidden shadow-lg">
               <img
                 class="w-full bg-green-200"
@@ -151,8 +151,8 @@ const Aboutus = () => {
           </div>
         </div>
         {/* Cards - 3 */}
-        <div className="flex flex-row ">
-          <div className=" w-[25%] h-[30rem] ml-[7%] mr-[5%] m-[auto] k rotate-3">
+        <div className="flex flex-col sm:flex-row ">
+          <div className=" w-[100%] sm:w-[25%] h-[30rem] ml-[7%] mr-[5%] m-[auto] k rotate-3">
             <div class="max-w-sm rounded overflow-hidden shadow-lg">
               <img
                 class="w-full bg-green-200"
@@ -180,7 +180,7 @@ const Aboutus = () => {
               </div>
             </div>
           </div>
-          <div className=" w-[50%] h-[30rem] mr-[7%] m-[auto]">
+          <div className=" w-[100%] sm:w-[50%] h-[30rem] mr-[7%] m-[auto]">
             <h2 className="text-4xl text-center pt-[15%] font-bold">
               Unique Name
             </h2>
@@ -193,8 +193,8 @@ const Aboutus = () => {
           </div>
         </div>
         {/* Cards - 4 */}
-        <div className="flex flex-row ">
-          <div className=" w-[50%] h-[30rem] mr-[7%] m-[auto]">
+        <div className="flex flex-col-reverse sm:flex-row ">
+          <div className=" w-[100%] sm:w-[50%] h-[30rem] mr-[7%] m-[auto]">
             <h2 className="text-4xl text-center pt-[15%] font-bold">
               Unique Name
             </h2>
@@ -205,7 +205,7 @@ const Aboutus = () => {
               assumenda deleniti sunt dolorem?
             </p>
           </div>
-          <div className=" w-[25%] h-[30rem] ml-[7%] mr-[5%] m-[auto] k rotate-[-3deg]">
+          <div className=" w-[100%] sm:w-[25%] h-[30rem] ml-[7%] mr-[5%] m-[auto] k rotate-[-3deg]">
             <div class="max-w-sm rounded overflow-hidden shadow-lg">
               <img
                 class="w-full bg-green-200"
