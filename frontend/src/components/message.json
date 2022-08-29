@@ -1,0 +1,240 @@
+[
+    {
+        "blacklisted": false,
+        "admin": false,
+        "wishlist": [],
+        "_id": "6309e4b155856ae75acf79aa",
+        "name": "test2",
+        "email_id": "t2e212@gmail.com",
+        "college_name": "Delhi Technological University",
+        "password": "$2a$12$7XvLzyyvuPpy5WZizsGmhO1aNVu04DieLZdbVct1dINtvn8B.Z7Aa",
+        "c_password": "$2a$12$yxAE/S/qXqfFiCub.6Dp5.FNbvdCnYd7.hA7E0Tzu6qv6aILoQJMK",
+        "tokens": [],
+        "__v": 0,
+        "list": [
+            {
+                "item_name": "PC",
+                "item_price": 980000,
+                "item_age": 3,
+                "item_condition": 2,
+                "item_immage": "https://source.unsplash.com/280x300/?television",
+                "item_tag": "other-stationary",
+                "item_description": "very good PC",
+                "_id": "630adb5519e02f7455ed3ea2"
+            }
+        ]
+    },
+    {
+        "wishlist": [],
+        "_id": "630a23d29546ff865e27c3d6",
+        "name": "test3",
+        "email_id": "t2e21e2@gmail.com",
+        "college_name": "Delhi Technological University",
+        "password": "$2a$12$y3cHwCLPIcVoVMDcEMAnhe8u955ae.nIYW6A5vgL3Z/16V/nnwL1i",
+        "c_password": "$2a$12$zjaiTTWDtsHEn5kt24fcKO6vjtUAMprvfrktdsIclbe7l0dTlqUi2",
+        "blacklisted": false,
+        "admin": false,
+        "tokens": [],
+        "list": [
+            {
+                "item_name": "PC2",
+                "item_price": 980000,
+                "item_age": 3,
+                "item_condition": 2,
+                "item_immage": "http://res.cloudinary.com/dpwgsbwoi/image/upload/v1661655892/mfi3prqavluvhqy6jwb9.jpg",
+                "item_tag": "stationary",
+                "item_description": "very good PC",
+                "_id": "630adb5519e02f7455ed3ea2"
+            }
+        ],
+        "__v": 0
+    },
+    {
+        "wishlist": [],
+        "_id": "630a2990103bd0515554548f",
+        "name": "test3",
+        "email_id": "t2e21e2@dtu.ac.in",
+        "college_name": "Delhi Technological University",
+        "password": "$2a$12$2YeMoaMt/i8hEXO3XP0q9eRCILXkgcYEwm9RYxykI3KpW9dxTcZuy",
+        "c_password": "$2a$12$isMlks.RYOutppn65tUSFuuwm8/Z9agwliY5Uk/QEmVcJOvf39llu",
+        "blacklisted": false,
+        "admin": false,
+        "tokens": [],
+        "list": [
+            {
+                "item_name": "PC3",
+                "item_price": 980000,
+                "item_age": 3,
+                "item_condition": 2,
+                "item_immage": "http://res.cloudinary.com/dpwgsbwoi/image/upload/v1661655892/mfi3prqavluvhqy6jwb9.jpg",
+                "item_tag": "sports",
+                "item_description": "very good PC",
+                "_id": "630adb5519e02f7455ed3ea2"
+            }
+        ],
+        "__v": 0
+    },
+    {
+        "wishlist": [],
+        "_id": "630a528ad220164a13c9c193",
+        "name": "yash",
+        "email_id": "yash@dtu.ac.in",
+        "college_name": "Delhi Technological University",
+        "password": "$2a$12$HTtD.X1Qd9a5EjtM3A/D5.GUmHldkvRHJELPqq0ELyTiUA.3rY6hK",
+        "c_password": "$2a$12$pMjaGiGux02KfSDdjt35m.d3IUUE5YIhipN/ui5DNXRd74ptASBOa",
+        "blacklisted": false,
+        "admin": false,
+        "tokens": [
+            {
+                "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MzBhNTI4YWQyMjAxNjRhMTNjOWMxOTMiLCJpYXQiOjE2NjE2MjA5OTl9.xgpZPspsZM_yFB1A7DR7uG_NbADQqHIM1ssZpZj-8d0",
+                "_id": "630a5307d220164a13c9c196"
+            },
+            {
+                "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MzBhNTI4YWQyMjAxNjRhMTNjOWMxOTMiLCJpYXQiOjE2NjE2MjEwMjV9.EEkevei61denN_P_Zixs9rwVyTLezpXt9bn9wRqS2Go",
+                "_id": "630a5321d220164a13c9c19a"
+            }
+        ],
+        "list": [
+            {
+                "item_name": "PC",
+                "item_price": 980000,
+                "item_age": 3,
+                "item_condition": 2,
+                "item_immage": "http://res.cloudinary.com/dpwgsbwoi/image/upload/v1661655892/mfi3prqavluvhqy6jwb9.jpg",
+                "item_tag": "other-stationary",
+                "item_description": "very good PC",
+                "_id": "630adb5519e02f7455ed3ea2"
+            }
+        ],
+        "__v": 2
+    },
+    {
+        "_id": "630abf610a2d0d96dc600c35",
+        "name": "Yash1",
+        "email_id": "Yash1@dtu.ac.in",
+        "college_name": "Delhi Technological University",
+        "password": "$2a$12$TOri2S4TQZte4bDLEp3TIezql66g778RRRKYGaPt2Tv6IRKyG6pRC",
+        "c_password": "$2a$12$OrzLtsVFnMafP5hhYuPVguoo5tGxyn.24jL/JjOqpHiPm.lmexrDS",
+        "blacklisted": false,
+        "admin": false,
+        "tokens": [
+            {
+                "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MzBhYmY2MTBhMmQwZDk2ZGM2MDBjMzUiLCJpYXQiOjE2NjE2NDg3NTZ9.r6t8m40CtrLglP1ga2pskgXx61VlFh7a0bTGSaqwN_M",
+                "_id": "630abf740a2d0d96dc600c38"
+            }
+        ],
+        "list": [
+            {
+                "item_name": "Laptop",
+                "item_price": 5000,
+                "item_age": 3,
+                "item_condition": 2,
+                "item_immage": "www.google.com",
+                "item_tag": "other-stationary",
+                "item_description": "This is a good laptop",
+                "item_status": "under_approval",
+                "_id": "630acc2c32949dc303a875bc"
+            },
+            {
+                "item_name": "Laptop1",
+                "item_price": 5000,
+                "item_age": 3,
+                "item_condition": 2,
+                "item_immage": "http://res.cloudinary.com/dpwgsbwoi/image/upload/v1661654893/bglgbn2491ykdqavljhn.jpg",
+                "item_tag": "other-stationary",
+                "item_description": "This is a good laptop",
+                "item_status": "under_approval",
+                "_id": "630ad76e2d6a80d088a70aae"
+            }
+        ],
+        "__v": 1,
+        "wishlist": [
+            "abba dabba chabba"
+        ]
+    },
+    {
+        "_id": "630adb4a19e02f7455ed3ea0",
+        "name": "fianl",
+        "email_id": "final@dtu.ac.in",
+        "college_name": "Delhi Technological University",
+        "password": "$2a$12$G.bEbeA67tJ.s5JWRuCZs.U7Jvzy3NWXFV79U8r8vdKl9W4FvPmoW",
+        "c_password": "$2a$12$mtXfH4rtI8pdVXiQTogi9.CbHzLhEoljyV1C1hhk9rFv7auBJ7qym",
+        "blacklisted": false,
+        "admin": false,
+        "wishlist": [],
+        "tokens": [],
+        "list": [
+            {
+                "item_name": "PC",
+                "item_price": 980000,
+                "item_age": 3,
+                "item_condition": 2,
+                "item_immage": "http://res.cloudinary.com/dpwgsbwoi/image/upload/v1661655892/mfi3prqavluvhqy6jwb9.jpg",
+                "item_tag": "other-stationary",
+                "item_description": "very good PC",
+                "_id": "630adb5519e02f7455ed3ea2"
+            }
+        ],
+        "__v": 0
+    },
+    {
+        "_id": "630b19ba78c7ee1fe43b6367",
+        "name": "final_test",
+        "email_id": "final_test@dtu.ac.in",
+        "college_name": "Delhi Technological University",
+        "password": "$2a$12$O6cCD8/kj7Z4sWSdpvFY9.N73OFWOd8vthtLNjc1/pgrxjWo3ttHu",
+        "c_password": "$2a$12$2bkNShewG6QThT7G3k5IIOL7h.TesMK1MGA6T4TeLBIMmf/UdvP4O",
+        "blacklisted": false,
+        "admin": false,
+        "wishlist": [],
+        "tokens": [
+            {
+                "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MzBiMTliYTc4YzdlZTFmZTQzYjYzNjciLCJpYXQiOjE2NjE2NzE4Nzh9.w_vuMk_SnZ06Wv8xKoEDfhN2IUTLm8-2VlUkHRYursg",
+                "_id": "630b19c678c7ee1fe43b636a"
+            }
+        ],
+        "list": [
+            {
+                "item_name": "PC",
+                "item_price": 980000,
+                "item_age": 3,
+                "item_condition": 2,
+                "item_immage": "http://res.cloudinary.com/dpwgsbwoi/image/upload/v1661655892/mfi3prqavluvhqy6jwb9.jpg",
+                "item_tag": "other-stationary",
+                "item_description": "very good PC",
+                "_id": "630adb5519e02f7455ed3ea2"
+            }
+        ],
+        "__v": 1
+    },
+    {
+        "_id": "630b1c658ce28494d0d4de75",
+        "name": "tanush",
+        "email_id": "tanush@dtu.ac.in",
+        "college_name": "Delhi Technological University",
+        "password": "$2a$12$Xnvr6MdB5V8fC3eH4QnWVu9wQ8B38qHSsZdnyEOulqcBVMUEQDGum",
+        "c_password": "$2a$12$KPsjRnK3awsHM0IbJ3cvduuBWDc6DzklaISvbqoZwEDCiCxeHEfii",
+        "blacklisted": false,
+        "admin": false,
+        "wishlist": [],
+        "tokens": [
+            {
+                "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MzBiMWM2NThjZTI4NDk0ZDBkNGRlNzUiLCJpYXQiOjE2NjE2NzI1ODl9.6s6unOTG4oM6krjCNQhavv077HWxouUZUBPvglROMRs",
+                "_id": "630b1c8d8ce28494d0d4de78"
+            }
+        ],
+        "list": [
+            {
+                "item_name": "PC",
+                "item_price": 980000,
+                "item_age": 3,
+                "item_condition": 2,
+                "item_immage": "http://res.cloudinary.com/dpwgsbwoi/image/upload/v1661655892/mfi3prqavluvhqy6jwb9.jpg",
+                "item_tag": "other-stationary",
+                "item_description": "very good PC",
+                "_id": "630adb5519e02f7455ed3ea2"
+            }
+        ],
+        "__v": 1
+    }
+]
