@@ -2,9 +2,11 @@ const jwt =require('jsonwebtoken');
 const User= require('../models/userSchema');
 require('dotenv').config({ path: 'config.env' });
 
-const Jwt_authenticate=async (req,res,next)=>{
+
+const Jwt_authenticate= async (req,res,next)=>{
     try
     {
+        console.log("<<<<<>>>>>");
         const token=req.cookies.jwtoken;
         const verifyToken=jwt.verify(token,process.env.JWT_KEY);
         const rootUser =await User.findOne({_id: verifyToken._id,"tokens.token":token})
@@ -18,7 +20,7 @@ const Jwt_authenticate=async (req,res,next)=>{
         next();
     }
     catch(err){
-        res.status(401).send('Unauthorised: NO token provided');
+        res.status(400).send('Unauthorised:_NO_token_provided');
         console.log(err);
 
     }

@@ -218,8 +218,7 @@ router.post('/signin',async (req,res)=>{
     }
 })
 //form page 
-router.get('/form',Jwt_authenticate,(req,res)=>{
-    console.log("hello world");
+router.get('/profilec',Jwt_authenticate,(req,res)=>{
     res.send(req.rootUser);
 })
 /* 
