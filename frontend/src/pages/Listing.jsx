@@ -11,9 +11,9 @@ const Listing = () => {
     const [currentValue, setCurrentValue] = useState(0);
     return (
         <>
-            <div className="flex flex-col lg:flex-row bg-gradient-to-r from-sky-500 to-indigo-500">
+            <div className="flex flex-col lg:flex-row bg-gradient-to-r from-sky-500 to-indigo-500 px-3">
                 {/* <div className=" bg-transparent lg:w-[95%]"> */}
-                <div className="w-[] lg:w-[340px] bg-white mb-3 mt-3 mr-10 lg:mr-0 lg:ml-3 rounded-sm  block lg:sticky top-3 shadow-md shadow-gray-600 h-fit m-auto">
+                <div className="w-[] lg:w-[340px] bg-white mb-3 mt-3  mr-10 lg:mr-0 lg:ml-3 rounded-sm  block lg:sticky top-3 shadow-md shadow-gray-600 h-fit m-auto">
                     <Accordion alwaysOpen={true}>
 
                         <Accordion.Panel >

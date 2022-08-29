@@ -13,7 +13,8 @@ import Testimonials from "./pages/testimonials";
 import Aboutus from "./pages/aboutus";
 import KnowMore from "./pages/knowMore";
 import Signin from "./components/SignIn/Signin";
-import Chat from "./components/Chat/ChatApp";
+import Profile from "./pages/profile";
+import Imggg from "./pages/img";
 
 const App = () => {
   return (
@@ -28,8 +29,9 @@ const App = () => {
         <Route path="/contact" element={<Contact />} />
         <Route path="/knowmore" element={<KnowMore />} />
         <Route path="/form" element={<Form />} />
+        <Route path="/img" element={<Imggg />} />
+        <Route path="/profile" element={<Profile />} />
         <Route path="/Signin" element={<Signin />} />
-        <Route path="/Chat" element={<Chat />} />
       </Routes>
       <Footer />
     </>

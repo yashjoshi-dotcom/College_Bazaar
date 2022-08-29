@@ -12,7 +12,7 @@ const Navabr = () => {
   // const [isMenuOpen, SetMenu] = useState(false);
   return (
     <div className="dark ">
-      <Navbar fluid={true} rounded={true}>
+      <Navbar fluid={true} rounded={false}>
         <div className=" sm:absolute">
           <Navbar.Brand href="https://flowbite.com/">
             <img
