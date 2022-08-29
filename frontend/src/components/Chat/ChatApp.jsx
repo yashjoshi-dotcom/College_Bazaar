@@ -7,7 +7,7 @@ const socket = io.connect("http://localhost:3001");
 
 function App() {
   const [username, setUsername] = useState("");
-  const [room, setRoom] = useState("");
+  const [room, setRoom] = useState(2);
   const [showChat, setShowChat] = useState(false);
 
   const joinRoom = () => {
@@ -24,19 +24,19 @@ function App() {
           <div className=" text-slate-600 text-[150%]">Contact With Owner</div>
           <input
             type="text"
-            placeholder="Type Your Name Here..."
+            placeholder="Type Your Alias Here...."
             onChange={(event) => {
               setUsername(event.target.value);
             }}
           />
-          <input
+          {/*<input
             type="text"
             placeholder="Room ID..."
             onChange={(event) => {
               setRoom(event.target.value);
             }}
-          />
-          <button onClick={joinRoom}>Join A Room</button>
+          /> */}
+          <button onClick={joinRoom}>Chat</button>
         </div>
       ) : (
         <Chat socket={socket} username={username} room={room} />

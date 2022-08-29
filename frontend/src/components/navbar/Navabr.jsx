@@ -14,7 +14,7 @@ const Navabr = () => {
     <div className="dark ">
       <Navbar fluid={true} rounded={false}>
         <div className=" sm:absolute">
-          <Navbar.Brand href="https://flowbite.com/">
+          <Navbar.Brand href="/">
             <span className="self-center whitespace-nowrap text-xl font-semibold dark:text-white">
               College Bazzar
             </span>
@@ -46,7 +46,7 @@ const Navabr = () => {
           </Dropdown>
           <Navbar.Toggle />
         </div>
-        <div className="md:m-auto">
+        {/* <div className="lg:m-auto"> */}
           <Navbar.Collapse>
             <NavLink
               to="/Home"
@@ -80,7 +80,7 @@ const Navabr = () => {
               Contact
             </NavLink>
           </Navbar.Collapse>
-        </div>
+        {/* </div> */}
       </Navbar>
     </div>
   );

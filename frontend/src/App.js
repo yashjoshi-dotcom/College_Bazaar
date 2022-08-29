@@ -11,7 +11,7 @@ import Home from "./pages/Home";
 import Form from "./pages/upload_form";
 import Testimonials from "./pages/testimonials";
 import Aboutus from "./pages/aboutus";
-import KnowMore from "./pages/knowMore";
+import KnowMore from "./pages/KnowMore";
 import Signin from "./components/SignIn/Signin";
 import Profile from "./pages/profile";
 import Imggg from "./pages/img";
