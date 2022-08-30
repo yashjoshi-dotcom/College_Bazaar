@@ -58,7 +58,7 @@ const Navabr = () => {
         <div className="flex md:order-2 ">
           
             <NavLink
-            to="/signin"
+            to="/profile"
             active={true}
             className=" text-lg text-neutral-400 hover:text-neutral-200"
           >
@@ -93,6 +93,12 @@ const Navabr = () => {
             className="text-lg text-neutral-400 hover:text-neutral-200"
           >
             Testimonials
+          </NavLink>
+          <NavLink
+            to="/signin"
+            className="text-lg text-neutral-400 hover:text-neutral-200"
+          >
+            Login
           </NavLink>
         </Navbar.Collapse>
         {/* </div> */}
