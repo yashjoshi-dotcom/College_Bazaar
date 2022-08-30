@@ -1,17 +1,18 @@
 import React from 'react'
-import ReactSlider from "react-slider";
 import 'flowbite';
-import TextField from "@mui/material/TextField";
 import { Accordion } from 'flowbite-react';
 import { useState } from "react";
-import { useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
+import { Route, Routes } from "react-router-dom";
 import data from "../components/message.json"
+import KnowMore from './KnowMore';
 const image1 = require("../assets/img/icons8-age-100.png");
 const image2 = require("../assets/img/icons8-rating-100.png");
 const image5 = require("../assets/img/search.ico");
 
-const Listing = () => {
 
+const Listing = () => {
+    const navigate = useNavigate();
 let x1=0,x2=0,x3=0,x4=0,x=0;
 
     const [currentValue, setCurrentValue] = useState(0);
@@ -256,7 +257,7 @@ let x1=0,x2=0,x3=0,x4=0,x=0;
         return (
                     
                     <div className=" bg-white shadow-grey-500 bg-opacity-40 rounded-md p-[1%] transition-ease-in-out duration-500 border border-slate-200 hover:shadow-2xl hover:shadow-gray-300 m-auto mb-3">
-                        <a href="/knowmore" a="data">
+                        <button className=' text-left' onClick={() => navigate("/knowmore")}>
                             <img className=' rounded-tl-3xl rounded-br-3xl object-cover w-[280px] h-[300px]' src={dataa.list[0].item_immage} alt="" />
                             <div className="my-[2%]">
                             <div className="rounded-md bg-yellow-400 text-white  inline py-[1px] px-2 ml-[1%]">{dataa.list[0].item_tag}</div>
@@ -265,9 +266,13 @@ let x1=0,x2=0,x3=0,x4=0,x=0;
                             <div className="font-bold text-[120%] mb-[1%] ml-[5%]">₹{dataa.list[0].item_price}</div>
                             <div className=" flex justify-between gap-[1%] text-gray-100 ">
                                 <div className="flex"> <img className="object-contain w-8 m-1" src={image1} alt="" /> <div className="self-center">{dataa.list[0].item_age} Years</div></div>
-                                <div className="flex"> <img className="object-contain w-8 m-1" src={image2} alt="" /> <div className="self-center">Approved</div></div>
+                                <div className="flex"> <img className="object-contain w-8 m-1" src={image2} alt="" /> <div className="self-center">{dataa.list[0].item_condition} Star Condition</div></div>
                             </div>
-                        </a>
+                        </button>
+                        <Routes>
+          <Route path="/knowmore" element={<KnowMore a={dataa.list[0]._id}/>} />
+          
+        </Routes>
                     </div>
         );})}
                     {/* <div className=" bg-white shadow-grey-500 bg-opacity-40 rounded-md p-[1%] transition-ease-in-out duration-500 border border-slate-200 hover:shadow-2xl hover:shadow-gray-300 m-auto mb-3">
