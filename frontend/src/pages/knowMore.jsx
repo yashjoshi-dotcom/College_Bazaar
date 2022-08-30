@@ -12,8 +12,7 @@ function KnowMore() {
   const location = useLocation();
   console.log(location.state.item_id);
   const [Data, setData] = useState(data);
- const a=["","bad","average","good","very good","excellent"];
-  
+  const a = ["", "bad", "average", "good", "very good", "excellent"];
 
   const filtertags = () => {
     const res = data.filter((currentValue) => {
@@ -23,9 +22,9 @@ function KnowMore() {
     console.log(Data[0].list[0].item_name);
   };
 
-  useEffect(()=>{
+  useEffect(() => {
     filtertags();
-},[])
+  }, []);
 
   const [col, setCol] = useState("white");
   const updateColor = () => {
@@ -41,9 +40,7 @@ function KnowMore() {
   // console.log(this.props);
   return (
     <div className="relative">
-      <div className="">
-        
-      </div>
+      <div className=""></div>
       <ToastContainer />
       <section class="text-gray-700 body-font overflow-hidden bg-white">
         <div class="container px-5 py-24 mx-auto ">
@@ -117,7 +114,9 @@ function KnowMore() {
                   >
                     <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"></path>
                   </svg>
-                  <span class="text-gray-600 ml-3">{Data[0].list[0].item_condition} Condition</span>
+                  <span class="text-gray-600 ml-3">
+                    {Data[0].list[0].item_condition} Condition
+                  </span>
                 </span>
                 <span class="flex ml-3 pl-3 py-2 border-l-2 border-gray-200">
                   <a class="text-gray-500">
@@ -159,7 +158,7 @@ function KnowMore() {
                 </span>
               </div>
               <p class="leading-relaxed pb-5 mb-5">
-              {Data[0].list[0].item_description}
+                {Data[0].list[0].item_description}
               </p>
               {/* <div class="flex mt-6 items-center pb-5 border-b-2 border-gray-200 mb-5">
                 <div class="flex">
@@ -195,7 +194,7 @@ function KnowMore() {
               </div> */}
               <div class="flex border-b-2 border-gray-200 pb-5">
                 <span class="title-font font-medium text-2xl text-gray-900">
-                ₹{Data[0].list[0].item_price}
+                  ₹{Data[0].list[0].item_price}
                 </span>
                 <button class="flex ml-auto text-white bg-red-500 border-0 py-2 px-6 focus:outline-none hover:bg-red-600 rounded">
                   Report
@@ -221,15 +220,17 @@ function KnowMore() {
                 <div className=" text-xl font-semibold">Features</div>
                 <div className="mt-[2%]">
                   <ul className="list-disc list-outside px-[5%]">
-                    <li>The condition of this product is {a[Data[0].list[0].item_condition]}.</li>
+                    <li>
+                      The condition of this product is{" "}
+                      {a[Data[0].list[0].item_condition]}.
+                    </li>
                     <li>The product is {Data[0].list[0].item_age} Years Old</li>
-                    
                   </ul>
                 </div>
               </div>
               <div>
-          <Chat />
-        </div>
+                <Chat />
+              </div>
             </div>
           </div>
         </div>
