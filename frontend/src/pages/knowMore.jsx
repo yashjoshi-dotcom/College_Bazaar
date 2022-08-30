@@ -3,6 +3,8 @@ import React, { useState } from "react";
 import { useNavigate, useLocation } from "react-router-dom";
 import { red } from "tailwindcss/colors";
 import Chat from "../components/Chat/ChatApp";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 function KnowMore() {
   const location = useLocation();
@@ -10,6 +12,10 @@ function KnowMore() {
 
   const [col, setCol] = useState("white");
   const updateColor = () => {
+    let mess = "";
+    if (col === "red") mess = "Removed From Wishlist";
+    else mess = "Added To Wishlist";
+    toast(mess);
     setCol(() => {
       if (col === "red") return "white";
       else return "red";
@@ -23,7 +29,7 @@ function KnowMore() {
           <Chat />
         </div>
       </div>
-
+      <ToastContainer />
       <section class="text-gray-700 body-font overflow-hidden bg-white">
         <div class="container px-5 py-24 mx-auto ">
           <div class="lg:w-4/5 mx-auto flex flex-wrap">

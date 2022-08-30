@@ -4,15 +4,20 @@ import FooterItem from "./FooterItem";
 import Instagram from "../../SVG/Instagram";
 import Facebook from "../../SVG/Facebook";
 import Twitter from "../../SVG/Twitter";
-
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 function Footer() {
+  const noti = () => {
+    toast("Subscribed Successfuly");
+  };
   return (
     <div className="bg-gray-900 items-center h-full w-full bg-footerbgcolor md:flex-row flex   justify-evenly flex-col-reverse">
       <FooterSection extraClass="mt-12 hidden md:block">
         <FooterItem name="Privacy Policy" />
         <FooterItem name="Terms & Conditions" />
-        <FooterItem name="About" link="/About" />
+        <FooterItem name="About" link="/Aboutus" />
       </FooterSection>
+      <ToastContainer />
 
       <FooterSection extraClass="flex md:flex-col justify-between before:invisible">
         <FooterHeading heading="College-Bazaar" />
@@ -37,9 +42,7 @@ function Footer() {
             placeholder="Name@Email.Com"
           ></input>
           <button
-            onClick={() => {
-              alert("Subscribed");
-            }}
+            onClick={noti}
             className="flex items-center justify-center w-1/3 h-full bg-highlight border-2 bg-blue-700 border-highlight rounded rounded-bl-none rounded-tl-non text-white hover:bg-blue-800"
           >
             Subscribe
