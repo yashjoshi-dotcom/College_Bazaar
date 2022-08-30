@@ -26,15 +26,38 @@ const Listing = () => {
   const [error, setError] = useState(null);
 
   //TODO:
-  const fetchData = () => {
-    fetch("/db")
-      .then((response) => {
-        return response.json();
-      })
-      .then((x) => {
-        setData(x);
-        console.log(x);
+  const [isFetching, setIsFetching] = useState(true);
+
+  const fetchData = async () => {
+    setIsFetching(true);
+    console.log("Call about");
+    try {
+      console.log("tried");
+      const res = await fetch("/db", {
+        method: "GET",
+        headers: {
+          Accept: "application/json",
+          "Content-Type": "application/json",
+        },
       });
+
+      const object = await res.json();
+      console.log(object);
+      setData(object);
+      console.log(Data);
+      setIsFetching(false);
+      if (!res.status === 201) {
+        const error = new Error(res.error);
+        alert(
+          "There seems to be some issue with your credentials. We are working on it."
+        );
+        throw error;
+      }
+    } catch (err) {
+      console.log(err);
+      console.log("caught error");
+      setIsFetching(false);
+    }
   };
 
   // const filtertags=(val,b)=>{
@@ -320,7 +343,6 @@ const Listing = () => {
                 </div> */}
 
         <div className=" before:hidden items-center justify-items-center grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 gap-2 md:gap-3 lg:gap-3 p-[1%] w-[100%] md:w-[90%] lg:w-[75%] sm:mx-0 md:mx-auto lg:mx-auto">
-          
           {Data.map((dataa, key) => {
             return (
               <div className=" bg-white shadow-grey-500 bg-opacity-40 rounded-md p-[1%] transition-ease-in-out duration-500 border border-slate-200 hover:shadow-2xl hover:shadow-gray-300 m-auto mb-3">

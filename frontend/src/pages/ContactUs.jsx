@@ -12,7 +12,7 @@ const ContactUs = () => {
           <div className="mb-5 flex items-center max-w-md">
             <h2 className="text-slate-900 dark:text-gray-200 text-3xl font-bold">
               {" "}
-              Contact Me
+              Contact Us
             </h2>
           </div>
           <div className="flex flex-col lg:flex-row lg:items-center text-slate-900 dark:text-gray-200 lg:justify-between -mx-4">
@@ -23,11 +23,14 @@ const ContactUs = () => {
             >
               <div className="max-w-[570px] mb-12 lg:mb-0">
                 <p className=" text-4xl font-extrabold text-body-color leading-relaxed stand__out__text mb-9 mx-5">
-                  Lorem ipsum dolor. Nulla porttitor accumsan tincidunt.
+                  For all enquiries, please email us using the given form
                 </p>
                 <p className="text-2xl font-medium text-body-color leading-relaxed mb-9 mx-5">
-                  Based in <span className="font-bold italic">America</span>,
-                  available worldwide.
+                  Based in{" "}
+                  <span className="font-bold italic">
+                    Delhi Technologial University
+                  </span>
+                  , available for campus Students.
                 </p>
               </div>
             </div>

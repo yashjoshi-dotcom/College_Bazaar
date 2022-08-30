@@ -14,11 +14,13 @@ const LandingPage = () => {
       <div className=" flex flex-col-reverse bg-backSm_2 h-fit lg:h-[20rem] xl:h-[27rem] md:bg-backSm_1 lg:bg-backLg bg-no-repeat bg-slate-300  sm:flex-row  pb-[5%] sm:pb-0">
         <div className="px-[5%] md:h-[70vh] sm:mb-0 sm:p-[2%] sm:pl-[5%] sm:pr-[2%] w-[100vw]  sm:h-[50vh] mt-3 sm:mt-0 text-center ">
           <div className=" text-[170%] sm:text-[250%] md:text-[300%] font-bold mb-[2px] text-green-600 md:mt-[1rem] h-[2rem] sm:h-[5rem]">
-            Lorem ipsum dolor sit amet
+            All Your College Needs At One Place
           </div>
-          <div className="text-blue-900 mb-[2rem]">Lorem ipsum dolor sit.</div>
+          <div className="text-blue-900 mb-[2rem]">
+            Connect with your mates to get items at cheaper price
+          </div>
           <button className=" rounded-md bg-blue-500 p-[1%] hover:bg-blue-600">
-            Lets Get Started
+            Get Started For Free
           </button>
         </div>
         <div className="sm:flex flex-row w-[100%] sm:w-[0%] object-cover hidden">
@@ -56,13 +58,12 @@ const LandingPage = () => {
                     STEP 01
                   </div>
                   <div className="text-semibold text-[120%]">
-                    Lorem, ipsum dolor.
+                    Find Your Spare Items
                   </div>
-                  <div className=" text-xs text-slate-500">
-                    Lorem ipsum dolor sit amet consectetur, adipisicing elit.
-                    Nobis voluptate ipsam maiores cupiditate, culpa ipsum quasi
-                    amet odit doloribus commodi.
-                  </div>
+                  <div className=" text-xs text-slate-500"></div>
+                  Passing out from college and want to get rid of your items
+                  like bicycle,stationary etc.Have some spare stationary and
+                  books.
                 </div>
                 <div className="">
                   <img
@@ -79,12 +80,11 @@ const LandingPage = () => {
                     STEP 02
                   </div>
                   <div className="text-semibold text-[120%]">
-                    Lorem, ipsum dolor.
+                    Post On The Site Hassle Free.
                   </div>
                   <div className=" text-xs text-slate-500">
-                    Lorem ipsum dolor sit amet consectetur, adipisicing elit.
-                    Nobis voluptate ipsam maiores cupiditate, culpa ipsum quasi
-                    amet odit doloribus commodi.
+                    Collect all the basic details of the item that you want to
+                    sell and fill in the same on the webpage.
                   </div>
                 </div>
                 <div className="">
@@ -102,12 +102,13 @@ const LandingPage = () => {
                     STEP 03
                   </div>
                   <div className="text-semibold text-[120%]">
-                    Lorem, ipsum dolor.
+                    Chat With the Buyer with full Privacy
                   </div>
                   <div className=" text-xs text-slate-500">
-                    Lorem ipsum dolor sit amet consectetur, adipisicing elit.
-                    Nobis voluptate ipsam maiores cupiditate, culpa ipsum quasi
-                    amet odit doloribus commodi.
+                    Clear all the doubts by directly chattting with the buyer.
+                    All this without worrying about giving away any personal
+                    number as we have our chat feature built into the web app
+                    itself.
                   </div>
                 </div>
                 <div className="">
@@ -125,12 +126,12 @@ const LandingPage = () => {
                     STEP 04
                   </div>
                   <div className="text-semibold text-[120%]">
-                    Lorem, ipsum dolor.
+                    Get the best price for your item.
                   </div>
                   <div className=" text-xs text-slate-500">
-                    Lorem ipsum dolor sit amet consectetur, adipisicing elit.
-                    Nobis voluptate ipsam maiores cupiditate, culpa ipsum quasi
-                    amet odit doloribus commodi.
+                    Show off your negotation skills and finalise the best deal
+                    avialable to you. Do all this Stress Free as we allow only
+                    your college mates to join this site.
                   </div>
                 </div>
                 <div className="">
