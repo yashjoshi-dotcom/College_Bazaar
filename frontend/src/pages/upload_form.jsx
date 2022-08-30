@@ -63,6 +63,11 @@ import Typography from "@mui/material/Typography";
 
   };
   const postData = async (e) => {
+    
+    setData({ ...data, [item_tag]: cat });
+    setData({ ...data, [item_condition]: rat });
+    setData({ ...data, [item_image]: url });
+
 
     const {
       item_condition,
@@ -73,9 +78,6 @@ import Typography from "@mui/material/Typography";
       item_price,
       item_image
     } = data;
-    data.item_tag = cat;
-    data.item_condition = rat;
-    data.item_image=url;
     const res = await fetch("/add_data/tanush@dtu.ac.in", {
       method: "PATCH",
       headers: {
