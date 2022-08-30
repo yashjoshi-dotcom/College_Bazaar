@@ -7,9 +7,7 @@ import Select from "@mui/material/Select";
 import Rating from "@mui/material/Rating";
 import Typography from "@mui/material/Typography";
 
- const Form=()=>
-{
-
+const Form = () => {
   const [cat, setCat] = useState("");
   const handleChange = (event) => {
     setCat(event.target.value);
@@ -17,23 +15,24 @@ import Typography from "@mui/material/Typography";
 
   const [rat, setRat] = React.useState(1);
   //---------------------------
-  const [image, setImage ] = useState("");
-  const [ url, setUrl ] = useState("");
+  const [image, setImage] = useState("");
+  const [url, setUrl] = useState("");
 
-  const uploadImage = async  () => {
-  const datat = new FormData()
-  datat.append("file", image)
-  datat.append("upload_preset", "kllpiwre")
-  datat.append("cloud_name","dpwgsbwoi")
-  await fetch(" https://api.cloudinary.com/v1_1/dpwgsbwoi/image/upload",{
-  method:"post",
-  body: datat
-  })
-  .then(resp => resp.json())
-  .then(datat => {
-  setUrl(datat.url)
-  }).catch(err => console.log(err))
-}
+  const uploadImage = async () => {
+    const datat = new FormData();
+    datat.append("file", image);
+    datat.append("upload_preset", "kllpiwre");
+    datat.append("cloud_name", "dpwgsbwoi");
+    await fetch(" https://api.cloudinary.com/v1_1/dpwgsbwoi/image/upload", {
+      method: "post",
+      body: datat,
+    })
+      .then((resp) => resp.json())
+      .then((datat) => {
+        setUrl(datat.url);
+      })
+      .catch((err) => console.log(err));
+  };
 
   //===========================
 
@@ -42,28 +41,24 @@ import Typography from "@mui/material/Typography";
     item_name: "",
     item_age: "",
     item_price: "",
-    item_image:"",
-    item_condition:"",
-    item_tag:"",
-    });
+    item_image: "",
+    item_condition: "",
+    item_tag: "",
+  });
 
   let name, value;
   const handleInputs = (e) => {
-
     console.log(e);
     name = e.target.name;
     value = e.target.value;
     setData({ ...data, [name]: value });
   };
 
-  const final =  () => 
-  {
-     uploadImage();
-     postData();
-
+  const final = () => {
+    uploadImage();
+    postData();
   };
   const postData = async (e) => {
-    
     const {
       item_condition,
       item_tag,
@@ -71,9 +66,14 @@ import Typography from "@mui/material/Typography";
       item_name,
       item_age,
       item_price,
-      item_image
+      item_image,
     } = data;
-   setData({ ...data, [item_tag]: cat ,[item_condition]: rat,[item_image]: url });
+    setData({
+      ...data,
+      [item_tag]: cat,
+      [item_condition]: rat,
+      [item_image]: url,
+    });
     const res = await fetch("/add_data/tanush@dtu.ac.in", {
       method: "PATCH",
       headers: {
@@ -86,7 +86,7 @@ import Typography from "@mui/material/Typography";
         item_name,
         item_age,
         item_price,
-        item_image
+        item_image,
       }),
     });
 
@@ -122,7 +122,7 @@ import Typography from "@mui/material/Typography";
               id="text"
               className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
               placeholder="Hello"
-               onChange={handleInputs}
+              onChange={handleInputs}
               required
             />
           </div>
@@ -236,7 +236,7 @@ import Typography from "@mui/material/Typography";
               aria-describedby="user_avatar_help"
               id="user_avatar"
               type="file"
-              onChange={(e)=> setImage(e.target.files[0])}
+              onChange={(e) => setImage(e.target.files[0])}
             />
           </div>
           <div className="my-5 text-center">
@@ -252,7 +252,5 @@ import Typography from "@mui/material/Typography";
       </form>
     </div>
   );
-}
-export default Form
-
- 
+};
+export default Form;

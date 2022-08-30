@@ -229,7 +229,7 @@ function KnowMore() {
                 </div>
               </div>
               <div>
-                <Chat />
+                <Chat id={Data[0].list[0]._id} />
               </div>
             </div>
           </div>
