@@ -1,7 +1,9 @@
 import { color } from "@mui/system";
 import React, { useState } from "react";
 import { useNavigate, useLocation } from "react-router-dom";
+import { useEffect } from "react";
 import { red } from "tailwindcss/colors";
+import data from "../components/message.json";
 import Chat from "../components/Chat/ChatApp";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
@@ -9,6 +11,21 @@ import "react-toastify/dist/ReactToastify.css";
 function KnowMore() {
   const location = useLocation();
   console.log(location.state.item_id);
+  const [Data, setData] = useState(data);
+ const a=["","bad","average","good","very good","excellent"];
+  
+
+  const filtertags = () => {
+    const res = data.filter((currentValue) => {
+      return currentValue.list[0]._id === location.state.item_id;
+    });
+    setData(res);
+    console.log(Data[0].list[0].item_name);
+  };
+
+  useEffect(()=>{
+    filtertags();
+},[])
 
   const [col, setCol] = useState("white");
   const updateColor = () => {
@@ -24,10 +41,8 @@ function KnowMore() {
   // console.log(this.props);
   return (
     <div className="relative">
-      <div className="absolute right-3 bottom-0">
-        <div>
-          <Chat />
-        </div>
+      <div className="">
+        
       </div>
       <ToastContainer />
       <section class="text-gray-700 body-font overflow-hidden bg-white">
@@ -36,14 +51,14 @@ function KnowMore() {
             <img
               alt="ecommerce"
               class="lg:w-1/2 w-full object-cover object-center rounded border border-gray-200"
-              src="https://www.whitmorerarebooks.com/pictures/medium/2465.jpg"
+              src={Data[0].list[0].item_immage}
             />
             <div class="lg:w-1/2 w-full lg:pl-10 lg:py-6 mt-6 lg:mt-0">
               <h2 class="text-sm title-font text-gray-500 tracking-widest">
-                BRAND NAME
+                {Data[0].name}
               </h2>
               <h1 class="text-gray-900 text-3xl title-font font-medium mb-1">
-                The Catcher in the Rye
+                {Data[0].list[0].item_name}
               </h1>
               <div class="flex mb-4">
                 <span class="flex items-center">
@@ -102,7 +117,7 @@ function KnowMore() {
                   >
                     <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"></path>
                   </svg>
-                  <span class="text-gray-600 ml-3">4 Reviews</span>
+                  <span class="text-gray-600 ml-3">{Data[0].list[0].item_condition} Condition</span>
                 </span>
                 <span class="flex ml-3 pl-3 py-2 border-l-2 border-gray-200">
                   <a class="text-gray-500">
@@ -143,15 +158,10 @@ function KnowMore() {
                   </a>
                 </span>
               </div>
-              <p class="leading-relaxed">
-                Fam locavore kickstarter distillery. Mixtape chillwave tumeric
-                sriracha taximy chia microdosing tilde DIY. XOXO fam indxgo
-                juiceramps cornhole raw denim forage brooklyn. Everyday carry +1
-                seitan poutine tumeric. Gastropub blue bottle austin listicle
-                pour-over, neutra jean shorts keytar banjo tattooed umami
-                cardigan.
+              <p class="leading-relaxed pb-5 mb-5">
+              {Data[0].list[0].item_description}
               </p>
-              <div class="flex mt-6 items-center pb-5 border-b-2 border-gray-200 mb-5">
+              {/* <div class="flex mt-6 items-center pb-5 border-b-2 border-gray-200 mb-5">
                 <div class="flex">
                   <span class="mr-3">Color</span>
                   <button class="border-2 border-gray-300 rounded-full w-6 h-6 focus:outline-none"></button>
@@ -182,13 +192,13 @@ function KnowMore() {
                     </span>
                   </div>
                 </div>
-              </div>
+              </div> */}
               <div class="flex border-b-2 border-gray-200 pb-5">
                 <span class="title-font font-medium text-2xl text-gray-900">
-                  $58.00
+                ₹{Data[0].list[0].item_price}
                 </span>
                 <button class="flex ml-auto text-white bg-red-500 border-0 py-2 px-6 focus:outline-none hover:bg-red-600 rounded">
-                  Button
+                  Report
                 </button>
                 <button
                   class="rounded-full w-10 h-10 bg-gray-200 p-0 border-0 inline-flex items-center justify-center text-gray-500 ml-4"
@@ -207,18 +217,19 @@ function KnowMore() {
                   </svg>
                 </button>
               </div>
-              <div className="my-5">
+              <div className="my-5 border-b-2 border-gray-200 pb-5">
                 <div className=" text-xl font-semibold">Features</div>
                 <div className="mt-[2%]">
                   <ul className="list-disc list-outside px-[5%]">
-                    <li>Lorem ipsum dolor sit amet.</li>
-                    <li>Lorem ipsum dolor sit amet.</li>
-                    <li>Lorem ipsum dolor sit amet.</li>
-                    <li>Lorem ipsum dolor sit amet.</li>
-                    <li>Lorem ipsum dolor sit amet.</li>
+                    <li>The condition of this product is {a[Data[0].list[0].item_condition]}.</li>
+                    <li>The product is {Data[0].list[0].item_age} Years Old</li>
+                    
                   </ul>
                 </div>
               </div>
+              <div>
+          <Chat />
+        </div>
             </div>
           </div>
         </div>
