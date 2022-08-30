@@ -5,7 +5,6 @@ import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { Route, Routes } from "react-router-dom";
 import data from "../components/message.json";
-import axios from "axios";
 import KnowMore from "./KnowMore";
 const image1 = require("../assets/img/icons8-age-100.png");
 const image2 = require("../assets/img/icons8-rating-100.png");
@@ -22,7 +21,7 @@ const Listing = () => {
   const [currentValue, setCurrentValue] = useState(0);
   // const [q, setQ] = useState("");
 
-  const [Data, setData] = useState(null);
+  const [Data, setData] = useState(data);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
@@ -101,9 +100,9 @@ const Listing = () => {
     setData(res);
   };
 
-  useEffect(() => {
-    fetchData();
-  }, []);
+  // useEffect(() => {
+  //   fetchData();
+  // }, []);
 
   // (e)  => setQ(e.target.value)
   return (
@@ -322,12 +321,16 @@ const Listing = () => {
 
         <div className=" before:hidden items-center justify-items-center grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 gap-2 md:gap-3 lg:gap-3 p-[1%] w-[100%] md:w-[90%] lg:w-[75%] sm:mx-0 md:mx-auto lg:mx-auto">
           //TODO:
-          {/* {Data.map((dataa, key) => {
+          {Data.map((dataa, key) => {
             return (
               <div className=" bg-white shadow-grey-500 bg-opacity-40 rounded-md p-[1%] transition-ease-in-out duration-500 border border-slate-200 hover:shadow-2xl hover:shadow-gray-300 m-auto mb-3">
                 <button
                   className=" text-left"
-                  onClick={() => navigate("/knowmore")}
+                  onClick={() => {
+                    navigate("/knowmore", {
+                      state: { item_id: dataa.list[0]._id },
+                    });
+                  }}
                 >
                   <img
                     className=" rounded-tl-3xl rounded-br-3xl object-cover w-[280px] h-[300px]"
@@ -378,7 +381,7 @@ const Listing = () => {
                 </Routes>
               </div>
             );
-          })} */}
+          })}
           {/* <div className=" bg-white shadow-grey-500 bg-opacity-40 rounded-md p-[1%] transition-ease-in-out duration-500 border border-slate-200 hover:shadow-2xl hover:shadow-gray-300 m-auto mb-3">
                         <a href="https://www.sanfransentinel.com/renstly-1.html">
                             <img className=' rounded-tl-3xl rounded-br-3xl' src="https://source.unsplash.com/280x300/?television" alt="" />
