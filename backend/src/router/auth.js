@@ -56,8 +56,8 @@ res.send(e);
  });
 
  //Get the whole data from the database 
- router.get('/db',async (req,res)=>{
-
+ router.get('/db',async (req,res)=>
+ {
     try
     {
         const user =await User.find({});
