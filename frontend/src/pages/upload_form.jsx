@@ -20,7 +20,7 @@ import Typography from "@mui/material/Typography";
   const [image, setImage ] = useState("");
   const [ url, setUrl ] = useState("");
 
-  const uploadImage = async () => {
+  const uploadImage = async  () => {
   const datat = new FormData()
   datat.append("file", image)
   datat.append("upload_preset", "kllpiwre")
@@ -58,17 +58,12 @@ import Typography from "@mui/material/Typography";
 
   const final =  () => 
   {
-    uploadImage();
-    postData();
+     uploadImage();
+     postData();
 
   };
   const postData = async (e) => {
     
-    setData({ ...data, [item_tag]: cat });
-    setData({ ...data, [item_condition]: rat });
-    setData({ ...data, [item_image]: url });
-
-
     const {
       item_condition,
       item_tag,
@@ -78,6 +73,7 @@ import Typography from "@mui/material/Typography";
       item_price,
       item_image
     } = data;
+   setData({ ...data, [item_tag]: cat ,[item_condition]: rat,[item_image]: url });
     const res = await fetch("/add_data/tanush@dtu.ac.in", {
       method: "PATCH",
       headers: {

@@ -55,10 +55,9 @@ res.send(e);
     }
  });
 
-/* //Get the whole data from the database 
- router.get('/register',async (req,res)=>{
+ //Get the whole data from the database 
+ router.get('/db',async (req,res)=>{
 
-    const{name,email_id,college_name,password,c_password}=req.body;
     try
     {
         const user =await User.find({});
@@ -70,7 +69,7 @@ res.send(e);
     }
  });
 
-
+/*
  
 //Get the data of an indiviual
 router.get('/register/:id',async (req,res)=>{
@@ -86,7 +85,6 @@ router.get('/register/:id',async (req,res)=>{
         console.log(err);
     }
  });
- */
 //---->>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
  //Get the data of an indiviual search object
 router.get('/search/:id',async (req,res)=>{
@@ -105,6 +103,7 @@ router.get('/search/:id',async (req,res)=>{
         console.log(err);
     }
  });
+ */
 
  //Will handle patch request for an indiviual
  router.patch('/register/:id',async (req,res)=>{
