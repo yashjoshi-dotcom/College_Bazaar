@@ -21,43 +21,20 @@ const Listing = () => {
   const [currentValue, setCurrentValue] = useState(0);
   // const [q, setQ] = useState("");
 
-  const [Data, setData] = useState(null);
+  const [Data, setData] = useState(data);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
   //TODO:
-  const [isFetching, setIsFetching] = useState(true);
-
-  const fetchData = async () => {
-    setIsFetching(true);
-    console.log("Call about");
-    try {
-      console.log("tried");
-      const res = await fetch("/db", {
-        method: "GET",
-        headers: {
-          Accept: "application/json",
-          "Content-Type": "application/json",
-        },
+  const fetchData = () => {
+    fetch("/db")
+      .then((response) => {
+        return response.json();
+      })
+      .then((x) => {
+        setData(x);
+        console.log(x);
       });
-
-      const object = await res.json();
-      console.log(object);
-      setData(object);
-      console.log(Data);
-      setIsFetching(false);
-      if (!res.status === 201) {
-        const error = new Error(res.error);
-        alert(
-          "There seems to be some issue with your credentials. We are working on it."
-        );
-        throw error;
-      }
-    } catch (err) {
-      console.log(err);
-      console.log("caught error");
-      setIsFetching(false);
-    }
   };
 
   // const filtertags=(val,b)=>{
