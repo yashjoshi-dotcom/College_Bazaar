@@ -1,130 +1,199 @@
-import React from 'react'
-import 'flowbite';
-import { Accordion } from 'flowbite-react';
-import { useState } from "react";
-import { useNavigate } from 'react-router-dom';
+import React from "react";
+import "flowbite";
+import { Accordion } from "flowbite-react";
+import { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import { Route, Routes } from "react-router-dom";
-import data from "../components/message.json"
-import KnowMore from './KnowMore';
+import data from "../components/message.json";
+import axios from "axios";
+import KnowMore from "./KnowMore";
 const image1 = require("../assets/img/icons8-age-100.png");
 const image2 = require("../assets/img/icons8-rating-100.png");
 const image5 = require("../assets/img/search.ico");
 
-
 const Listing = () => {
-    const navigate = useNavigate();
-let x1=0,x2=0,x3=0,x4=0,x=0;
+  const navigate = useNavigate();
+  let x1 = 0,
+    x2 = 0,
+    x3 = 0,
+    x4 = 0,
+    x = 0;
 
-    const [currentValue, setCurrentValue] = useState(0);
-    // const [q, setQ] = useState("");
-    
-        var [Data, setData] = useState(data);
-        // const filtertags=(val,b)=>{
-        //      const res=data.filter((currentValue)=>{
-                
-        //         if(val==='all')
-        //         return currentValue;
-        //         else
-        //         return currentValue.list[0].item_tag===val;
-                
-        //     });
-        //     setData(res);
-        // }
-    
-        // const [error, setError] = useState(null);
-        // const [isLoaded, setIsLoaded] = useState(false);
-        // const [items, setItems] = useState([]);
+  const [currentValue, setCurrentValue] = useState(0);
+  // const [q, setQ] = useState("");
 
-        //     set search query to empty string
-        
-        //     set search parameters
-        //     we only what to search countries by capital and name
-        //     this list can be longer if you want
-        //     you can search countries even by their population
-        // just add it to this array
-        // const [searchParam] = useState(["capital", "name"]);
+  const [Data, setData] = useState(null);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
 
-        // useEffect(() => {
-        //     // our fetch codes
-        // }, []);
+  //TODO:
+  const fetchData = () => {
+    fetch("localhost:4000/db")
+      .then((response) => {
+        return response.json();
+      })
+      .then((Data) => {
+        setData(Data);
+      });
+  };
 
-        // return Data.filter((item) => {
-        //     return searchParam.some((newItem) => {
-        //         return (
-        //             item[newItem]
-        //                 .toString()
-        //                 .toLowerCase()
-        //                 .indexOf(q.toLowerCase()) > -1
-        //         );
-        //     });
-        // });
+  // const filtertags=(val,b)=>{
+  //      const res=data.filter((currentValue)=>{
 
-        
+  //         if(val==='all')
+  //         return currentValue;
+  //         else
+  //         return currentValue.list[0].item_tag===val;
 
-        const searchtags=(e)=>{
-            // setQ(e.target.value);
-            console.log(e.target.value)
-        const ress=data.filter((el)=>{
-            
-            if (e.target.value ==='') {
-                return el;
-            }
-            //return the item which contains the user input
-            else {
-                return el.list[0].item_name.toLowerCase().includes(e.target.value)
-            }
-        });
-        setData(ress);}
+  //     });
+  //     setData(res);
+  // }
 
-        const filtertags=(val,b)=>{
-            const res=data.filter((currentValue)=>{
-               
-               if(val==='')
-               return currentValue;
-               else
-               return currentValue.list[0].item_tag===val;
-               
-           });
-           setData(res);
-       }
+  // const [error, setError] = useState(null);
+  // const [isLoaded, setIsLoaded] = useState(false);
+  // const [items, setItems] = useState([]);
 
-        // (e)  => setQ(e.target.value)
-    return (
-        <>
-        <div class="">
-      <div className="  flex justify-center  bg-[url('https://source.unsplash.com/1600x400/?home')] bg-cover  ">
-        <div className="flex justify-center w-4/5">
-          <input type="text" className="my-36 w-9/12  sm:h-20 rounded-l-xl px-4 outline-none " placeholder='Search flats here...' 
-                                
-                                onChange={(e)=>searchtags(e)} />
-          <button className=' my-36 sm:h-20 w-20 rounded-l-none rounded-r-xl  px-4 bg-sky-600  border-0 hover:bg-sky-700'><img className=' object-contain py-2 w-10' src={image5} alt="" /></button>
+  //     set search query to empty string
+
+  //     set search parameters
+  //     we only what to search countries by capital and name
+  //     this list can be longer if you want
+  //     you can search countries even by their population
+  // just add it to this array
+  // const [searchParam] = useState(["capital", "name"]);
+
+  // useEffect(() => {
+  //     // our fetch codes
+  // }, []);
+
+  // return Data.filter((item) => {
+  //     return searchParam.some((newItem) => {
+  //         return (
+  //             item[newItem]
+  //                 .toString()
+  //                 .toLowerCase()
+  //                 .indexOf(q.toLowerCase()) > -1
+  //         );
+  //     });
+  // });
+
+  const searchtags = (e) => {
+    // setQ(e.target.value);
+    console.log(e.target.value);
+    const ress = data.filter((el) => {
+      if (e.target.value === "") {
+        return el;
+      }
+      //return the item which contains the user input
+      else {
+        return el.list[0].item_name.toLowerCase().includes(e.target.value);
+      }
+    });
+    setData(ress);
+  };
+
+  const filtertags = (val, b) => {
+    const res = data.filter((currentValue) => {
+      if (val === "") return currentValue;
+      else return currentValue.list[0].item_tag === val;
+    });
+    setData(res);
+  };
+
+  useEffect(() => {
+    fetchData();
+  }, []);
+
+  // (e)  => setQ(e.target.value)
+  return (
+    <>
+      <div class="">
+        <div className="  flex justify-center  bg-[url('https://source.unsplash.com/1600x400/?home')] bg-cover  ">
+          <div className="flex justify-center w-4/5">
+            <input
+              type="text"
+              className="my-36 w-9/12  sm:h-20 rounded-l-xl px-4 outline-none "
+              placeholder="Search flats here..."
+              onChange={(e) => searchtags(e)}
+            />
+            <button className=" my-36 sm:h-20 w-20 rounded-l-none rounded-r-xl  px-4 bg-sky-600  border-0 hover:bg-sky-700">
+              <img className=" object-contain py-2 w-10" src={image5} alt="" />
+            </button>
+          </div>
         </div>
       </div>
-    </div>
 
-            <div className="flex flex-col lg:flex-row bg-bg">
-                {/* <div className=" bg-transparent lg:w-[95%]"> */}
-                <div className="w-[] lg:w-[340px] bg-white mb-3 mt-3  mr-10 lg:mr-0 lg:ml-3 rounded-sm  block lg:sticky top-3 shadow-md shadow-gray-600 h-fit m-auto">
-                    <Accordion alwaysOpen={true}>
-
-                        <Accordion.Panel >
-
-                            <Accordion.Title className=''>
-                                Filters
-                            </Accordion.Title>
-                            <Accordion.Content >
-                                <div className="xyz ">
-                                    <div className="ml-3">
-                                        <div className=" text-slate-600 text-[105%]"> Choose tag as per your buying needs</div>
-                                        <div className="  gap-6 lg:block" >
-                                            <div className="block my-1 "><input type="radio" id="Rent" name='tag' className="mr-2" onChange={()=>filtertags('',!x1)} />all</div>
-                                            <div className="block my-1"> <input type="radio" id="PG" name='tag' className="mr-2" onChange={()=>filtertags('other-stationary',!x)}/>other-stationary</div>
-                                            <div className="block my-1"> <input type="radio" id="PG" name='tag' className="mr-2" onChange={()=>filtertags('sports',!x2)}/>sports</div>
-                                            <div className="block my-1"> <input type="radio" id="Hostel" name='tag' className="mr-2" onChange={()=>filtertags('stationary',!x3)}/>stationary</div>
-                                            <div className="block my-1"> <input type="radio" id="Buy" name='tag' className="mr-2" onChange={()=>filtertags('electronics',!x4)}/>electronics</div>
-                                        </div>
-                                    </div>
-                                    {/* <div className="x mx-3 mt-3 text-slate-600 text-[105%]">Max Price: ₹30,000</div>
+      <div className="flex flex-col lg:flex-row bg-bg">
+        {/* <div className=" bg-transparent lg:w-[95%]"> */}
+        <div className="w-[] lg:w-[340px] bg-white mb-3 mt-3  mr-10 lg:mr-0 lg:ml-3 rounded-sm  block lg:sticky top-3 shadow-md shadow-gray-600 h-fit m-auto">
+          <Accordion alwaysOpen={true}>
+            <Accordion.Panel>
+              <Accordion.Title className="">Filters</Accordion.Title>
+              <Accordion.Content>
+                <div className="xyz ">
+                  <div className="ml-3">
+                    <div className=" text-slate-600 text-[105%]">
+                      {" "}
+                      Choose tag as per your buying needs
+                    </div>
+                    <div className="  gap-6 lg:block">
+                      <div className="block my-1 ">
+                        <input
+                          type="radio"
+                          id="Rent"
+                          name="tag"
+                          className="mr-2"
+                          onChange={() => filtertags("", !x1)}
+                        />
+                        all
+                      </div>
+                      <div className="block my-1">
+                        {" "}
+                        <input
+                          type="radio"
+                          id="PG"
+                          name="tag"
+                          className="mr-2"
+                          onChange={() => filtertags("other-stationary", !x)}
+                        />
+                        other-stationary
+                      </div>
+                      <div className="block my-1">
+                        {" "}
+                        <input
+                          type="radio"
+                          id="PG"
+                          name="tag"
+                          className="mr-2"
+                          onChange={() => filtertags("sports", !x2)}
+                        />
+                        sports
+                      </div>
+                      <div className="block my-1">
+                        {" "}
+                        <input
+                          type="radio"
+                          id="Hostel"
+                          name="tag"
+                          className="mr-2"
+                          onChange={() => filtertags("stationary", !x3)}
+                        />
+                        stationary
+                      </div>
+                      <div className="block my-1">
+                        {" "}
+                        <input
+                          type="radio"
+                          id="Buy"
+                          name="tag"
+                          className="mr-2"
+                          onChange={() => filtertags("electronics", !x4)}
+                        />
+                        electronics
+                      </div>
+                    </div>
+                  </div>
+                  {/* <div className="x mx-3 mt-3 text-slate-600 text-[105%]">Max Price: ₹30,000</div>
                                     <ReactSlider
                                         className="customSlider relative max-w-xs mx-3 |   "
                                         thumbClassName=" customSlider-thumb cursor-pointer w-5 h-5 bg-white border-yellow-400 border-2 rounded-full outline-none  hover: shadow-sm"
@@ -175,14 +244,14 @@ let x1=0,x2=0,x3=0,x4=0,x=0;
                                             <button className="p-2 rounded-sm bg-slate-100 border-0 text-slate-600 mr-2 mb-2 hover:bg-slate-200 text-sm">Custom</button>
                                         </div>
                                     </div> */}
-                                </div>
-                            </Accordion.Content>
-                        </Accordion.Panel>
-                    </Accordion>
                 </div>
-                {/* </div> */}
+              </Accordion.Content>
+            </Accordion.Panel>
+          </Accordion>
+        </div>
+        {/* </div> */}
 
-                {/* <div className="w-[340px] bg-white mb-3 mt-3 ml-3 rounded-sm hidden lg:block lg:sticky top-3 shadow-md shadow-gray-600 h-fit m-auto">
+        {/* <div className="w-[340px] bg-white mb-3 mt-3 ml-3 rounded-sm hidden lg:block lg:sticky top-3 shadow-md shadow-gray-600 h-fit m-auto">
 
 
                     <div className="xyz mt-3">
@@ -250,32 +319,66 @@ let x1=0,x2=0,x3=0,x4=0,x=0;
 
                 </div> */}
 
-
-                <div className=" before:hidden items-center justify-items-center grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 gap-2 md:gap-3 lg:gap-3 p-[1%] w-[100%] md:w-[90%] lg:w-[75%] sm:mx-0 md:mx-auto lg:mx-auto">
-
-                {Data.map((dataa, key) => {
-        return (
-                    
-                    <div className=" bg-white shadow-grey-500 bg-opacity-40 rounded-md p-[1%] transition-ease-in-out duration-500 border border-slate-200 hover:shadow-2xl hover:shadow-gray-300 m-auto mb-3">
-                        <button className=' text-left' onClick={() => navigate("/knowmore")}>
-                            <img className=' rounded-tl-3xl rounded-br-3xl object-cover w-[280px] h-[300px]' src={dataa.list[0].item_immage} alt="" />
-                            <div className="my-[2%]">
-                            <div className="rounded-md bg-yellow-400 text-white  inline py-[1px] px-2 ml-[1%]">{dataa.list[0].item_tag}</div>
-                                <div className="font-bold text-[140%] ml-[5%] text-gray-900">{dataa.list[0].item_name}</div>
-                            </div>
-                            <div className="font-bold text-[120%] mb-[1%] ml-[5%]">₹{dataa.list[0].item_price}</div>
-                            <div className=" flex justify-between gap-[1%] text-gray-100 ">
-                                <div className="flex"> <img className="object-contain w-8 m-1" src={image1} alt="" /> <div className="self-center">{dataa.list[0].item_age} Years</div></div>
-                                <div className="flex"> <img className="object-contain w-8 m-1" src={image2} alt="" /> <div className="self-center">{dataa.list[0].item_condition} Star Condition</div></div>
-                            </div>
-                        </button>
-                        <Routes>
-          <Route path="/knowmore" element={<KnowMore a={dataa.list[0]._id}/>} />
-          
-        </Routes>
+        <div className=" before:hidden items-center justify-items-center grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 gap-2 md:gap-3 lg:gap-3 p-[1%] w-[100%] md:w-[90%] lg:w-[75%] sm:mx-0 md:mx-auto lg:mx-auto">
+          //TODO:
+          {/* {Data.map((dataa, key) => {
+            return (
+              <div className=" bg-white shadow-grey-500 bg-opacity-40 rounded-md p-[1%] transition-ease-in-out duration-500 border border-slate-200 hover:shadow-2xl hover:shadow-gray-300 m-auto mb-3">
+                <button
+                  className=" text-left"
+                  onClick={() => navigate("/knowmore")}
+                >
+                  <img
+                    className=" rounded-tl-3xl rounded-br-3xl object-cover w-[280px] h-[300px]"
+                    src={dataa.list[0].item_immage}
+                    alt=""
+                  />
+                  <div className="my-[2%]">
+                    <div className="rounded-md bg-yellow-400 text-white  inline py-[1px] px-2 ml-[1%]">
+                      {dataa.list[0].item_tag}
                     </div>
-        );})}
-                    {/* <div className=" bg-white shadow-grey-500 bg-opacity-40 rounded-md p-[1%] transition-ease-in-out duration-500 border border-slate-200 hover:shadow-2xl hover:shadow-gray-300 m-auto mb-3">
+                    <div className="font-bold text-[140%] ml-[5%] text-gray-900">
+                      {dataa.list[0].item_name}
+                    </div>
+                  </div>
+                  <div className="font-bold text-[120%] mb-[1%] ml-[5%]">
+                    ₹{dataa.list[0].item_price}
+                  </div>
+                  <div className=" flex justify-between gap-[1%] text-gray-100 ">
+                    <div className="flex">
+                      {" "}
+                      <img
+                        className="object-contain w-8 m-1"
+                        src={image1}
+                        alt=""
+                      />{" "}
+                      <div className="self-center">
+                        {dataa.list[0].item_age} Years
+                      </div>
+                    </div>
+                    <div className="flex">
+                      {" "}
+                      <img
+                        className="object-contain w-8 m-1"
+                        src={image2}
+                        alt=""
+                      />{" "}
+                      <div className="self-center">
+                        {dataa.list[0].item_condition} Star Condition
+                      </div>
+                    </div>
+                  </div>
+                </button>
+                <Routes>
+                  <Route
+                    path="/knowmore"
+                    element={<KnowMore a={dataa.list[0]._id} />}
+                  />
+                </Routes>
+              </div>
+            );
+          })} */}
+          {/* <div className=" bg-white shadow-grey-500 bg-opacity-40 rounded-md p-[1%] transition-ease-in-out duration-500 border border-slate-200 hover:shadow-2xl hover:shadow-gray-300 m-auto mb-3">
                         <a href="https://www.sanfransentinel.com/renstly-1.html">
                             <img className=' rounded-tl-3xl rounded-br-3xl' src="https://source.unsplash.com/280x300/?television" alt="" />
                             <div className="my-[2%]">
@@ -349,9 +452,9 @@ let x1=0,x2=0,x3=0,x4=0,x=0;
                             </div>
                         </a>
                     </div> */}
-                </div>
+        </div>
 
-                {/* <div className=" pt-3  stock-container grid grid-cols-3 gap-3 w-4/5 object-center pl-10 pb-3 ">
+        {/* <div className=" pt-3  stock-container grid grid-cols-3 gap-3 w-4/5 object-center pl-10 pb-3 ">
       {
        
           
@@ -376,9 +479,9 @@ let x1=0,x2=0,x3=0,x4=0,x=0;
         
       }
     </div> */}
-            </div>
-        </>
-    )
-}
+      </div>
+    </>
+  );
+};
 
-export default Listing
+export default Listing;
