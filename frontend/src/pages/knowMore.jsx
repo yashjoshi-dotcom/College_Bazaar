@@ -1,14 +1,11 @@
 import { color } from "@mui/system";
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { red } from "tailwindcss/colors";
 import Chat from "../components/Chat/ChatApp";
 
-function KnowMore  (props)  {
-
-  console.log(props.a);
-
+function KnowMore() {
   const [col, setCol] = useState("white");
-
   const updateColor = () => {
     setCol(() => {
       if (col === "red") return "white";
@@ -219,6 +216,6 @@ function KnowMore  (props)  {
       </section>
     </div>
   );
-};
+}
 
 export default KnowMore;
