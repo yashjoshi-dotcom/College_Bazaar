@@ -1,10 +1,13 @@
 import { color } from "@mui/system";
 import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useLocation } from "react-router-dom";
 import { red } from "tailwindcss/colors";
 import Chat from "../components/Chat/ChatApp";
 
 function KnowMore() {
+  const location = useLocation();
+  console.log(location.state.item_id);
+
   const [col, setCol] = useState("white");
   const updateColor = () => {
     setCol(() => {
@@ -12,7 +15,7 @@ function KnowMore() {
       else return "red";
     });
   };
-
+  // console.log(this.props);
   return (
     <div className="relative">
       <div className="absolute right-3 bottom-0">
