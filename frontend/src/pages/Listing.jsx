@@ -28,12 +28,13 @@ const Listing = () => {
 
   //TODO:
   const fetchData = () => {
-    fetch("localhost:4000/db")
+    fetch("/db")
       .then((response) => {
         return response.json();
       })
-      .then((Data) => {
-        setData(Data);
+      .then((x) => {
+        setData(x);
+        console.log(x);
       });
   };
 
