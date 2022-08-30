@@ -13,7 +13,7 @@
         "__v": 0,
         "list": [
             {
-                "item_name": "PC",
+                "item_name": "PlayStation",
                 "item_price": 980000,
                 "item_age": 3,
                 "item_condition": 2,
@@ -62,11 +62,11 @@
         "tokens": [],
         "list": [
             {
-                "item_name": "PC3",
+                "item_name": "Pens",
                 "item_price": 980000,
                 "item_age": 3,
                 "item_condition": 2,
-                "item_immage": "http://res.cloudinary.com/dpwgsbwoi/image/upload/v1661655892/mfi3prqavluvhqy6jwb9.jpg",
+                "item_immage": "https://source.unsplash.com/280x300/?stationary",
                 "item_tag": "sports",
                 "item_description": "very good PC",
                 "_id": "630adb5519e02f7455ed3ea2"
@@ -96,11 +96,11 @@
         ],
         "list": [
             {
-                "item_name": "PC",
+                "item_name": "Football",
                 "item_price": 980000,
                 "item_age": 3,
                 "item_condition": 2,
-                "item_immage": "http://res.cloudinary.com/dpwgsbwoi/image/upload/v1661655892/mfi3prqavluvhqy6jwb9.jpg",
+                "item_immage": "https://source.unsplash.com/280x300/?football",
                 "item_tag": "other-stationary",
                 "item_description": "very good PC",
                 "_id": "630adb5519e02f7455ed3ea2"
@@ -129,7 +129,7 @@
                 "item_price": 5000,
                 "item_age": 3,
                 "item_condition": 2,
-                "item_immage": "www.google.com",
+                "item_immage": "https://source.unsplash.com/280x300/?furniture",
                 "item_tag": "other-stationary",
                 "item_description": "This is a good laptop",
                 "item_status": "under_approval",
@@ -195,7 +195,7 @@
         ],
         "list": [
             {
-                "item_name": "PC",
+                "item_name": "lap",
                 "item_price": 980000,
                 "item_age": 3,
                 "item_condition": 2,
@@ -225,7 +225,7 @@
         ],
         "list": [
             {
-                "item_name": "PC",
+                "item_name": "PCpc",
                 "item_price": 980000,
                 "item_age": 3,
                 "item_condition": 2,

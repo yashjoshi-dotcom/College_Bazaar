@@ -37,7 +37,7 @@ const CallAboutPage= async()=>
     catch(err){
         console.log(err);
         console.log("caught error");
-       // navigate("/signin"); 
+       navigate("/signin"); 
        }
 };
     useEffect(()=>{
