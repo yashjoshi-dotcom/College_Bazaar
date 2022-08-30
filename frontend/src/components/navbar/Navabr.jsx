@@ -56,27 +56,15 @@ const Navabr = () => {
           </Navbar.Brand>
         </div>
         <div className="flex md:order-2 ">
-          <Dropdown
-            arrowIcon={false}
-            inline={true}
-            label={
-              <Avatar
-                alt="User settings"
-                img="https://flowbite.com/docs/images/people/profile-picture-5.jpg"
-                rounded={true}
-              />
-            }
+          
+            <NavLink
+            to="/signin"
+            active={true}
+            className=" text-lg text-neutral-400 hover:text-neutral-200"
           >
-            <Dropdown.Header>
-              <span className="block text-sm"> name </span>
-              <span className="block truncate text-sm font-medium">
-                hello@dtu.ac.in
-              </span>
-            </Dropdown.Header>
-            <Dropdown.Item>Dashboard</Dropdown.Item>
-            <Dropdown.Divider />
-            <Dropdown.Item>Sign out</Dropdown.Item>
-          </Dropdown>
+            <img className=" rounded-full w-10" src="https://flowbite.com/docs/images/people/profile-picture-5.jpg" alt="" />
+          </NavLink>
+          
           <Navbar.Toggle />
         </div>
         {/* <div className="lg:m-auto"> */}
