@@ -4,8 +4,9 @@ import Listing from './Listing'
 const Home = () => {
   return (
     <div>
-        {/* <HeaderSearch/> */}
-        <Listing/>
+        <HeaderSearch/>
+        <h1>hi</h1>
+        {/* <Listing/> */}
     </div>
   )
 }
