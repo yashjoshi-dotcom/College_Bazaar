@@ -5,7 +5,6 @@ function AdminCards(props) {
   return (
     <div className="mx-auto my-5">
       <a
-        href="#"
         className="flex flex-col items-center bg-white bg-opacity-30 rounded-lg border shadow-md md:flex-row md:max-w-5xl sm:max-w-lg hover:bg-gray-400 dark:border-gray-700 dark:bg-gray-800 dark:hover:bg-gray-700"
       >
         <img

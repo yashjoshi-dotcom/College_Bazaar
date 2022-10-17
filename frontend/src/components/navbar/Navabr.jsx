@@ -75,7 +75,7 @@ const Navabr = () => {
             className=" text-lg text-neutral-400 hover:text-neutral-200"
           >
             Home
-          </NavLink>
+            </NavLink>
           <NavLink
             to="/aboutus"
             className="text-lg text-neutral-400 hover:text-neutral-200"
@@ -93,6 +93,13 @@ const Navabr = () => {
             className="text-lg text-neutral-400 hover:text-neutral-200"
           >
             Testimonials
+          </NavLink>
+          <NavLink
+            to="/form"
+            active={true}
+            className=" text-lg text-neutral-400 hover:text-neutral-200"
+          >
+            Post Item
           </NavLink>
           <NavLink
             to="/signin"

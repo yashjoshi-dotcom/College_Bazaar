@@ -28,7 +28,7 @@ function Chat({ socket, username, room }) {
     socket.on("receive_message", (data) => {
       setMessageList((list) => [...list, data]);
     });
-  }, [socket]);
+  }, []);
 
   return (
     <div className="chat-window">

@@ -1,7 +1,9 @@
 import React from 'react'
-import { useEffect,useState } from 'react';
+import { useState, useEffect } from "react";
 import Cards from "../components/Admin/profCard";
-import {useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
+import { Route, Routes } from "react-router-dom";
+import KnowMore from "./KnowMore";
 
 const Profile = () => {
 
@@ -69,7 +71,7 @@ const CallAboutPage= async()=>
                                 <div class=" bg-black shadow-slate-900 bg-opacity-30 text-white  shadow-lg p-3 border-t-4 border-green-400">
                                     <div class="image overflow-hidden">
                                         <img class="h-auto w-full mx-auto"
-                                            src="https://lavinephotography.com.au/wp-content/uploads/2017/01/PROFILE-Photography-112.jpg"
+                                            src="https://images-ext-2.discordapp.net/external/vgvgD-_zO0974W3kIR3KyNCAQPB9uGXcfBp3dMbqeco/https/i.etsystatic.com/36532523/r/il/97ae46/4078306713/il_1140xN.4078306713_n74s.jpg"
                                             alt="" />
                                     </div>
                                     <h1 class="text-gray-100 font-bold text-xl leading-8 my-1">{userdata.name}</h1>
@@ -197,8 +199,25 @@ const CallAboutPage= async()=>
                                     <div class=" before:hidden after:hidden">
                                         
                                     {userdata.list.map((dataa, key) => {
-                                return (<Cards productName={dataa.item_name} productInfo={dataa.item_description} />
-                                    );
+                                return (<>
+                      <button
+                        className=" text-left"
+                        onClick={() => {
+                          navigate("/knowmore", {
+                            state: { item_id: dataa._id },
+                          });
+                        }}
+                      >
+                                <Cards productName={dataa.item_name} productInfo={dataa.item_description} productImage={dataa.item_immage}/>
+                                </button>
+                                <Routes>
+                        <Route
+                          path="/knowmore"
+                          element={<KnowMore a={dataa._id} />}
+                        />
+                      </Routes>
+                              </>
+                              );
                                     })}
                                     </div>
                                     {/* <!-- End of Experience and education grid --> */}

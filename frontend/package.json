@@ -2,7 +2,9 @@
   "name": "frontend",
   "version": "0.1.0",
   "private": true,
-  "proxy": "http://localhost:4000",
+  "engines": {
+    "node": "16.15.1"
+  },
   "dependencies": {
     "@emotion/react": "^11.10.0",
     "@emotion/styled": "^11.10.0",
@@ -23,6 +25,7 @@
     "react-toastify": "^9.0.8",
     "socket.io-client": "^4.5.1",
     "web-vitals": "^2.1.4"
+  
   },
   "scripts": {
     "start": "react-scripts start",

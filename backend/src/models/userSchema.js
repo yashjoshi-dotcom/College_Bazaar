@@ -65,7 +65,7 @@ const userSchema =new mongoose.Schema({
             item_tag:
             {
                 type:String,
-                enum: ['other-stationary', 'clothing_essentials','books','daily-use'],
+                enum: ['Others', 'Clothing_essentials','Books','Daily-use','Sports','Stationary'],
             },
            item_description:
             {

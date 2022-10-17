@@ -26,7 +26,7 @@ const Signin = () => {
       window.alert("Invalid Credentials");
     } else {
       window.alert("Login Successful");
-      navigate("/Home");
+      navigate("/profile");
     }
   };
 
@@ -74,11 +74,25 @@ const Signin = () => {
     if (data.status === 422 || !data) {
       window.alert("Invalid Registeration");
       console.log("Invalid Registration");
-    } else {
-      window.alert("Registeration Successfull");
-      console.log("Registration Successful");
-
-      setIsContainerActive(false);
+    } 
+    else if (data.status === 400 || !data) {
+      window.alert("Only DTU institutional email ID's allowed");
+    } 
+    else if (data.status === 404 || !data) {
+      window.alert("Issue Encountered");
+    } 
+    else {
+      var domain = email_id.substring(email_id.lastIndexOf("@") +1);
+      if(domain!='dtu.ac.in')
+      {
+        window.alert("Only DTU institutional email ID's allowed.");
+      }
+      else {
+        window.alert("Registeration Successfull");
+        console.log("Registration Successful");       
+        setIsContainerActive(false);
+   
+      }
     }
   };
 
@@ -92,7 +106,7 @@ const Signin = () => {
           <form action="#">
             <div className="H1">Create Account</div>
 
-            <span id="Span">or use your email for registration</span>
+            <span id="Span">Use your @dtu.ac.in email for registration</span>
             <input
               type="text"
               name="name"
@@ -136,7 +150,7 @@ const Signin = () => {
             <div className="H1 ">Sign in</div>
 
             <span id="Span" className="pb-5">
-              or use your account
+              Use your @dtu.ac.in account
             </span>
             <input
               type="email"
