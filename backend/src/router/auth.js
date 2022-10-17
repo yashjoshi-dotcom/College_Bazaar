@@ -25,8 +25,8 @@ res.send(e);
 // Register the data of a new member into the DB
  router.post('/register',async (req,res)=>{
 
-    const{name,email_id,college_name,password,c_password}=req.body;
-    if(!name|| !email_id  || !password || !c_password)
+    const{name,email_id,college_name,password}=req.body;
+    if(!name|| !email_id  || !password)
     {
         return res.status(409).json({error :"Plz enter all data.."});
     }
@@ -43,7 +43,7 @@ res.send(e);
         if(userLogin) return res.json({message:"Email already exists"});
 
                 
-        const user =new User({name,email_id,college_name,password,c_password});
+        const user =new User({name,email_id,college_name,password});
         //Hashing the password and c_password with help of middle ware and bcrypt in db/conn.js
         //Callling save method to add the data to the database 
         await user.save();
