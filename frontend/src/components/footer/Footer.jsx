@@ -1,9 +1,9 @@
 import FooterSection from "./FooterSection";
 import FooterHeading from "./FooterHeading";
 import FooterItem from "./FooterItem";
-import Instagram from "../../SVG/Instagram";
-import Facebook from "../../SVG/Facebook";
-import Twitter from "../../SVG/Twitter";
+import Instagram from "../../assets/SVG1/Instagram";
+import Facebook from "../../assets/SVG1/Facebook";
+import Twitter from "../../assets/SVG1/Twitter";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 function Footer() {

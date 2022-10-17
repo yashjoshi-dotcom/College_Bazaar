@@ -15,7 +15,7 @@ const LandingPage = () => {
     <div>
       <div className=" flex flex-col-reverse bg-backSm_2 h-fit lg:h-[20rem] xl:h-[27rem] md:bg-backSm_1 lg:bg-backLg bg-no-repeat bg-slate-300  sm:flex-row  pb-[5%] sm:pb-0">
         <div className="px-[5%] md:h-[70vh] sm:mb-0 sm:p-[2%] sm:pl-[5%] sm:pr-[2%] w-[100vw]  sm:h-[50vh] mt-3 sm:mt-0 text-center ">
-          <div className=" text-[170%] sm:text-[250%] md:text-[300%] font-bold mb-[2px] text-green-600 md:mt-[1rem] h-[2rem] sm:h-[5rem]">
+          <div className=" h-fit text-[170%] sm:text-[250%] md:text-[300%] font-bold mb-[2px] text-green-600 md:mt-[1rem] sm:h-[5rem]">
             Your College Needs At One Place
           </div>
           <div className="text-blue-900 mb-[2rem]">

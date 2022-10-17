@@ -2,13 +2,13 @@ import React from "react";
 
 const ContactUs = () => {
   return (
-    <div>
+    <div className=" bg-gray-700">
       <section
         className="py-20 px-4 lg:px-16 overflow-hidden relative z-10"
         data-aos="fade-up"
         id="contact"
       >
-        <div className="container">
+        <div className="container dark">
           <div className="mb-5 flex items-center max-w-md">
             <h2 className="text-slate-900 dark:text-gray-200 text-3xl font-bold">
               {" "}
