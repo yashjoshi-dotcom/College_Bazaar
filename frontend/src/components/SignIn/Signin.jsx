@@ -55,6 +55,15 @@ const Signin = () => {
     e.preventDefault();
 
     const { name, email_id, password, c_password } = user;
+    var domain = email_id.substring(email_id.lastIndexOf("@") +1);
+    if(domain!='dtu.ac.in')
+    {
+      return alert("Only DTU institutional email ID's allowed.");
+    }
+    if(password!=c_password)
+    {
+      return alert("Passwords does not match  "); 
+    }
 
     const res = await fetch("/register", {
       method: "POST",
@@ -65,7 +74,6 @@ const Signin = () => {
         name,
         email_id,
         password,
-        c_password,
       }),
     });
 
@@ -82,12 +90,7 @@ const Signin = () => {
       window.alert("Issue Encountered");
     } 
     else {
-      var domain = email_id.substring(email_id.lastIndexOf("@") +1);
-      if(domain!='dtu.ac.in')
-      {
-        window.alert("Only DTU institutional email ID's allowed.");
-      }
-      else {
+       {
         window.alert("Registeration Successfull");
         console.log("Registration Successful");       
         setIsContainerActive(false);
