@@ -6,45 +6,41 @@ import FormControl from "@mui/material/FormControl";
 import Select from "@mui/material/Select";
 import Rating from "@mui/material/Rating";
 import Typography from "@mui/material/Typography";
+import { useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 
 const Form = () => {
+
+  const [userdata,setUserData] =useState();
+    const [isFetching, setIsFetching] = useState(true);
+
+    const navigate = useNavigate();
+
   const [cat, setCat] = useState("");
   const handleChange = (event) => {
     setCat(event.target.value);
   };
-
-  const [rat, setRat] = React.useState(1);
-  //---------------------------
-  const [image, setImage] = useState("");
-  const [url, setUrl] = useState("");
-
-  const uploadImage = async () => {
-    const datat = new FormData();
-    datat.append("file", image);
-    datat.append("upload_preset", "kllpiwre");
-    datat.append("cloud_name", "dpwgsbwoi");
-    await fetch(" https://api.cloudinary.com/v1_1/dpwgsbwoi/image/upload", {
-      method: "post",
-      body: datat,
-    })
-      .then((resp) => resp.json())
-      .then((datat) => {
-        setUrl(datat.url);
-      })
-      .catch((err) => console.log(err));
-  };
-
-  //===========================
 
   const [data, setData] = useState({
     item_description: "",
     item_name: "",
     item_age: "",
     item_price: "",
-    item_image: "",
+    item_image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTEAnY0WIICyaq_C4WrSToewu2aNJdlp629am_b7Dkt61xoe12XB7XBhNTLhMB0kokh948&usqp=CAU",
     item_condition: "",
     item_tag: "",
   });
+
+  const [rat, setRat] = useState("");
+  //---------------------------
+  const [image, setImage] = useState("");
+  const [url, setUrl] = useState("");
+
+  
+
+  //===========================
+
+  
 
   let name, value;
   const handleInputs = (e) => {
@@ -55,9 +51,35 @@ const Form = () => {
   };
 
   const final = () => {
-    uploadImage();
+    // uploadImage();
     postData();
+    navigate("/profile"); 
+
+    // setTimeout(() => postData(), 5000);
   };
+
+  
+
+  const uploadImage = (e) => {
+    const datat = new FormData()
+    datat.append("file", e.target.files[0])
+    datat.append("upload_preset", "kllpiwre")
+    datat.append("cloud_name","dpwgsbwoi")
+    fetch(" https://api.cloudinary.com/v1_1/dpwgsbwoi/image/upload",{
+    method:"post",
+    body: datat
+    })
+    .then(resp => resp.json())
+    .then(datat => {
+    setUrl(datat.url);
+    
+            setData({ ...data, ["item_image"]: datat.url });
+            console.log(data);
+    })
+    .catch(err => console.log(err))
+    }
+
+
   const postData = async (e) => {
     const {
       item_condition,
@@ -69,12 +91,13 @@ const Form = () => {
       item_image,
     } = data;
     setData({
-      ...data,
-      [item_tag]: cat,
-      [item_condition]: rat,
-      [item_image]: url,
+      data,
+      // [item_tag]: cat,
+      // [item_condition]: rat,
+      // [item_image]: url,
     });
-    const res = await fetch("/add_data/tanush@dtu.ac.in", {
+    
+    const res = await fetch(`/add_data/${userdata.email_id}`, {
       method: "PATCH",
       headers: {
         "Content-Type": "application/json",
@@ -90,10 +113,11 @@ const Form = () => {
       }),
     });
 
+
     const result = await res.json();
     console.log(result);
 
-    if (result.status === 201) {
+    if (res.status === 201) {
       window.alert("Details added successfully");
       console.log("Details added successfully");
     } else {
@@ -102,15 +126,61 @@ const Form = () => {
     }
   };
 
+  const CallAboutPage= async()=>
+{
+    setIsFetching(true);
+    console.log("Call about")
+        try{
+        console.log("tried");
+        const res=await fetch('/profilec',{
+            method:"GET",
+            headers:{
+                Accept:"application/json",
+                "Content-Type":"application/json"
+            },
+            credentials:"include"
+        });
+        const object= await res.json();
+    //    setUserData(object);
+        console.log(object);
+        setUserData(object);
+        console.log(userdata);
+        setIsFetching(false);
+        if(!res.status===200)
+        {
+            const error= new Error (res.error);
+            alert('There seems to be some issue with your credentials. We are working on it.');
+            throw error;
+        }
+    }
+    catch(err){
+        console.log(err);
+        console.log("caught error");
+        setIsFetching(false);
+        navigate("/signin"); 
+       }
+};
+
   //-------------------------
 
+  useEffect(()=>{
+    CallAboutPage();
+},[])
+
+if(isFetching)
+{
+    <h1>
+        Page is Loading
+    </h1>
+}
+else{
   return (
     <div>
       <form>
         <div className="container p-10 m-auto ">
           <div className="mb-6">
             <label
-              for="text"
+              htmlFor="text"
               className="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300"
             >
               Item Name
@@ -129,7 +199,7 @@ const Form = () => {
           <div className="flex">
             <div className="flex-1 pr-2">
               <label
-                for="last_name"
+                htmlFor="last_name"
                 className="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300"
               >
                 Item Age
@@ -139,14 +209,14 @@ const Form = () => {
                 name="item_age"
                 value={data.item_age}
                 className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                placeholder=""
+                placeholder="Mention the Item Age in months"
                 onChange={handleInputs}
                 required
               />
             </div>
             <div className="flex-1 pl-2">
               <label
-                for="last_name"
+                htmlFor="last_name"
                 className="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300"
               >
                 Price
@@ -157,7 +227,7 @@ const Form = () => {
                 value={data.item_price}
                 onChange={handleInputs}
                 className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                placeholder=""
+                placeholder="Put your expected price in Rs."
                 required
               />
             </div>
@@ -165,7 +235,7 @@ const Form = () => {
 
           <div>
             <label
-              for="message"
+              htmlFor="message"
               className="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-400"
             >
               Item Description
@@ -190,18 +260,25 @@ const Form = () => {
                   <Select
                     labelId="demo-simple-select-label"
                     id="demo-simple-select"
-                    value={cat}
+                    name="item_tag"
+                    value={data.item_tag}
                     label="cat"
-                    onChange={handleChange}
+                    onChange={handleInputs}
                   >
-                    <MenuItem value="other-stationary">
-                      Other Stationary
+                    <MenuItem value="Stationary">
+                      Stationary
                     </MenuItem>
-                    <MenuItem value="clothing_essentials">
+                    <MenuItem value="Sports">
+                    Sports
+                    </MenuItem>
+
+                    <MenuItem value="Clothing_essentials">
                       Clothing Essentials
                     </MenuItem>
-                    <MenuItem value="books">Books</MenuItem>
-                    <MenuItem value="daily-use">Daily Use</MenuItem>
+                    <MenuItem value="Books">Books</MenuItem>
+                    <MenuItem value="Daily-use">Daily Use</MenuItem>
+                    <MenuItem value="Others">Others</MenuItem>
+
                   </Select>
                 </FormControl>
               </Box>
@@ -213,13 +290,11 @@ const Form = () => {
                   "& > legend": { mt: 2 },
                 }}
               >
-                <Typography component="legend">Controlled</Typography>
+                <Typography component="legend">Item Condition</Typography>
                 <Rating
-                  name="simple-controlled"
-                  value={rat}
-                  onChange={(event, newValue) => {
-                    setRat(newValue);
-                  }}
+                  name="item_condition"
+                  value={data.item_condition}
+                  onChange={handleInputs}
                 />
               </Box>
             </div>
@@ -227,7 +302,7 @@ const Form = () => {
           <div>
             <label
               className="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300"
-              for="user_avatar"
+              htmlFor="user_avatar"
             >
               Upload file
             </label>
@@ -236,13 +311,14 @@ const Form = () => {
               aria-describedby="user_avatar_help"
               id="user_avatar"
               type="file"
-              onChange={(e) => setImage(e.target.files[0])}
+              
+              onChangeCapture={(e) => uploadImage(e)}
             />
           </div>
           <div className="my-5 text-center">
             <button
               type="submit"
-              onClick={final}
+              onClick={final} 
               className="focus:outline-none mx-auto  text-white bg-green-700 hover:bg-green-800 focus:ring-4 focus:ring-green-300 font-medium rounded-lg text-sm px-10 py-2.5  dark:bg-green-600 dark:hover:bg-green-700 dark:focus:ring-green-800 "
             >
               Submit
@@ -252,5 +328,5 @@ const Form = () => {
       </form>
     </div>
   );
-};
+};}
 export default Form;

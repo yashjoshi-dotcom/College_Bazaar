@@ -2,9 +2,14 @@
   "name": "backend",
   "version": "1.0.0",
   "description": "managing the backend of college bazar",
+  "engines": {
+    "node": "16.15.1"
+  },
   "main": "app.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node app.js",
+    "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm install --prefix frontend && npm run build --prefix frontend"
   },
   "author": "",
   "license": "ISC",

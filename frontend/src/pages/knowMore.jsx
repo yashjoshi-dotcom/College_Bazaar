@@ -11,19 +11,79 @@ import "react-toastify/dist/ReactToastify.css";
 function KnowMore() {
   const location = useLocation();
   console.log(location.state.item_id);
-  const [Data, setData] = useState(data);
+  const [Data, setData] = useState();
+  const [isFetching, setIsFetching] = useState(true);
   const a = ["", "bad", "average", "good", "very good", "excellent"];
 
-  const filtertags = () => {
-    const res = data.filter((currentValue) => {
-      return currentValue.list[0]._id === location.state.item_id;
+  const CallAboutPage= async()=>
+  {
+      setIsFetching(true);
+      console.log("Call about")
+          try{
+          console.log("tried");
+          const res=await fetch('/db',{
+              method:"GET",
+              headers:{
+                  Accept:"application/json",
+                  "Content-Type":"application/json"
+              },
+              credentials:"include"
+          });
+          const object= await res.json();
+      //    setUserData(object);
+          console.log(object);
+          filtertags(object);
+          // setData(object);
+          // console.log(Data);
+          
+          setIsFetching(false);
+          if(!res.status===201)
+          {
+              const error= new Error (res.error);
+              alert('There seems to be some issue with your credentials. We are working on it.');
+              throw error;
+          }
+      }
+      catch(err){
+          console.log(err);
+          console.log("caught error");
+          setIsFetching(false);
+          // navigate("/signin"); 
+         }
+  };
+
+  // const filtertags =  (object) => {
+  //   console.log("hi");
+  //   console.log(location.state.item_id);
+  //   const res = object.filter((currentValue) => {
+  //     return( currentValue.list.map((lis)=>{
+  //       return lis._id === location.state.item_id;
+        
+  //     })       
+  //     )
+  //   });
+  //   setData(res);
+  //   console.log(res);
+  //   // console.log();
+  // };
+  const filtertags = (object) => {
+    const res = object.filter((currentValue) => {
+       currentValue.list = currentValue.list.filter((currentVal) => {
+        console.log(currentVal._id);
+        console.log(location.state.item_id);
+        console.log("space")
+      return currentVal._id === location.state.item_id;
+      });
+      return currentValue.list.length!==0;
     });
     setData(res);
-    console.log(Data[0].list[0].item_name);
+    console.log(res);
   };
 
   useEffect(() => {
-    filtertags();
+    CallAboutPage();
+    // console.log(Data);
+    // filtertags();
   }, []);
 
   const [col, setCol] = useState("white");
@@ -38,6 +98,17 @@ function KnowMore() {
     });
   };
   // console.log(this.props);
+  if(isFetching)
+  {
+    
+      return(      <h1>
+        Page is Loading
+    </h1>
+  )
+    
+  }
+  else
+  {
   return (
     <div className="relative">
       <div className=""></div>
@@ -47,7 +118,7 @@ function KnowMore() {
           <div class="lg:w-4/5 mx-auto flex flex-wrap">
             <img
               alt="ecommerce"
-              class="lg:w-1/2 w-full object-cover object-center rounded border border-gray-200"
+              class="lg:w-1/2 w-full object-contain object-top rounded border border-gray-200"
               src={Data[0].list[0].item_immage}
             />
             <div class="lg:w-1/2 w-full lg:pl-10 lg:py-6 mt-6 lg:mt-0">
@@ -224,7 +295,7 @@ function KnowMore() {
                       The condition of this product is{" "}
                       {a[Data[0].list[0].item_condition]}.
                     </li>
-                    <li>The product is {Data[0].list[0].item_age} Years Old</li>
+                    <li>The product is {Data[0].list[0].item_age} Months Old</li>
                   </ul>
                 </div>
               </div>
@@ -236,7 +307,7 @@ function KnowMore() {
         </div>
       </section>
     </div>
-  );
+  );}
 }
 
 export default KnowMore;

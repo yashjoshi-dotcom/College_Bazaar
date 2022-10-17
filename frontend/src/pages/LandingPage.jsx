@@ -2,6 +2,7 @@ import React from "react";
 import Section1_Img from "../assets/SVG/coffee.svg";
 import Section2_Img from "../assets/SVG/order_done.svg";
 import Section3_Img from "../assets/SVG/wishlist.svg";
+import { Navigate, useNavigate } from "react-router-dom";
 // import Road from "../assets/SVG/Paths.svg";
 import circle_1 from "../assets/img/Circle_Img_1.png";
 import circle_2 from "../assets/img/Circle_Img_2.png";
@@ -9,17 +10,18 @@ import circle_3 from "../assets/img/Circle_Img_3.png";
 import circle_4 from "../assets/img/Circle_Img_4.png";
 
 const LandingPage = () => {
+  const navigate=useNavigate();
   return (
     <div>
       <div className=" flex flex-col-reverse bg-backSm_2 h-fit lg:h-[20rem] xl:h-[27rem] md:bg-backSm_1 lg:bg-backLg bg-no-repeat bg-slate-300  sm:flex-row  pb-[5%] sm:pb-0">
         <div className="px-[5%] md:h-[70vh] sm:mb-0 sm:p-[2%] sm:pl-[5%] sm:pr-[2%] w-[100vw]  sm:h-[50vh] mt-3 sm:mt-0 text-center ">
           <div className=" text-[170%] sm:text-[250%] md:text-[300%] font-bold mb-[2px] text-green-600 md:mt-[1rem] h-[2rem] sm:h-[5rem]">
-            All Your College Needs At One Place
+            Your College Needs At One Place
           </div>
           <div className="text-blue-900 mb-[2rem]">
             Connect with your mates to get items at cheaper price
           </div>
-          <button className=" rounded-md bg-blue-500 p-[1%] hover:bg-blue-600">
+          <button onClick={()=>{navigate('/home')}}className=" rounded-md bg-blue-500 p-[1%] hover:bg-blue-600">
             Get Started For Free
           </button>
         </div>
@@ -60,10 +62,11 @@ const LandingPage = () => {
                   <div className="text-semibold text-[120%]">
                     Find Your Spare Items
                   </div>
-                  <div className=" text-xs text-slate-500"></div>
+                  <div className=" text-xs text-slate-500">                  
                   Passing out from college and want to get rid of your items
                   like bicycle,stationary etc.Have some spare stationary and
                   books.
+                </div>
                 </div>
                 <div className="">
                   <img
@@ -84,7 +87,7 @@ const LandingPage = () => {
                   </div>
                   <div className=" text-xs text-slate-500">
                     Collect all the basic details of the item that you want to
-                    sell and fill in the same on the webpage.
+                    sell and fill in the same on the webpage with ease.
                   </div>
                 </div>
                 <div className="">

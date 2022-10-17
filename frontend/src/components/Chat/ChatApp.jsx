@@ -3,7 +3,7 @@ import { useState } from "react";
 import Chat from "./Chat";
 import Style from "./css/style.css";
 
-const socket = io.connect("http://localhost:3001");
+const socket = io.connect("http://wwww.google.com");
 
 function App(props) {
   const [username, setUsername] = useState("");
@@ -37,7 +37,7 @@ function App(props) {
             onChange={(event) => {
               setRoom(event.target.value);
             }}
-          /> */}
+          />*/ }
           <button onClick={joinRoom}>Chat</button>
         </div>
       ) : (
