@@ -17,32 +17,27 @@ const Listing = () => {
     x2 = 0,
     x3 = 0,
     x4 = 0,
-    x5=0,
-    x6=0,
+    x5 = 0,
+    x6 = 0,
     x = 0;
-
-  
 
   const [Data, setData] = useState();
   const [dat, setdat] = useState();
 
-
-
   const [isFetching, setIsFetching] = useState(true);
-
 
   const CallAboutPage = async () => {
     setIsFetching(true);
-    console.log("Call about")
+    console.log("Call about");
     try {
       console.log("tried");
-      const res = await fetch('/db', {
+      const res = await fetch("/db", {
         method: "GET",
         headers: {
           Accept: "application/json",
-          "Content-Type": "application/json"
+          "Content-Type": "application/json",
         },
-        credentials: "include"
+        credentials: "include",
       });
       const object = await res.json();
       //    setUserData(object);
@@ -54,15 +49,15 @@ const Listing = () => {
       setIsFetching(false);
       if (!res.status === 201) {
         const error = new Error(res.error);
-        alert('There seems to be some issue with your credentials. We are working on it.');
+        alert(
+          "There seems to be some issue with your credentials. We are working on it."
+        );
         throw error;
       }
-    }
-    catch (err) {
+    } catch (err) {
       console.log(err);
       console.log("caught error");
       setIsFetching(false);
-      
     }
   };
 
@@ -94,18 +89,15 @@ const Listing = () => {
         ...element,
         list: element.list.filter((currentVal) => {
           if (currentVal.item_name === undefined) {
-
-          }
-          else {
+          } else {
             return currentVal.item_name.toLowerCase().includes(e.target.value);
           }
-        }
-        ),
-      }
+        }),
+      };
     });
     setdat(ress);
     console.log(ress);
-  }
+  };
 
   // const filtertags = (val, b) => {
   //   // CallAboutPage();
@@ -135,15 +127,12 @@ const Listing = () => {
         list: element.list.filter((currentVal) => {
           if (val === "") return currentVal;
           else return currentVal.item_tag === val;
-        }
-        ),
-      }
+        }),
+      };
     });
     setdat(res);
     console.log(res);
-  }
-
- 
+  };
 
   const filterr = (object) => {
     const res = object.filter((currentValue) => {
@@ -157,19 +146,11 @@ const Listing = () => {
 
   useEffect(() => {
     CallAboutPage();
-   
   }, []);
 
-  
   if (isFetching) {
-
-    return (<h1>
-      Page is Loading
-    </h1>
-    )
-
-  }
-  else {
+    return <h1>Page is Loading</h1>;
+  } else {
     return (
       <>
         <div class="">
@@ -182,7 +163,11 @@ const Listing = () => {
                 onChange={(e) => searchtags(e)}
               />
               <button className=" my-36 sm:h-20 w-20 rounded-l-none rounded-r-xl  px-4 bg-sky-600  border-0 hover:bg-sky-700">
-                <img className=" object-contain py-2 w-10" src={image5} alt="" />
+                <img
+                  className=" object-contain py-2 w-10"
+                  src={image5}
+                  alt=""
+                />
               </button>
             </div>
           </div>
@@ -241,7 +226,9 @@ const Listing = () => {
                             id="Hostel"
                             name="tag"
                             className="mr-2"
-                            onChange={() => filtertags("Clothing_essentials", !x3)}
+                            onChange={() =>
+                              filtertags("Clothing_essentials", !x3)
+                            }
                           />
                           Clothing_essentials
                         </div>
@@ -266,7 +253,8 @@ const Listing = () => {
                             onChange={() => filtertags("Books", !x5)}
                           />
                           Books
-                        </div><div className="block my-1">
+                        </div>
+                        <div className="block my-1">
                           {" "}
                           <input
                             type="radio"
@@ -279,135 +267,84 @@ const Listing = () => {
                         </div>
                       </div>
                     </div>
-                    {/* <div className="x mx-3 mt-3 text-slate-600 text-[105%]">Max Price: ₹30,000</div>
-                                    <ReactSlider
-                                        className="customSlider relative max-w-xs mx-3 |   "
-                                        thumbClassName=" customSlider-thumb cursor-pointer w-5 h-5 bg-white border-yellow-400 border-2 rounded-full outline-none  hover: shadow-sm"
-                                        trackClassName="customSlider-track top-2 h-1 bg-yellow-400 "
-                                        markClassName="customSlider-mark cursor-pointer top-1.5 w-{1.5px} h-2 bg-slate-600 text-black"
-                                        marks={20}
-                                        min={0}
-                                        max={100}
-                                        defaultValue={0}
-                                        value={currentValue}
-                                        onChange={(value) => setCurrentValue(value)}
-                                        renderMark={(props) => {
-                                            if (props.key < currentValue) {
-                                                props.className = "customSlider-mark customSlider-mark-before bg-rose-500 text-black";
-                                            } else if (props.key === currentValue) {
-                                                props.className = "customSlider-mark customSlider-mark-active hidden";
-                                            }
-                                            return <span {...props} />;
-                                        }}
-                                    />
-
-                                    <div className="mx-3 mt-7">
-                                        <div className=" text-slate-600 text-[105%] mb-2">Choose Apartment Type</div>
-                                        <div className="flex-wrap">
-                                            <button className=" p-2 rounded-sm bg-slate-100 border-0 text-slate-600 mr-2 mb-2 hover:bg-slate-200 text-sm">1 RK</button>
-                                            <button className="p-2 rounded-sm bg-slate-100 border-0 text-slate-600 mr-2 mb-2 hover:bg-slate-200 text-sm">1 BHK</button>
-                                            <button className="p-2 rounded-sm bg-slate-100 border-0 text-slate-600 mr-2 mb-2 hover:bg-slate-200 text-sm">2 BHK</button>
-                                            <button className="p-2 rounded-sm bg-slate-100 border-0 text-slate-600 mr-2 mb-2 hover:bg-slate-200 text-sm">3 BHK</button>
-                                            <button className="p-2 rounded-sm bg-yellow-300 border-0 text-slate-600 mr-2 mb-2 text-sm">4+ BHK</button>
-                                            <button className="p-2 rounded-sm bg-slate-100 border-0 text-slate-600 mr-2 mb-2 hover:bg-slate-200 text-sm">4 BHK</button>
-                                            <button className="p-2 rounded-sm bg-slate-100 border-0 text-slate-600 mr-2 mb-2 hover:bg-slate-200 text-sm">4+ BHK</button>
-                                        </div>
-                                    </div>
-
-                                    <div className=" text-slate-600 text-[105%] mb-2 mx-3 mt-3">Photos</div>
-                                    <div className="block  mx-3 "><input type="checkbox" id="Rent" className="mr-2" Rent />Show Only With Photos</div>
-
-                                    <div className="mx-3 mt-3">
-                                        <div className=" text-slate-600 text-[105%] mb-2">Floor</div>
-                                        <div className="flex-wrap">
-                                            <button className=" p-2 rounded-sm bg-slate-100 border-0 text-slate-600 mr-2 mb-2 hover:bg-slate-200 text-sm">Ground</button>
-                                            <button className=" p-2 rounded-sm bg-slate-100 border-0 text-slate-600 mr-2 mb-2 hover:bg-slate-200 text-sm">1st</button>
-                                            <button className="p-2 rounded-sm bg-slate-100 border-0 text-slate-600 mr-2 mb-2 hover:bg-slate-200 text-sm">2nd</button>
-                                            <button className="p-2 rounded-sm bg-slate-100 border-0 text-slate-600 mr-2 mb-2 hover:bg-slate-200 text-sm">3rd</button>
-                                            <button className="p-2 rounded-sm bg-slate-100 border-0 text-slate-600 mr-2 mb-2 hover:bg-slate-200 text-sm">4th</button>
-                                            <button className="p-2 rounded-sm bg-yellow-300 border-0 text-slate-600 mr-2 mb-2 text-sm">4th</button>
-                                            <button className="p-2 rounded-sm bg-slate-100 border-0 text-slate-600 mr-2 mb-2 hover:bg-slate-200 text-sm">5th & above</button>
-                                            <button className="p-2 rounded-sm bg-slate-100 border-0 text-slate-600 mr-2 mb-2 hover:bg-slate-200 text-sm">Custom</button>
-                                        </div>
-                                    </div> */}
                   </div>
                 </Accordion.Content>
               </Accordion.Panel>
             </Accordion>
           </div>
           <div className=" before:hidden items-center justify-items-center grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 gap-2 md:gap-3 lg:gap-3 p-[1%] w-[100%] md:w-[90%] lg:w-[75%] sm:mx-0 md:mx-auto lg:mx-auto">
-
             {dat.map((dataa) => {
-              return (<>
-                {dataa.list.map((listt) => {
-                  return (
-                    <div className=" bg-white shadow-grey-500 bg-opacity-40 rounded-md p-[1%] transition-ease-in-out duration-500 border border-slate-200 hover:shadow-2xl hover:shadow-gray-300 m-auto mb-3">
-                      <button
-                        className=" text-left"
-                        onClick={() => {
-                          navigate("/knowmore", {
-                            state: { item_id: listt._id },
-                          });
-                        }}
-                      >
-                        <img
-                          className=" rounded-tl-3xl rounded-br-3xl object-cover w-[280px] h-[300px]"
-                          src={listt.item_immage}
-                          alt=""
-                        />
-                        <div className="my-[2%]">
-                          <div className="rounded-md bg-yellow-400 text-white  inline py-[1px] px-2 ml-[1%]">
-                            {listt.item_tag}
-                          </div>
-                          <div className="font-bold text-[140%] ml-[5%] text-gray-900">
-                            {listt.item_name}
-                          </div>
-                        </div>
-                        <div className="font-bold text-[120%] mb-[1%] ml-[5%]">
-                          ₹{listt.item_price}
-                        </div>
-                        <div className=" flex justify-between gap-[1%] text-gray-100 ">
-                          <div className="flex">
-                            {" "}
-                            <img
-                              className="object-contain w-8 m-1"
-                              src={image1}
-                              alt=""
-                            />{" "}
-                            <div className="self-center">
-                              {listt.item_age} Months
+              return (
+                <>
+                  {dataa.list.map((listt) => {
+                    return (
+                      <div className=" bg-white shadow-grey-500 bg-opacity-40 rounded-md p-[1%] transition-ease-in-out duration-500 border border-slate-200 hover:shadow-2xl hover:shadow-gray-300 m-auto mb-3">
+                        <button
+                          className=" text-left"
+                          onClick={() => {
+                            navigate("/knowmore", {
+                              state: { item_id: listt._id },
+                            });
+                          }}
+                        >
+                          <img
+                            className=" rounded-tl-3xl rounded-br-3xl object-cover w-[280px] h-[300px]"
+                            src={listt.item_immage}
+                            alt=""
+                          />
+                          <div className="my-[2%]">
+                            <div className="rounded-md bg-yellow-400 text-white  inline py-[1px] px-2 ml-[1%]">
+                              {listt.item_tag}
+                            </div>
+                            <div className="font-bold text-[140%] ml-[5%] text-gray-900">
+                              {listt.item_name}
                             </div>
                           </div>
-                          <div className="flex">
-                            {" "}
-                            <img
-                              className="object-contain w-8 m-1"
-                              src={image2}
-                              alt=""
-                            />{" "}
-                            <div className="self-center">
-                              {listt.item_condition} Star Condition
+                          <div className="font-bold text-[120%] mb-[1%] ml-[5%]">
+                            ₹{listt.item_price}
+                          </div>
+                          <div className=" flex justify-between gap-[1%] text-gray-100 ">
+                            <div className="flex">
+                              {" "}
+                              <img
+                                className="object-contain w-8 m-1"
+                                src={image1}
+                                alt=""
+                              />{" "}
+                              <div className="self-center">
+                                {listt.item_age} Months
+                              </div>
+                            </div>
+                            <div className="flex">
+                              {" "}
+                              <img
+                                className="object-contain w-8 m-1"
+                                src={image2}
+                                alt=""
+                              />{" "}
+                              <div className="self-center">
+                                {listt.item_condition} Star Condition
+                              </div>
                             </div>
                           </div>
-                        </div>
-                      </button>
-                      <Routes>
-                        <Route
-                          path="/knowmore"
-                          element={<KnowMore a={listt._id} />}
-                        />
-                      </Routes>
-                    </div>
-                  )
-                })}
-              </>
-              )
+                        </button>
+                        <Routes>
+                          <Route
+                            path="/knowmore"
+                            element={<KnowMore a={listt._id} />}
+                          />
+                        </Routes>
+                      </div>
+                    );
+                  })}
+                </>
+              );
             })}
           </div>
         </div>
       </>
     );
-  };
-}
+  }
+};
 
 export default Listing;
