@@ -23,10 +23,6 @@ const userSchema =new mongoose.Schema({
         type:String,
         required:true
     },
-    c_password:{
-        type:String,
-        required:true
-    },
     blacklisted:{
         type:Boolean,
         default:false
@@ -90,7 +86,6 @@ userSchema.pre('save', async function(next)
 
         //This ensures the password is being hashed and number of hashing rounds =10.
         this.password= await bcrypt.hash(this.password,12);
-        this.c_password= await bcrypt.hash(this.c_password,12);
     }
     next();
 });
