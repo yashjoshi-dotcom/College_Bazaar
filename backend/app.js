@@ -4,16 +4,15 @@ const app = express();
 const http = require("http");
 const port = process.env.PORT || 5000;
 const cors = require("cors");
-const { Server } = require("socket.io");
+const server = require("http").createServer(app);
 
 app.use(cors());
-const cookieParser = require('cookie-parser')
+const cookieParser = require("cookie-parser");
 app.use(cookieParser());
-const server = http.createServer(app);
 
-const io = new Server(server, {
+const io = require("socket.io")(server, {
   cors: {
-    origin: "",
+    origin: "*",
     methods: ["GET", "POST"],
   },
 });
@@ -49,10 +48,9 @@ const ranks = require("./src/models/userSchema");
 app.use(express.json());
 app.use(require("./src/router/auth"));
 //
-if(process.env.NODE_ENV=="production")
-{
+if (process.env.NODE_ENV == "production") {
   app.use(express.static("frontend/build"));
 }
-app.listen(port, () => {
+server.listen(port, () => {
   console.log(`Server is running on port ${port}`);
 });
