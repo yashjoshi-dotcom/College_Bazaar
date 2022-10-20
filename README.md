@@ -74,7 +74,10 @@ Start the backend Server
 ```
 
 ## Demo Video
-[![Watch the video](https://drive.google.com/file/d/1Oc5gKnMlTS4E1OWhkk6gQFvyWk_BkuzW/view)]
+
+
+https://user-images.githubusercontent.com/77540753/197020778-9bb78963-4498-43f7-9ddc-423d0c6dbbc9.mov
+
 
 ## Authors
 This Project would not have been possible without the immense  help of following people.
