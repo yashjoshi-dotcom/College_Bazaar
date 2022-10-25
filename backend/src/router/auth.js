@@ -1,35 +1,23 @@
+// Importing essential libraries 
 const express =require('express');
-const router=express.Router();
 const User= require('../models/userSchema');
 const bcrypt =require('bcryptjs');
 const jwt =require('jsonwebtoken');
 const Jwt_authenticate=require('../middlewares/Jwt_authenticate');
 
-/* Just some sample test code .
-Not for production
-app.post('/men',async (req,res)=>{
-try{
-    
-    res.send("insertback"); 
+//Using Express Router Class
+const router=express.Router();
 
-    const newRecord = new ranks(req.body);
-    consolelog(req.body);
-  const insertback= await  newRecord.save();
-    console.log('func');
-
-}catch(e){
-res.send(e);
-}
-})
- */
 // Register the data of a new member into the DB
  router.post('/register',async (req,res)=>{
 
     const{name,email_id,college_name,password}=req.body;
-    if(!name|| !email_id  || !password)
+    // Checking if all data has been recieved on the backend.
+    if(!name|| !email_id || !password)
     {
         return res.status(409).json({error :"Plz enter all data.."});
     }
+    //Checking if the Email-ID has @dtu.ac.in domain name
     var domain = email_id.substring(email_id.lastIndexOf("@") +1);
     if(domain!='dtu.ac.in')
     {
@@ -50,6 +38,22 @@ res.send(e);
         console.log(user);
         res.status(201).json({message :"registered sucessfully"});
     }
+    //Consoling Error for proper Debugging 
+    catch(err){
+        console.log(err);
+    }
+ });
+
+ //Get the data of an indiviual
+router.get('/register/:id',async (req,res)=>{
+
+    try
+    {
+        const _id= req.params.id;
+        const single_user =await User.findById(_id);
+        console.log(single_user);
+        res.status(201).send(single_user);
+    }
     catch(err){
         console.log(err);
     }
@@ -64,110 +68,15 @@ res.send(e);
         console.log(user);
         res.status(201).send(user);
     }
+    //Consoling Error for proper Debugging 
     catch(err){
         console.log(err);
     }
  });
 
-/*
- 
-//Get the data of an indiviual
-router.get('/register/:id',async (req,res)=>{
-
-    try
-    {
-        const _id= req.params.id;
-        const single_user =await User.findById(_id);
-        console.log(single_user);
-        res.status(201).send(single_user);
-    }
-    catch(err){
-        console.log(err);
-    }
- });
-//---->>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
- //Get the data of an indiviual search object
-router.get('/search/:id',async (req,res)=>{
-
-    try
-    {
-        //await MyModel.find({ name: 'john', age: { $gte: 18 } }).exec();
-        //const key= req.params.key;
-
-        const single_user =await User.find({item_name:"PC"});
-        console.log(single_user);
-        console.log("hello");
-        res.status(201).send(single_user);
-    }
-    catch(err){
-        console.log(err);
-    }
- });
- */
-
- //Will handle patch request for an indiviual
- router.patch('/register/:id',async (req,res)=>{
-
-    try
-    {
-        const _id= req.params.id;
-        const single_user =await User.findByIdAndUpdate(_id,req.body,{
-            new:true
-        });
-        console.log(single_user);
-        res.status(201).send(single_user);
-    }
-    catch(err){
-        res.status(500).send(e);
-        console.log(err);
-    }
- });
-
- ///_>>>>>>>>>>>>>>>>>>>>>>>>>>>>.
- //will patch listed data for an indiviual->>>
- router.patch('/add_data/:id',async (req,res)=>{
-    try
-    {
-        console.log("<<<>>>>");
-        console.log(req.body);
-        console.log("<<<>>>>");
-
-        const newItem = 
-        {
-            item_name:req.body.item_name,
-            item_price: req.body.item_price,
-            item_age:req.body.item_age,
-            item_condition:req.body.item_condition,
-            item_immage:req.body.item_image,
-            item_tag:req.body.item_tag,
-            item_description:req.body.item_description,
-            
-        };
-        
-        await User.findOneAndUpdate(
-          {
-            email_id: req.params.id,
-          },
-          {
-            $addToSet: {
-              list: newItem,
-            },
-          }
-        )
-        console.log("final work complete");
-        res.status(201).json({message:"good work ultimate"});
-        
-    }
-    catch(err){
-        res.status(550).send(err);
-        console.log(err);
-    }
- });
 
 
-
-
-  //Will delete data of  an indiviual
+  //The below function will be used to delete data of an indiviual.
   router.delete('/register/:id',async (req,res)=>{
 
     try
@@ -183,10 +92,9 @@ router.get('/search/:id',async (req,res)=>{
     }
  });
 //All above mentioned code is for registering a new user.
+
 // The below mentioned code is for loging in.
 router.post('/signin',async (req,res)=>{
-   // console.log(req.body);
-    //res.status(200).json({"message":"sent Successfullly"});
 
     try{
         const {email_id,password }= req.body;
@@ -220,17 +128,73 @@ router.post('/signin',async (req,res)=>{
 router.get('/profilec',Jwt_authenticate,(req,res)=>{
     res.send(req.rootUser);
 })
-/* 
-Format of data Stored just for referece (not to be uploaded into repository)
-_id: 62cd73ae68f0a559ec0c6025
-ObjectId
-name : updated yuvi   String
-email_id : experts@gmail.com String
-gender : male   String
-college_name : Delhi Technological University String
-password : 1234 String
-c_password : 1234  String
-__v : 0
- */
 
 module.exports=router;
+
+
+/*
+
+The Commented Code has just been written for reference for now and will be utilised in a later update to the Project.:bulb:
+
+
+ 
+ //Will handle patch request for an indiviual
+ router.patch('/register/:id',async (req,res)=>{
+
+    try
+    {
+        const _id= req.params.id;
+        const single_user =await User.findByIdAndUpdate(_id,req.body,{
+            new:true
+        });
+        console.log(single_user);
+        res.status(201).send(single_user);
+    }
+    catch(err){
+        res.status(500).send(e);
+        console.log(err);
+    }
+ });
+
+ //will patch listed data for an indiviual->>>
+ router.patch('/add_data/:id',async (req,res)=>{
+    try
+    {
+        // console.log("<<<>>>>");
+        // console.log(req.body);
+        // console.log("<<<>>>>");
+
+        const newItem = 
+        {
+            item_name:req.body.item_name,
+            item_price: req.body.item_price,
+            item_age:req.body.item_age,
+            item_condition:req.body.item_condition,
+            item_immage:req.body.item_image,
+            item_tag:req.body.item_tag,
+            item_description:req.body.item_description,
+            
+        };
+        
+        await User.findOneAndUpdate(
+          {
+            email_id: req.params.id,
+          },
+          {
+            $addToSet: {
+              list: newItem,
+            },
+          }
+        )
+        console.log("final work complete");
+        res.status(201).json({message:"good work ultimate"});
+        
+    }
+    catch(err){
+        res.status(550).send(err);
+        console.log(err);
+    }
+ });
+
+ */
+
