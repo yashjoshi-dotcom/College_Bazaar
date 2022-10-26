@@ -52,7 +52,7 @@ cd .\frontend\
 To Open backend directory.
 
 ```bash
-cd .\frontend\
+cd .\backend\
 ```
 
 
@@ -71,7 +71,8 @@ Start the backend Server
 
 ```bash
   nodemon app.js
-```
+```  
+Please make sure you have config.env file setup in the backend directory. The Format is demostrated in config.env.example file.
 
 ## Demo Video
 
