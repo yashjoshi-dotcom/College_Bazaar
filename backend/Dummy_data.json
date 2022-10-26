@@ -1,0 +1,25 @@
+{
+  "name": "yash",
+  "email_id": "yash@dtu.ac.in",
+  "password": "#HashedFormat#",
+  "blacklisted": false,
+  "admin": false,
+  "wishlist": [],
+  "tokens": [
+    {
+      "token": "#Random Jwt Token#"
+    }
+  ],
+  "list": [
+    {
+      "item_name": "Laptop",
+      "item_price": 5000,
+      "item_age": 3,
+      "item_condition": 2,
+      "item_immage": "https://res.cloudinary.com/dpwgsbwoi/image/upload/v1666190562/j6uxlzyvvhxpuomn0zls.jpg",
+      "item_tag": "other-stationary",
+      "item_description": "This is a good laptop",
+      "item_status": "under_approval"
+    }
+  ]
+}
