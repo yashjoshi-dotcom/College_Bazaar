@@ -1,0 +1,16 @@
+// Important Points about the linter 
+// {
+//   "Style-Guide":"Implementing most features of Airbnb guide using elsint and Prettier plugin. Credits",
+//   "Guide Github Link":"https://github.com/airbnb/javascript",
+//   "Implementation Credit":"https://github.com/wesbos/eslint-config-wesbos",
+//   "Setup help":"https://www.youtube.com/watch?v=lHAeK8t94as",
+//   "Rule list" :"https://github.com/wesbos/eslint-config-wesbos/blob/master/.eslintrc.js"
+// }
+
+{
+    "extends": [ "wesbos" ],
+    "rules":
+    {
+      "camelcase": "off"
+    }
+}
