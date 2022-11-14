@@ -9,6 +9,9 @@ require('dotenv').config();
 // Initiating Connection to the MongoDB
 require('./src/db/conn');
 
+// Initialsing and using Socket.io for chat functionality
+require('./src/chat/socket_io');
+
 // Importing all routes
 const all_listings = require('./src/routes/all_listings');
 const register = require('./src/routes/register');
@@ -21,6 +24,7 @@ const app = express();
 app.use(express.json());
 app.use(cors());
 app.use(cookieParser());
+const server = require('http').createServer(app);
 
 // Setting Routes
 app.use('/db', all_listings);
@@ -32,26 +36,6 @@ app.use('/profilec', profile);
 
 // Alloting Port Number
 const port = process.env.PORT || 5000;
-
-// Initialising Socket.io
-const server = require('http').createServer(app);
-const io = require('socket.io')(server, {
-  cors: {
-    origin: '*',
-    methods: ['GET', 'POST'],
-  },
-});
-
-// Using Socket.io for chat purposes
-io.on('connection', (socket) => {
-  socket.on('join_room', (data) => {
-    socket.join(data);
-  });
-  socket.on('send_message', (data) => {
-    socket.to(data.room).emit('receive_message', data);
-  });
-  socket.on('disconnect', () => {});
-});
 
 // Listening on the required Port.
 server.listen(port, () => {
