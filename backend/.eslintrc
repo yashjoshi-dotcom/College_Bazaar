@@ -11,6 +11,7 @@
     "extends": [ "wesbos" ],
     "rules":
     {
-      "camelcase": "off"
-    }
+      "camelcase": "off",
+      "import/order": "off"
+      }
 }

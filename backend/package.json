@@ -28,10 +28,8 @@
   "devDependencies": {
     "@babel/core": "^7.19.3",
     "@babel/eslint-parser": "^7.19.1",
-    "@types/node": "^18.8.3",
     "eslint": "^8.24.0",
     "eslint-config-airbnb": "^19.0.4",
-    "eslint-config-airbnb-typescript": "^17.0.0",
     "eslint-config-prettier": "^8.5.0",
     "eslint-config-wesbos": "^3.1.4",
     "eslint-plugin-html": "^7.1.0",
