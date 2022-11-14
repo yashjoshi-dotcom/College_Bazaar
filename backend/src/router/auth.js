@@ -2,7 +2,7 @@
 const express = require('express');
 const bcrypt = require('bcryptjs');
 const User = require('../models/userSchema');
-const jwt_Authenticate = require('../middlewares/jwt_Authenticate');
+const jwt_Authenticate = require('../middlewares/jwt_authenticate');
 
 // Using Express Router Class
 const router = express.Router();
