@@ -22,11 +22,16 @@ const Signin = () => {
     });
 
     const data = res.json();
-    if (res.status === 400 || !data) {
-      window.alert("Invalid Credentials");
-    } else {
+    if (res.status === 200 && data) {
       window.alert("Login Successful");
       navigate("/profile");
+    }
+    else if(res.status === 403)
+    {
+      window.alert("Invalid Credentials");
+    }
+     else {
+      window.alert(" Uhh! We are experiencing some problems with our Server.");
     }
   };
 
