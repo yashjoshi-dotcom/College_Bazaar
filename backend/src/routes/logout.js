@@ -1,6 +1,5 @@
 // Importing required libraries
 const express = require('express');
-const User = require('../models/userSchema');
 const jwt_Authenticate = require('../middlewares/jwt_authenticate');
 
 // Using Express Router Class
@@ -14,13 +13,13 @@ router.get('/', jwt_Authenticate,async (req, res) => {
         //     return  currentElement.token!= req.token
      //   })
 
-     //removing all instances of login
-     res.rootUser.tokens=[];
-        res.clearCookie("jwtoken");
-        await req.rootUser.save();
-        // res.render('Home');
-        console.log("logout succesful");        
-    }
+         //removing all instances of login : More Secure
+            req.rootUser.tokens=[];
+            res.clearCookie("jwtoken");
+            await req.rootUser.save();
+             //res.render('Home');
+            console.log("logout succesful");        
+        }
     catch(err)
     {
     console.log(err);    

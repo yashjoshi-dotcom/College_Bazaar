@@ -9,10 +9,17 @@ import { useNavigate } from "react-router-dom";
 
 import { Dropdown } from "flowbite-react/lib/esm/components/Dropdown";
 import { Avatar } from "flowbite-react/lib/esm/components/Avatar";
+import { useAuth } from "../../Contexts/AuthContext";
 
 const Navabr = () => {
   const navigate = useNavigate();
 
+  const  {
+    authUser,
+    setAuthUser,
+    isloggedin,
+    setIsloggedin
+} = useAuth();
   const Logout = async () =>
   {
     try{
@@ -23,7 +30,8 @@ const Navabr = () => {
         },
         credentials: "include",
       });
-      navigate(0);
+      setIsloggedin(false);
+      navigate('/');
       console.log("done with this request");  
     }
     catch(err)
@@ -124,17 +132,20 @@ const Navabr = () => {
           >
             Post Item
           </NavLink>
-          <NavLink
+          {isloggedin ? 
+          <button onClick={Logout}
+          className="text-lg text-neutral-400 hover:text-neutral-200"
+        >
+          LogOut
+        </button>
+          :  <NavLink
             to="/signin"
             className="text-lg text-neutral-400 hover:text-neutral-200"
           >
             Login
-          </NavLink>
-          <div onClick={Logout}
-            className="text-lg text-neutral-400 hover:text-neutral-200"
-          >
-            LogOut
-          </div>
+          </NavLink>}
+         
+          
         </Navbar.Collapse>
         {/* </div> */}
       </Navbar>
