@@ -13,9 +13,9 @@ const stripe = require("stripe")(process.env.STRIPE_SECRET_KEY);
 
 // The given function adds a new listed item into the database and update list array.
 router.post("/", async (req, res) => { 
+    const { product }  = req.body; 
     try
     {
-        const { product }  = req.body; 
         const session = await stripe.checkout.sessions.create({ 
           payment_method_types: ["card"], 
           line_items: [ 
@@ -25,15 +25,15 @@ router.post("/", async (req, res) => {
                 product_data: { 
                   name: product.name, 
                 }, 
-                unit_amount: product.price * 100, 
+                unit_amount: ((product.price) * 100), 
               }, 
               quantity: product.quantity, 
             }, 
           ], 
           mode: "payment", 
           //Needs changes here 
-          success_url: "http://localhost:3000/success", 
-          cancel_url: "http://localhost:3000/cancel", 
+          success_url: "http://localhost:3000/PaymentSuccess", 
+          cancel_url: "http://localhost:3000/PaymentFailiure", 
         }); 
         res.json({ id: session.id }); 
         console.log("Sucess");
