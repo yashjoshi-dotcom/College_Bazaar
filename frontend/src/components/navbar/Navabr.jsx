@@ -5,10 +5,33 @@ import { useState, useEffect } from "react";
 // import Menu from "./Menu";
 import "flowbite";
 import { Navbar } from "flowbite-react/lib/esm/components/Navbar";
+import { useNavigate } from "react-router-dom";
+
 import { Dropdown } from "flowbite-react/lib/esm/components/Dropdown";
 import { Avatar } from "flowbite-react/lib/esm/components/Avatar";
 
 const Navabr = () => {
+  const navigate = useNavigate();
+
+  const Logout = async () =>
+  {
+    try{
+      const res = await fetch("/logout", {
+        method: "GET",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        credentials: "include",
+      });
+      navigate(0);
+      console.log("done with this request");  
+    }
+    catch(err)
+    {
+      console.log(err);
+      window.alert("You need to first log in.");
+    }
+  };
   //   // const [isMenuOpen, SetMenu] = useState(false);
   //   const [userdata,setUserData] =useState();
   // const CallAboutPage= async()=>
@@ -107,6 +130,11 @@ const Navabr = () => {
           >
             Login
           </NavLink>
+          <div onClick={Logout}
+            className="text-lg text-neutral-400 hover:text-neutral-200"
+          >
+            LogOut
+          </div>
         </Navbar.Collapse>
         {/* </div> */}
       </Navbar>
