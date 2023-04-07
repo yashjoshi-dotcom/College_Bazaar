@@ -90,7 +90,7 @@ const Form = () => {
       // [item_image]: url,
     });
 
-    const res = await fetch(`/add_data/${userdata.email_id}`, {
+    const res = await fetch(`/add_data`, {
       method: "PATCH",
       headers: {
         "Content-Type": "application/json",
