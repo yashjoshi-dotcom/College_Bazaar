@@ -11,6 +11,7 @@
     "@emotion/styled": "^11.10.0",
     "@material-tailwind/react": "^1.2.3",
     "@mui/material": "^5.10.2",
+    "@stripe/stripe-js": "^1.52.0",
     "@testing-library/jest-dom": "^5.16.5",
     "@testing-library/react": "^13.3.0",
     "@testing-library/user-event": "^13.5.0",
@@ -26,7 +27,6 @@
     "react-toastify": "^9.0.8",
     "socket.io-client": "^4.5.1",
     "web-vitals": "^2.1.4"
-  
   },
   "scripts": {
     "start": "react-scripts start",

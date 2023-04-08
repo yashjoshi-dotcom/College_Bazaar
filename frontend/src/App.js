@@ -15,9 +15,9 @@ import KnowMore from "./pages/KnowMore";
 import Signin from "./components/SignIn/Signin";
 import Profile from "./pages/profile";
 import Imggg from "./pages/img";
-
+import PaymentSuccess from "./pages/PaymentSuccess";
+import PaymentFailiure from "./pages/PaymentFailiure";
 import { AuthProvider } from "./Contexts/AuthContext";
-
 const App = () => {
   return (
     <>
@@ -35,10 +35,11 @@ const App = () => {
         <Route path="/img" element={<Imggg />} />
         <Route path="/profile" element={<Profile />} />
         <Route path="/Signin" element={<Signin />} />
+        <Route path ="/PaymentFailiure" element = {<PaymentFailiure/>} />
+        <Route path ="/PaymentSuccess" element = {<PaymentSuccess/>} />
       </Routes>
       <Footer />
       </AuthProvider>
-
     </>
   );
 };

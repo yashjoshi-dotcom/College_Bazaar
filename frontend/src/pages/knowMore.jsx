@@ -7,6 +7,8 @@ import data from "../components/message.json";
 import Chat from "../components/Chat/ChatApp";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import { loadStripe } from "@stripe/stripe-js"; 
+
 
 function KnowMore() {
   const location = useLocation();
@@ -97,6 +99,52 @@ function KnowMore() {
     });
   };
   // console.log(this.props);
+  const [product, setProduct] = useState({}); 
+
+////
+const makePayment = () => {
+  setProduct({
+    name: Data[0].list[0].item_name,
+    quantity: 1,
+    description: Data[0].list[0].item_description,
+    price: Data[0].list[0].item_price,
+  });
+};
+useEffect( () => {
+  async function sendPaymentReq ()
+  {
+    console.log(Data[0].list[0].item_price);
+    console.log(typeof (Data[0].list[0].item_price));
+    const stripe = await loadStripe(process.env.REACT_APP_STRIPE_PUBLISHABLE_KEY);
+    const body = { product };
+    const headers = {
+      "Content-Type": "application/json",
+    };
+  
+    const response = await fetch(
+      "/payment",
+      {
+        method: "POST",
+        headers: headers,
+        body: JSON.stringify(body),
+      }
+    );
+  
+    const session = await response.json();
+  
+    const result = stripe.redirectToCheckout({
+      sessionId: session.id,
+    });
+  
+    if (result.error) {
+      console.log(result.error);
+    }
+  }
+ sendPaymentReq();
+}, [product]);
+
+////
+
   if (isFetching) {
     return <h1>Page is Loading</h1>;
   } else {
@@ -294,6 +342,11 @@ function KnowMore() {
                 </div>
                 <div>
                   <Chat id={Data[0].list[0]._id} />
+                </div>
+                <div>      
+                <button id="payment" onClick={makePayment} className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
+                 Buy Now
+               </button>
                 </div>
               </div>
             </div>
