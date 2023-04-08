@@ -16,9 +16,12 @@ import Signin from "./components/SignIn/Signin";
 import Profile from "./pages/profile";
 import Imggg from "./pages/img";
 
+import { AuthProvider } from "./Contexts/AuthContext";
+
 const App = () => {
   return (
     <>
+      <AuthProvider>
       <Navbar />
       <Routes>
         <Route path="/" element={<LandingPage />} />
@@ -34,6 +37,8 @@ const App = () => {
         <Route path="/Signin" element={<Signin />} />
       </Routes>
       <Footer />
+      </AuthProvider>
+
     </>
   );
 };

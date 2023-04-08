@@ -9,9 +9,7 @@ const router = express.Router();
 router.get('/', async (req, res) => {
   try {
     // const user = await User.find({});
-    const user = await User
-  .find({})
-  .select({ "list": 1});
+    const user = await User.find({}).select({ list: 1 });
 
     console.log(user);
     res.status(200).send(user);

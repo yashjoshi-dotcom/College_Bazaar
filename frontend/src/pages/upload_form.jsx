@@ -6,20 +6,13 @@ import FormControl from "@mui/material/FormControl";
 import Select from "@mui/material/Select";
 import Rating from "@mui/material/Rating";
 import Typography from "@mui/material/Typography";
-import { useEffect } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate,Navigate } from "react-router-dom";
+import { useAuth } from "../Contexts/AuthContext";
 
 const Form = () => {
-  const [userdata, setUserData] = useState();
-  const [isFetching, setIsFetching] = useState(true);
-
   const navigate = useNavigate();
 
-  const [cat, setCat] = useState("");
-  const handleChange = (event) => {
-    setCat(event.target.value);
-  };
-
+  const  { isloggedin} = useAuth();
   const [data, setData] = useState({
     item_description: "",
     item_name: "",
@@ -31,9 +24,6 @@ const Form = () => {
     item_tag: "",
   });
 
-  const [rat, setRat] = useState("");
-  //---------------------------
-  const [image, setImage] = useState("");
   const [url, setUrl] = useState("");
 
   //===========================
@@ -47,11 +37,8 @@ const Form = () => {
   };
 
   const final = () => {
-    // uploadImage();
     postData();
     navigate("/profile");
-
-    // setTimeout(() => postData(), 5000);
   };
 
   const uploadImage = (e) => {
@@ -85,12 +72,9 @@ const Form = () => {
     } = data;
     setData({
       data,
-      // [item_tag]: cat,
-      // [item_condition]: rat,
-      // [item_image]: url,
     });
 
-    const res = await fetch(`/add_data/${userdata.email_id}`, {
+    const res = await fetch(`/add_data`, {
       method: "PATCH",
       headers: {
         "Content-Type": "application/json",
@@ -118,48 +102,9 @@ const Form = () => {
     }
   };
 
-  const CallAboutPage = async () => {
-    setIsFetching(true);
-    console.log("Call about");
-    try {
-      console.log("tried");
-      const res = await fetch("/profilec", {
-        method: "GET",
-        headers: {
-          Accept: "application/json",
-          "Content-Type": "application/json",
-        },
-        credentials: "include",
-      });
-      const object = await res.json();
-      //    setUserData(object);
-      console.log(object);
-      setUserData(object);
-      console.log(userdata);
-      setIsFetching(false);
-      if (!res.status === 200) {
-        const error = new Error(res.error);
-        alert(
-          "There seems to be some issue with your credentials. We are working on it."
-        );
-        throw error;
-      }
-    } catch (err) {
-      console.log(err);
-      console.log("caught error");
-      setIsFetching(false);
-      navigate("/signin");
-    }
-  };
-
-  //-------------------------
-
-  useEffect(() => {
-    CallAboutPage();
-  }, []);
-
-  if (isFetching) {
-    <h1>Page is Loading</h1>;
+  if (!isloggedin) {
+    return (<Navigate to="/Signin" />
+    );
   } else {
     return (
       <div>
