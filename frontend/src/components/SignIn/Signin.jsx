@@ -2,10 +2,16 @@ import React from "react";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import "./CSS/style.css";
+import { useAuth } from "../../Contexts/AuthContext";
 
 const Signin = () => {
   const navigate = useNavigate();
-
+  const  {
+    authUser,
+    setAuthUser,
+    isloggedin,
+    setIsloggedin
+} = useAuth();
   const [email_id, setEmail_id] = useState("");
   const [password, setPassword] = useState("");
   const loginUser = async (e) => {
@@ -33,6 +39,9 @@ const Signin = () => {
      else {
       window.alert(" Uhh! We are experiencing some problems with our Server.");
     }
+    ///
+    setIsloggedin(true);
+    setAuthUser(null);
   };
 
   const [user, setUser] = useState({

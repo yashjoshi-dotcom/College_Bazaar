@@ -17,9 +17,11 @@ import Profile from "./pages/profile";
 import Imggg from "./pages/img";
 import PaymentSuccess from "./pages/PaymentSuccess";
 import PaymentFailiure from "./pages/PaymentFailiure";
+import { AuthProvider } from "./Contexts/AuthContext";
 const App = () => {
   return (
     <>
+      <AuthProvider>
       <Navbar />
       <Routes>
         <Route path="/" element={<LandingPage />} />
@@ -37,6 +39,7 @@ const App = () => {
         <Route path ="/PaymentSuccess" element = {<PaymentSuccess/>} />
       </Routes>
       <Footer />
+      </AuthProvider>
     </>
   );
 };

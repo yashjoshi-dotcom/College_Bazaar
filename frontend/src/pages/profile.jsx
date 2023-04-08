@@ -4,10 +4,16 @@ import Cards from "../components/Admin/profCard";
 import { useNavigate } from "react-router-dom";
 import { Route, Routes } from "react-router-dom";
 import KnowMore from "./KnowMore";
+import { useAuth } from '../Contexts/AuthContext';
 
 const Profile = () => {
+    const  {
+        authUser,
+        setAuthUser,
+        isloggedin,
+        setIsloggedin
+    } = useAuth();
 
-    const [userdata,setUserData] =useState();
     const [isFetching, setIsFetching] = useState(true);
 
     const navigate = useNavigate();
@@ -28,10 +34,10 @@ const CallAboutPage= async()=>
             credentials:"include"
         });
         const object= await res.json();
-    //    setUserData(object);
+    //    setAuthUser(object);
         console.log(object);
-        setUserData(object);
-        console.log(userdata);
+        setAuthUser(object);
+        console.log(authUser);
         setIsFetching(false);
         if(!res.status===200)
         {
@@ -74,7 +80,7 @@ const CallAboutPage= async()=>
                                             src="https://images-ext-2.discordapp.net/external/vgvgD-_zO0974W3kIR3KyNCAQPB9uGXcfBp3dMbqeco/https/i.etsystatic.com/36532523/r/il/97ae46/4078306713/il_1140xN.4078306713_n74s.jpg"
                                             alt="" />
                                     </div>
-                                    <h1 class="text-gray-100 font-bold text-xl leading-8 my-1">{userdata.name}</h1>
+                                    <h1 class="text-gray-100 font-bold text-xl leading-8 my-1">{authUser.name}</h1>
     
     
                                     <ul
@@ -86,7 +92,7 @@ const CallAboutPage= async()=>
                                         </li>
                                         <li class="flex items-center py-3">
                                             <span>Number of Items Listed</span>
-                                            <span class="ml-auto">{userdata.list.length}</span>
+                                            <span class="ml-auto">{authUser.list.length}</span>
                                         </li>
                                     </ul>
                                 </div>
@@ -152,7 +158,7 @@ const CallAboutPage= async()=>
                                         <div class="grid md:grid-cols-2 text-sm before:hidden after:hidden">
                                             <div class="flex">
                                                 <div class="px-4 py-2 font-semibold w-[50%]">Name</div>
-                                                <div class="px-4 py-2 w-[50%]">{userdata.name}</div>
+                                                <div class="px-4 py-2 w-[50%]">{authUser.name}</div>
                                             </div>
                                             <div class="flex">
                                                 <div class="px-4 py-2 font-semibold w-[50%]">Nationality</div>
@@ -173,7 +179,7 @@ const CallAboutPage= async()=>
                                             <div class="flex">
                                                 <div class="px-4 py-2 font-semibold w-[50%]">Email.</div>
                                                 <div class="px-4 py-2 w-[50%]">
-                                                    <a class="text-blue-800" href="mailto:jane@example.com">{userdata.email_id}</a>
+                                                    <a class="text-blue-800" href="mailto:jane@example.com">{authUser.email_id}</a>
                                                 </div>
                                             </div>
                                         </div>
@@ -198,7 +204,7 @@ const CallAboutPage= async()=>
                                         </div>
                                     <div class=" before:hidden after:hidden">
                                         
-                                    {userdata.list.map((dataa, key) => {
+                                    {authUser.list.map((dataa, key) => {
                                 return (<>
                       <button
                         className=" text-left"
