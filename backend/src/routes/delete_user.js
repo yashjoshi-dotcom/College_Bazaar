@@ -7,7 +7,7 @@ const jwt_Authenticate = require('../middlewares/jwt_authenticate');
 const router = express.Router();
 
 // The below function will be used to delete data of an indiviual fron the database .
-router.delete('/', jwt_Authenticate,async (req, res) => {
+router.delete('/', jwt_Authenticate, async (req, res) => {
   try {
     const _id = req.userID;
     const single_user = await User.findByIdAndDelete(_id);
