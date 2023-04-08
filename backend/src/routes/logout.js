@@ -17,7 +17,7 @@ router.get('/', jwt_Authenticate,async (req, res) => {
             req.rootUser.tokens=[];
             res.clearCookie("jwtoken");
             await req.rootUser.save();
-             //res.render('Home');
+            res.redirect('/home');
             console.log("logout succesful");        
         }
     catch(err)

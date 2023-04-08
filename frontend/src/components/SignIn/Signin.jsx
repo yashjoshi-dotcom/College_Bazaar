@@ -11,7 +11,7 @@ const Signin = () => {
     setAuthUser,
     isloggedin,
     setIsloggedin
-} = useAuth()
+} = useAuth();
   const [email_id, setEmail_id] = useState("");
   const [password, setPassword] = useState("");
   const loginUser = async (e) => {
