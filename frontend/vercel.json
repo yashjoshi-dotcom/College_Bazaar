@@ -1,0 +1,9 @@
+{
+    "rewrites": [
+      {
+        "source": "/:path*",
+        "destination": "https://college-bazaar-backend.vercel.app/:path*"
+      }
+    ]
+}
+  

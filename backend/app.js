@@ -20,6 +20,7 @@ const profile = require('./src/routes/profile');
 const delete_user = require('./src/routes/delete_user');
 const signin = require('./src/routes/signin');
 const logout = require('./src/routes/logout');
+const base_endpoint = require('./src/routes/base_endpoint');
 
 const app = express();
 app.use(express.json());
@@ -35,6 +36,7 @@ app.use('/signin', signin);
 app.use('/del', delete_user);
 app.use('/profilec', profile);
 app.use('/logout', logout);
+app.use('/', base_endpoint);
 
 // Alloting Port Number
 const port = process.env.PORT || 5000;
