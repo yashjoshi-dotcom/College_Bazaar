@@ -10,7 +10,7 @@ const router = express.Router();
 router.post('/', async (req, res) => {
   try {
     const { email_id, password } = req.body;
-    /// Checking if both email id and password is entered
+    // Checking if both email id and password is entered
     if (!email_id || !password) {
       return res.status(400).json({ error: 'incomplete Data' });
     }

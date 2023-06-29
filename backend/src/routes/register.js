@@ -11,8 +11,7 @@ router.post('/', async (req, res) => {
   // Checking if all data has been recieved on the backend.
   if (!name || !email_id || !password) {
     return res.status(409).json({
-      error:
-        'Bad Request:{Conflict with server db schema} Plz enter all data..',
+      error: 'Bad Request: Please enter all the required data.',
     });
   }
   // Checking if the Email-ID has @dtu.ac.in domain name
