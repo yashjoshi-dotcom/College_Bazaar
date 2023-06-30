@@ -1,7 +1,6 @@
 const mongoose = require('mongoose');
 const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
-require('dotenv').config();
 
 // The following code sets the schema for the vaious fields that are required from the end user while registering and the type of each of this fieldd.
 

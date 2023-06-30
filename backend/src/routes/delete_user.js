@@ -11,8 +11,6 @@ router.delete('/', jwt_Authenticate, async (req, res) => {
   try {
     const _id = req.userID;
     const single_user = await User.findByIdAndDelete(_id);
-    // Logging the user that has been deleted for developer's convenience.
-    console.log(single_user);
     res
       .status(200)
       .json({ message: 'Successfully removed the user from the database.' });

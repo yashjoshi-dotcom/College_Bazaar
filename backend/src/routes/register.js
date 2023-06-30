@@ -34,7 +34,6 @@ router.post('/', async (req, res) => {
     // Hashing the password and c_password with help of middle ware and bcrypt in db/conn.js
     // Callling save method to add the data to the database
     await user.save();
-    console.log(user);
     res.status(201).json({ message: 'Registered sucessfully' });
   } catch (err) {
     // Consoling error for proper debugging.

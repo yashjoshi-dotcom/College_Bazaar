@@ -3,8 +3,6 @@ const express = require('express');
 const cors = require('cors');
 const cookieParser = require('cookie-parser');
 
-// Importing Environment Variables
-require('dotenv').config();
 
 // Initiating Connection to the MongoDB
 require('./src/db/conn');

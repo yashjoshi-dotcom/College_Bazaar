@@ -16,7 +16,6 @@ router.post('/', async (req, res) => {
     }
     // Checking if Email Id exists and if not request registering as a new account
     const userLogin = await User.findOne({ email_id });
-    console.log(userLogin);
     if (!userLogin)
       res
         .status(400)
@@ -30,9 +29,6 @@ router.post('/', async (req, res) => {
       // The value above need to be provided in millisconds
       httpOnly: true, // Else it will work only in secure
     });
-
-    // Cosnoling Data of User who has logged in for developer's convinience
-    console.log(userLogin);
 
     if (isMatched) res.status(200).json({ message: 'Login Successful' });
     else
