@@ -11,8 +11,7 @@ router.post('/', async (req, res) => {
   // Checking if all data has been recieved on the backend.
   if (!name || !email_id || !password) {
     return res.status(409).json({
-      error:
-        'Bad Request:{Conflict with server db schema} Plz enter all data..',
+      error: 'Bad Request: Please enter all the required data.',
     });
   }
   // Checking if the Email-ID has @dtu.ac.in domain name
@@ -35,7 +34,6 @@ router.post('/', async (req, res) => {
     // Hashing the password and c_password with help of middle ware and bcrypt in db/conn.js
     // Callling save method to add the data to the database
     await user.save();
-    console.log(user);
     res.status(201).json({ message: 'Registered sucessfully' });
   } catch (err) {
     // Consoling error for proper debugging.

@@ -5,21 +5,73 @@ const jwt_Authenticate = require('../middlewares/jwt_authenticate');
 
 // Using Express Router Class
 const router = express.Router();
+
 // The given function adds a new listed item into the database and update list array.
 router.patch('/', jwt_Authenticate, async (req, res) => {
   try {
-    console.log(req.params.id);
-    console.log(req.body);
+    const {
+      item_name,
+      item_price,
+      item_age,
+      item_condition,
+      item_image,
+      item_tag,
+      item_description,
+    } = req.body;
+
+    // Check if all required fields are present
+    if (
+      !item_name ||
+      !item_price ||
+      !item_age ||
+      !item_condition ||
+      !item_image ||
+      !item_tag ||
+      !item_description
+    ) {
+      return res.status(400).json({
+        error: 'Bad Request: Please enter all the required data.',
+      });
+    }
+
+     // Check if item_price is a valid number
+     if (typeof item_price !== 'number') {
+      return res.status(400).json({
+        error: 'Bad Request: Invalid item price.',
+      });
+    }
+
+    // Check if item_age is a valid number
+    if (typeof item_age !== 'number') {
+      return res.status(400).json({
+        error: 'Bad Request: Invalid item age.',
+      });
+    }
+    
+    // Check if item_tag is a valid value
+    const validItemTags = [
+      'Others',
+      'Clothing_essentials',
+      'Books',
+      'Daily-use',
+      'Sports',
+      'Stationary',
+    ];
+    if (!validItemTags.includes(item_tag)) {
+      return res.status(400).json({
+        error: 'Bad Request: Invalid item tag.',
+      });
+    }
+    
     const newItem = {
-      item_name: req.body.item_name,
-      item_price: req.body.item_price,
-      item_age: req.body.item_age,
-      item_condition: req.body.item_condition,
-      item_immage: req.body.item_image,
-      item_tag: req.body.item_tag,
-      item_description: req.body.item_description,
+      item_name,
+      item_price,
+      item_age,
+      item_condition,
+      item_image,
+      item_tag,
+      item_description,
     };
-    console.log(newItem);
 
     await User.findOneAndUpdate(
       {
@@ -31,7 +83,7 @@ router.patch('/', jwt_Authenticate, async (req, res) => {
         },
       }
     );
-    console.log(User);
+
     res
       .status(201)
       .json({ message: 'Listing successfully added on the website' });
