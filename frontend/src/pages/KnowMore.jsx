@@ -110,7 +110,7 @@ function KnowMore() {
               <img
                 alt="ecommerce"
                 class="lg:w-1/2 w-full object-contain object-top rounded border border-gray-200"
-                src={Data[0].list[0].item_immage}
+                src={Data[0].list[0].item_image}
               />
               <div class="lg:w-1/2 w-full lg:pl-10 lg:py-6 mt-6 lg:mt-0">
                 <h2 class="text-sm title-font text-gray-500 tracking-widest">

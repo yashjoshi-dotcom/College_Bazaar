@@ -214,7 +214,7 @@ const CallAboutPage= async()=>
                           });
                         }}
                       >
-                                <Cards productName={dataa.item_name} productInfo={dataa.item_description} productImage={dataa.item_immage}/>
+                                <Cards productName={dataa.item_name} productInfo={dataa.item_description} productImage={dataa.item_image}/>
                                 </button>
                                 <Routes>
                         <Route

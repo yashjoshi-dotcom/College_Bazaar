@@ -52,7 +52,7 @@ const userSchema = new mongoose.Schema({
       item_condition: {
         type: Number,
       },
-      item_immage: {
+      item_image: {
         type: String,
       },
       item_tag: {

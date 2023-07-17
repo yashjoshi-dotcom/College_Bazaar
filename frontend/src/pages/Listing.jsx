@@ -289,7 +289,7 @@ const Listing = () => {
                         >
                           <img
                             className=" rounded-tl-3xl rounded-br-3xl object-cover w-[280px] h-[300px]"
-                            src={listt.item_immage}
+                            src={listt.item_image}
                             alt=""
                           />
                           <div className="my-[2%]">

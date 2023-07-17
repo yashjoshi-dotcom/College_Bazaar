@@ -34,20 +34,6 @@ router.patch('/', jwt_Authenticate, async (req, res) => {
       });
     }
 
-     // Check if item_price is a valid number
-     if (typeof item_price !== 'number') {
-      return res.status(400).json({
-        error: 'Bad Request: Invalid item price.',
-      });
-    }
-
-    // Check if item_age is a valid number
-    if (typeof item_age !== 'number') {
-      return res.status(400).json({
-        error: 'Bad Request: Invalid item age.',
-      });
-    }
-    
     // Check if item_tag is a valid value
     const validItemTags = [
       'Others',

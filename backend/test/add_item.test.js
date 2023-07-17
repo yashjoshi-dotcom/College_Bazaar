@@ -74,7 +74,7 @@ test('Add a new listing with missing fields', async () => {
 
 // Test for adding a new listing with invalid data
 test('Add a new listing with invalid data', async () => {
-  // Then, sign in with the registered user's credentials to get the authentication token
+  // Sign in with the registered user's credentials to get the authentication token
   const signInRes = await request(app)
     .post('/signin')
     .send({
@@ -84,40 +84,6 @@ test('Add a new listing with invalid data', async () => {
     .expect(200);
 
   const token = signInRes.headers['set-cookie'][0].split('=')[1].split(';')[0];
-
-  // Try to add a new listing with invalid item_price using the authentication token
-  let res = await request(app)
-    .patch('/add_data')
-    .set('Cookie', `jwtoken=${token}`)
-    .send({
-      item_name: 'Test Item',
-      item_price: 'invalid price',
-      item_age: 1,
-      item_condition: 5,
-      item_image: 'https://dummyimage.com/600x400/000/fff',
-      item_tag: 'Others',
-      item_description: 'Test description',
-    })
-    .expect(400);
-
-  expect(res.body.error).toBe('Bad Request: Invalid item price.');
-
-  // Try to add a new listing with invalid item_age using the authentication token
-  res = await request(app)
-    .patch('/add_data')
-    .set('Cookie', `jwtoken=${token}`)
-    .send({
-      item_name: 'Test Item',
-      item_price: 100,
-      item_age: 'invalid age',
-      item_condition: 5,
-      item_image: 'https://dummyimage.com/600x400/000/fff',
-      item_tag: 'Others',
-      item_description: 'Test description',
-    })
-    .expect(400);
-
-  expect(res.body.error).toBe('Bad Request: Invalid item age.');
 
   // Try to add a new listing with invalid item_tag using the authentication token
   res = await request(app)
