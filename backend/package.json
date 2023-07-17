@@ -7,7 +7,7 @@
   },
   "main": "app.js",
   "scripts": {
-    "test": "node_modules\\.bin\\env-cmd -f config/test.env jest --coverage",
+    "test": "node_modules\\.bin\\env-cmd -f config/test.env jest --runInBand",
     "start": "node index.js",
     "dev": "node_modules\\.bin\\env-cmd -f config/dev.env nodemon index.js",
     "lint": "eslint .",
