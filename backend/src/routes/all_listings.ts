@@ -1,12 +1,12 @@
 // Importing required libraries
-const express = require('express');
-const User = require('../models/userSchema');
+import express from 'express';
+import User from '../models/userSchema';
 
 // Using Express Router Class
 const router = express.Router();
 
 // Get the whole data from the database
-router.get('/', async (req, res) => {
+router.get('/', async (req: express.Request, res: express.Response) => {
   try {
     // const user = await User.find({});
     const user = await User.find({}).select({ list: 1 });
@@ -22,4 +22,4 @@ router.get('/', async (req, res) => {
   }
 });
 
-module.exports = router;
+export default router;

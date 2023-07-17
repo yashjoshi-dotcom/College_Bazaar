@@ -1,13 +1,14 @@
+// delete_user.ts
 // Importing required libraries
-const express = require('express');
-const User = require('../models/userSchema');
-const jwt_Authenticate = require('../middlewares/jwt_authenticate');
+import express from 'express';
+import User from '../models/userSchema';
+import jwt_Authenticate from '../middlewares/jwt_authenticate';
 
 // Using Express Router Class
 const router = express.Router();
 
 // The below function will be used to delete data of an indiviual fron the database .
-router.delete('/', jwt_Authenticate, async (req, res) => {
+router.delete('/', jwt_Authenticate, async (req: express.Request, res: express.Response) => {
   try {
     const _id = req.userID;
     const single_user = await User.findByIdAndDelete(_id);
@@ -22,4 +23,4 @@ router.delete('/', jwt_Authenticate, async (req, res) => {
   }
 });
 
-module.exports = router;
+export default router;

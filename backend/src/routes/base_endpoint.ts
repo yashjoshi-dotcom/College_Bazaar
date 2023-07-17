@@ -1,12 +1,12 @@
 // Importing required libraries
-const express = require('express');
+import express from 'express';
 
 // Using Express Router Class
 const router = express.Router();
 
 // Get the whole data from the database
-router.get('/', (req, res) => {
+router.get('/', (req: express.Request, res: express.Response) => {
   res.status(200).send('The API base endpint is working correctly');
 });
 
-module.exports = router;
+export default router;

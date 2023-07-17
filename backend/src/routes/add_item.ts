@@ -1,13 +1,13 @@
 // Importing required libraries
-const express = require('express');
-const User = require('../models/userSchema');
-const jwt_Authenticate = require('../middlewares/jwt_authenticate');
+import express from 'express';
+import User from '../models/userSchema';
+import jwt_Authenticate from '../middlewares/jwt_authenticate';
 
 // Using Express Router Class
 const router = express.Router();
 
 // The given function adds a new listed item into the database and update list array.
-router.patch('/', jwt_Authenticate, async (req, res) => {
+router.patch('/', jwt_Authenticate, async (req: express.Request, res: express.Response) => {
   try {
     const {
       item_name,
@@ -81,4 +81,4 @@ router.patch('/', jwt_Authenticate, async (req, res) => {
   }
 });
 
-module.exports = router;
+export default router;

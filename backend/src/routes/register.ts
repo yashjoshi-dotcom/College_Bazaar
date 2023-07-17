@@ -1,12 +1,13 @@
+// register.ts
 // Importing required libraries
-const express = require('express');
-const User = require('../models/userSchema');
+import express from 'express';
+import User from '../models/userSchema';
 
 // Using Express Router Class
 const router = express.Router();
 
 // Register the data of a new member into the DB
-router.post('/', async (req, res) => {
+router.post('/', async (req: express.Request, res: express.Response) => {
   const { name, email_id, college_name, password } = req.body;
   // Checking if all data has been recieved on the backend.
   if (!name || !email_id || !password) {
@@ -44,4 +45,4 @@ router.post('/', async (req, res) => {
   }
 });
 
-module.exports = router;
+export default router;
