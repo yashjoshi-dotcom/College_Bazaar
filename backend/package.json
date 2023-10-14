@@ -16,7 +16,8 @@
     "build": "rimraf dist && tsc",
     "ts.check": "tsc --project tsconfig.json",
     "add-build": "git add dist",
-    "prepare": "cd .. && husky install backend/.husky"
+    "prepare": "cd .. && husky install backend/.husky",
+    "github-tests": "jest --runInBand"
   },
   "author": "",
   "license": "ISC",
