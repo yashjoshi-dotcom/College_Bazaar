@@ -1,0 +1,2 @@
+#!/bin/sh
+cd ./backend && npm run ts.check && npm run build && npm run add-build
