@@ -1,5 +1,4 @@
 /node_modules
 /tmp
-/dist
 config/dev.env
 config/test.env
