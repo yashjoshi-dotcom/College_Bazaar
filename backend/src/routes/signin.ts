@@ -27,10 +27,12 @@ router.post('/', async (req: express.Request, res: express.Response) => {
         // The value above need to be provided in millisconds
         httpOnly: true, // Else it will work only in secure
       });
-      console.log("login success");
+      console.log('login success');
       if (isMatched) res.status(200).json({ message: 'Login Successful' });
       else
-        res.status(403).json({ message: 'Access Denied : Invalid Credentials' });
+        res
+          .status(403)
+          .json({ message: 'Access Denied : Invalid Credentials' });
     } else {
       // Handle the case where userLogin is null
       res

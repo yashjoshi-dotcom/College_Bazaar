@@ -88,7 +88,7 @@ test('Add a new listing with invalid data', async () => {
   const token = signInRes.headers['set-cookie'][0].split('=')[1].split(';')[0];
 
   // Try to add a new listing with invalid item_tag using the authentication token
- const res = await request(app)
+  const res = await request(app)
     .patch('/add_data')
     .set('Cookie', `jwtoken=${token}`)
     .send({

@@ -24,9 +24,9 @@ router.delete('/', jwt_authenticate_1.default, (req, res) => __awaiter(void 0, v
     try {
         const _id = req.userID;
         const single_user = yield userSchema_1.default.findByIdAndDelete(_id);
-        res
-            .status(200)
-            .json({ message: 'Successfully removed the user from the database.' });
+        res.status(200).json({
+            message: `Successfully removed ${single_user} from the database.`,
+        });
     }
     catch (err) {
         console.log(err);
