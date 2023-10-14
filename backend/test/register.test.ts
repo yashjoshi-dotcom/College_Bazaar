@@ -1,7 +1,7 @@
-const request = require('supertest');
-const app = require('../app');
-const User = require('../src/models/userSchema');
-const mongoose = require('mongoose');
+import request from 'supertest';
+import app from '../app';
+import User from '../src/models/userSchema';
+import mongoose from 'mongoose';
 
 // Disconnect from the database after all tests are completed
 afterAll(() => mongoose.disconnect());

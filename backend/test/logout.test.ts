@@ -1,8 +1,8 @@
-const request = require('supertest');
-const app = require('../app');
-const User = require('../src/models/userSchema');
-const jwt = require('jsonwebtoken');
-const mongoose = require('mongoose');
+import request from 'supertest';
+import app from '../app';
+import User from '../src/models/userSchema';
+import mongoose from 'mongoose';
+import jwt from 'jsonwebtoken';
 
 // Disconnect from the database after all tests are completed
 afterAll(() => mongoose.disconnect());
@@ -54,7 +54,7 @@ test('Log out successfully', async () => {
 // Test for logging out with an invalid token
 test('Log out with an invalid token', async () => {
   // Generate an invalid token
-  const invalidToken = jwt.sign({ _id: 'invalidId' }, process.env.JWT_KEY);
+  const invalidToken = jwt.sign({ _id: 'invalidId' }, process.env.JWT_KEY!);
 
   const res = await request(app)
     .get('/logout')

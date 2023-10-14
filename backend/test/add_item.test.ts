@@ -1,7 +1,9 @@
-const request = require('supertest');
-const app = require('../app');
-const User = require('../src/models/userSchema');
-const mongoose = require('mongoose');
+import request from 'supertest';
+import app from '../app';
+import User from '../src/models/userSchema';
+import mongoose from 'mongoose';
+
+jest.setTimeout(30000);
 
 // Disconnect from the database after all tests are completed
 afterAll(() => mongoose.disconnect());
@@ -86,7 +88,7 @@ test('Add a new listing with invalid data', async () => {
   const token = signInRes.headers['set-cookie'][0].split('=')[1].split(';')[0];
 
   // Try to add a new listing with invalid item_tag using the authentication token
-  res = await request(app)
+ const res = await request(app)
     .patch('/add_data')
     .set('Cookie', `jwtoken=${token}`)
     .send({
