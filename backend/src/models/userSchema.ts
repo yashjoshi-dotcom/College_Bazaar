@@ -28,11 +28,7 @@ interface IUser extends mongoose.Document {
       | 'Sports'
       | 'Stationary';
     item_description: string;
-    item_status:
-      | 'under_approval'
-      | 'approved'
-      | 'deleted'
-      | 'blacklisted';
+    item_status: 'under_approval' | 'approved' | 'deleted' | 'blacklisted';
   }[];
   generateAuthToken(): Promise<string>;
 }
@@ -127,9 +123,11 @@ userSchema.methods.generateAuthToken = async function () {
     // // Here token_ is the value derrived from above line whereas token refers to the one present in userSchema
     // this.tokens.push({ token: token_ });
 
-    const token_ = String(jwt.sign({ _id: this._id }, `${process.env.JWT_KEY}`));
-const token = { token: token_ };
-this.tokens.push(token);
+    const token_ = String(
+      jwt.sign({ _id: this._id }, `${process.env.JWT_KEY}`)
+    );
+    const token = { token: token_ };
+    this.tokens.push(token);
 
     await this.save();
 

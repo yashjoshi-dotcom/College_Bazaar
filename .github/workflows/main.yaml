@@ -1,0 +1,44 @@
+name: Backend Unit Tests and Lint check
+
+on: 
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+
+jobs:
+  tests:
+    runs-on: ubuntu-latest
+    env:
+      DB: ${{ secrets.DB }} 
+      JWT_KEY: ${{ secrets.JWT_KEY }} 
+      PORT: ${{ secrets.PORT }} 
+
+    strategy:
+      fail-fast: false
+      matrix:
+        node-version: [16.x]
+
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v1
+        with:
+          node-version: ${{ matrix.node-version }}
+
+      - name: npm install and build
+        run: |
+          cd ./backend/
+          npm ci
+
+      - name: Run api-unit tests
+        run: |
+          cd ./backend/
+          npm run github-tests
+
+      - name: Run the linter tests
+        run: |
+          cd ./backend/
+          npm run lint

@@ -1,17 +1,25 @@
-// Important Points about the linter 
-// {
-//   "Style-Guide":"Implementing most features of Airbnb guide using elsint and Prettier plugin. Credits given below ",
-//   "Guide Github Link":"https://github.com/airbnb/javascript",
-//   "Implementation Credit":"https://github.com/wesbos/eslint-config-wesbos",
-//   "Setup help":"https://www.youtube.com/watch?v=lHAeK8t94as",
-//   "Rule list" :"https://github.com/wesbos/eslint-config-wesbos/blob/master/.eslintrc.js"
-// }
+  // Important Points about the linter 
+  // {
+  //   "Style-Guide":"Implementing most features of Airbnb guide using elsint and Prettier plugin. Credits given below ",
+  //   "Guide Github Link":"https://github.com/airbnb/javascript",
+  //   "Implementation Credit":"https://github.com/wesbos/eslint-config-wesbos",
+  //   "Setup help":"https://www.youtube.com/watch?v=lHAeK8t94as",
+  //   "Rule list" :"https://github.com/wesbos/eslint-config-wesbos/blob/master/.eslintrc.js"
+  // }
 
-{
-    "extends": [ "wesbos" ],
-    "rules":
-    {
-      "camelcase": "off",
-      "import/order": "off"
+  {
+      "extends": [ "wesbos" ],
+      "parser": "@typescript-eslint/parser" ,
+      "rules":
+      {
+        "camelcase": "off",
+        "import/order": "off",
+      },
+      "settings": {
+        "import/resolver": {
+          "typescript": {
+            "project": "tsconfig.json"
+          }
+        }
       }
-}
+  }
